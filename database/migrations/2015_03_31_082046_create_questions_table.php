@@ -16,6 +16,7 @@ class CreateQuestionsTable extends Migration {
 		{
 			$table->increments('id');
             $table->text('question');
+            $table->string('slug', 32)->unique();
             $table->text('answer');
 			$table->timestamps();
 		});

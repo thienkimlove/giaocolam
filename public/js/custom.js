@@ -25,4 +25,6 @@ app.controller('RootController', function($scope){
 
 }).controller('ContactIndex', function($scope){
 
+}).controller('SettingIndex', function($scope){
+
 });

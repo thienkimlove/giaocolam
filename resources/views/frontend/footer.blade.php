@@ -1,21 +1,21 @@
 <footer class="footer">
-    <div class="fix">
+    <div class="fixW">
         <div class="box-footer">
             <div class="item item-1">
                 <div class="head">Mạng xã hội</div>
                 <div class="area-social">
                     <ul class="social">
                         <li>
-                            <a href="#" class="i-facebook thumb-img"></a>
+                            <a href="#"><span class="i-facebookf"></span></a>
                         </li>
                         <li>
-                            <a href="#" class="i-tw thumb-img"></a>
+                            <a href="#"><span class="i-tw"></span></a>
                         </li>
                         <li>
-                            <a href="#" class="i-youtube thumb-img"></a>
+                            <a href="#"><span class="i-youtube"></span></a>
                         </li>
                         <li>
-                            <a href="#" class="i-google thumb-img"></a>
+                            <a href="#"><span class="i-google"></span></a>
                         </li>
                     </ul>
                 </div>
@@ -23,13 +23,7 @@
             <div class="item item-2">
                 <div class="head">Danh mục</div>
                 <ul class="nav-footer">
-                    @foreach ($categories as $cate)
-                        @if ($cate->subCategories->count() == 0)
-                            <li>
-                                <a href="{{url('chuyen-muc', $cate->slug)}}" title="{{$cate->name}}"><span>{{$cate->name}}</span></a>
-                            </li>
-                        @endif
-                    @endforeach
+                    @include('frontend.menu')
                 </ul>
             </div>
             <div class="item item-3">
@@ -52,4 +46,8 @@
             <div class="clear"></div>
         </div>
     </div>
-</footer><!--//footer-->
+</footer>
+<!-- EndFooter -->
+
+<div class="overlay" id="overlay"></div>
+@include('frontend.mobile')

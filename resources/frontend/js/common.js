@@ -15,7 +15,7 @@
                /* if(width_device < 640){
                     padding_menu = 45;
                 }*/
-                var height_menu = $("#menu-left .inner").height() + padding_menu;
+                var height_menu = $("#menu-mobile .inner").height() + padding_menu;
                 /*if(height_menu <= height_device){
                     height_menu = height_device;
                 }*/
@@ -40,18 +40,18 @@
         if(statusSearch == 0){
             window.clearTimeout(timeSearch);
             timeSearch = window.setTimeout(function(){
-                $("#box-find").stop().animate({width: 210});
+                $("#box-search").stop().animate({width: 230});
             },0);
         }else{
             window.clearTimeout(timeSearch);
             timeSearch = window.setTimeout(function(){
-                $("#box-find").stop().animate({width: 30});
+                $("#box-search").stop().animate({width: 30});
             },delaySearch);
         }
     };
 
     var changeSearch = function(){
-        $("#box-find").hover(function(){
+        $("#box-search").hover(function(){
             checkSearch();
             statusSearch = 1;
         },function(){
@@ -86,8 +86,85 @@
         });
     };
 
-    var slideCompany = function(){
-        $('#slide-company').owlCarousel({
+    var slideIntro = function(){
+        $('#slide-intro').owlCarousel({
+            loop:true,
+            margin:20,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true,
+                    dots: false
+                },
+                640:{
+                    items:2,
+                    nav:true,
+                    dots: false
+                },
+                1000:{
+                    items:2,
+                    nav:true,
+                    loop:true,
+                    dots: false
+                }
+            }
+        });
+    };
+
+    var slideOffice = function(){
+        $('#slide-office').owlCarousel({
+            loop:true,
+            margin:20,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true,
+                    dots: false
+                },
+                640:{
+                    items:1,
+                    nav:true,
+                    dots: false
+                },
+                1000:{
+                    items:2,
+                    nav:true,
+                    loop:true,
+                    dots: false
+                }
+            }
+        });
+    };
+    var slideOffice01 = function(){
+        $('#slide-office01').owlCarousel({
+            loop:true,
+            margin:20,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true,
+                    dots: false
+                },
+                640:{
+                    items:1,
+                    nav:true,
+                    dots: false
+                },
+                1000:{
+                    items:1,
+                    nav:true,
+                    loop:true,
+                    dots: false
+                }
+            }
+        });
+    };
+
+    var slideQuestion = function(){
+        $('#slide-question').owlCarousel({
             loop:true,
             margin:20,
             responsiveClass:true,
@@ -111,130 +188,6 @@
             }
         });
     };
-    
-    //Accordion
-     $(function() {
-        $("#accordion .accordion").hide();
-        $("#accordion a").click(function() {
-          $('#accordion .accordion').slideUp(500);
-          $('#accordion .accordion').addClass('open');
-          $(this).next().slideDown(300);
-        });
-      });
-  //endAccordion
-    var slideLink = function(){
-        $('#slide-link').owlCarousel({
-            loop:true,
-            margin:20,
-            responsiveClass:true,
-            responsive:{
-                0:{
-                    items:2,
-                    nav:false,
-                    dots: false
-                },
-                640:{
-                    items:4,
-                    nav:false,
-                    dots: false
-                },
-                1000:{
-                    items:6,
-                    nav:false,
-                    loop:true,
-                    dots: false
-                }
-            }
-        });
-    };
-
-    var slideProduct = function(){
-        $('#slide-product').owlCarousel({
-            loop:true,
-            margin:20,
-            responsiveClass:true,
-            responsive:{
-                0:{
-                    items:1,
-                    nav:true,
-                    dots: false
-                },
-                640:{
-                    items:2,
-                    nav:true,
-                    dots: false
-                },
-                1000:{
-                    items:4,
-                    nav:true,
-                    loop:true,
-                    dots: false
-                }
-            }
-        });
-    };
-
-    var slidePartner = function(){
-        $('#slide-partner').owlCarousel({
-            loop:true,
-            margin:20,
-            responsiveClass:true,
-            responsive:{
-                0:{
-                    items:1,
-                    nav:false,
-                    dots: false
-                },
-                640:{
-                    items:2,
-                    nav:false,
-                    dots: false
-                },
-                1000:{
-                    items:4,
-                    nav:false,
-                    loop:false,
-                    dots: false
-                }
-            }
-        });
-    };
-
-    var slideProject = function(){
-        $('#slide-project').owlCarousel({
-            loop:true,
-            margin:30,
-            responsiveClass:true,
-            responsive:{
-                0:{
-                    items:1,
-                    nav:false
-                },
-                640:{
-                    items:2,
-                    nav:false
-                },
-                1000:{
-                    items:3,
-                    nav:false,
-                    loop:true
-                }
-            }
-        });
-    };
-
-    var equalHeight = function(selector) {
-        minheight = 0;
-        $(selector).each(function() {
-            thisheight = $(this).height();
-            if (thisheight > minheight) {
-                minheight = thisheight
-            }
-        });
-        minheight = minheight + 2;
-        $(selector).css("min-height", minheight)
-    };
-
     var tabContent = function(){
         $("a[data-type='tab']").on('click',function(e){
             e.preventDefault();
@@ -247,19 +200,43 @@
             $("#"+content).css({display:"block"});
         });
     };
-
+    var equalHeight = function(selector) {
+        minheight = 0;
+        $(selector).each(function() {
+            thisheight = $(this).height();
+            if (thisheight > minheight) {
+                minheight = thisheight
+            }
+        });
+        minheight = minheight + 2;
+        $(selector).css("min-height", minheight)
+    };
+    $("#content div").hide(); // Initially hide all content
+    $("#tabs li:first").attr("id","current"); // Activate first tab
+    $("#content div:first").fadeIn(); // Show first tab content
+    $('#tabs li a').click(function(e) {
+        e.preventDefault();
+        if ($(this).attr("id") == "current"){ //detection for current tab
+         return       
+        }
+        else{             
+        $("#content div").hide(); //Hide all content
+        $("#tabs li").attr("id",""); //Reset id's
+        $(this).parent().attr("id","current"); // Activate this
+        $( $(this).attr('href')).fadeIn(); // Show content for current tab
+        }
+    });
+    
     jQuery(document).ready(function() {
         changeSearch();
-        slideCompany();
-        slideHomepage();
-        slideProduct();
-        slideProject();
-        slideLink();
-        slidePartner();
-        tabContent();
-        equalHeight(".box-member .data .item");
+        slideIntro();
+        slideOffice();
+        slideOffice01();
+        slideQuestion();
         setMenuMobile();
         resetMenuMobile();
+        slideHomepage();
+        tabContent();
     });
 })(jQuery);
 

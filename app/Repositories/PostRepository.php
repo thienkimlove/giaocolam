@@ -1,15 +1,21 @@
 <?php namespace App\Repositories;
 
-use App\Category;
+
 use App\Post;
 use App\Tag;
-use Intervention\Image\ImageManager;
+use Intervention\Image\Facades\Image;
+
 
 class PostRepository extends BaseRepository
 {
     public function __construct(Post $post)
     {
         $this->model = $post;
+        $this->typeSelection = [
+            'sang-mat-sang-tuong-lai' => 'Sáng mắt tương lai',
+            'su-kien-nhan-hang' => 'Sự kiện nhãn hàng',
+            'chia-se' => 'Chia sẻ'
+        ];
     }
 
     /**
@@ -19,26 +25,26 @@ class PostRepository extends BaseRepository
     public function create()
     {
         $tags = Tag::all()->lists('name', 'name');
-        $categories = $this->getCategoriesList();
-        return compact('categories', 'tags');
+        $types = $this->typeSelection;
+        return compact('tags', 'types');
     }
 
     public function store($request)
     {
         $post = $this->model->create([
+            'type' => $request->input('type'),
             'title' => $request->input('title'),
             'desc' => $request->input('desc'),
             'content' => $request->input('content'),
             'image' => ($request->file('image') && $request->file('image')->isValid()) ? $this->saveImage($request) : '',
-            'category_id' => $request->input('category_id'),
-            'right' => ($request->input('right') == 'on') ? true : false,
-            'right_block' => ($request->input('right_block') == 'on') ? true : false,
-            'status' => ($request->input('status') == 'on') ? true : false,
+            'homepage_slide' => ($request->input('homepage_slide') == 'on') ? true : false,
+            'homepage_intro' => ($request->input('homepage_intro') == 'on') ? true : false,
+            'homepage_discovery' => ($request->input('homepage_discovery') == 'on') ? true : false,
             'hot' => ($request->input('hot') == 'on') ? true : false,
-            'status' => false
+            'reason' => ($request->input('reason') == 'on') ? true : false,
+            'status' => ($request->input('status') == 'on') ? true : false,
         ]);
         $this->syncTags($post, $request);
-        return $post;
     }
 
 
@@ -51,18 +57,25 @@ class PostRepository extends BaseRepository
     {
         $tags = Tag::all()->lists('name', 'name');
         $post = $this->getById($id);
-        $categories = $this->getCategoriesList();
-        return compact('post', 'categories', 'tags');
+        $types = $this->typeSelection;
+        return compact('post', 'types', 'tags');
     }
 
+    /**
+     * update post.
+     * @param $request
+     * @param $id
+     */
     public function update($request, $id)
     {
         $post = $this->getById($id);
         $update = $request->all();
 
         $update['hot'] = (!empty($update['hot']) && $update['hot'] == 'on') ? true : false;
-        $update['right'] = (!empty($update['right']) && $update['right'] == 'on') ? true : false;
-        $update['right_block'] = (!empty($update['right_block']) && $update['right_block'] == 'on') ? true : false;
+        $update['homepage_slide'] = (!empty($update['homepage_slide']) && $update['homepage_slide'] == 'on') ? true : false;
+        $update['homepage_intro'] = (!empty($update['homepage_intro']) && $update['homepage_intro'] == 'on') ? true : false;
+        $update['homepage_discovery'] = (!empty($update['homepage_discovery']) && $update['homepage_discovery'] == 'on') ? true : false;
+        $update['reason'] = (!empty($update['reason']) && $update['reason'] == 'on') ? true : false;
         $update['status'] = (!empty($update['status']) && $update['status'] == 'on') ? true : false;
 
         if ($request->file('image') && $request->file('image')->isValid()) {
@@ -70,8 +83,19 @@ class PostRepository extends BaseRepository
         }
         $post->update($update);
         $this->syncTags($post, $request);
+    }
 
-        return $post;
+    /**
+     * delete post.
+     * @param $id
+     */
+    public function delete($id)
+    {
+        $post = $this->getById($id);
+        if (file_exists(public_path(). '/files/images/' . $post->image)) {
+            @unlink(public_path(). '/files/images/' . $post->image);
+        }
+        $post->delete();
     }
 
     protected function syncTags(Post $post, $request)
@@ -84,7 +108,7 @@ class PostRepository extends BaseRepository
     }
 
     /**
-     * save image and create resize thumb.
+     * save image.
      * @param $request
      * @param null $old
      * @return string
@@ -92,44 +116,12 @@ class PostRepository extends BaseRepository
     protected function saveImage($request, $old = null)
     {
         $filename = md5(time()) . '.' . $request->file('image')->getClientOriginalExtension();
-        $manager = new ImageManager(array('driver' => 'imagick'));
-        $img = $manager->make($request->file('image')->getRealPath());
-        // resize the image to a width of 300 and constrain aspect ratio (auto height)
-        $img->resize(500, 330)->save(public_path() . '/files/images/600_' . $filename);
-        $img->resize(414, 275)->save(public_path() . '/files/images/500_' . $filename);
-        $img->resize(314, 209)->save(public_path() . '/files/images/400_' . $filename);
-        $img->resize(282, 167)->save(public_path() . '/files/images/300_' . $filename);
-        $img->resize(235, 156)->save(public_path() . '/files/images/200_' . $filename);
-        $img->resize(115, 80)->save(public_path() . '/files/images/100_' . $filename);
+        Image::make($request->file('image')->getRealPath())->save(public_path() . '/files/images/' . $filename);
 
-
-          /*  ->resize(500, 330)->save(public_path() . '/files/images/600_' . $filename)
-            ->resize(414, 275)->save(public_path() . '/files/images/500_' . $filename)
-            ->resize(314, 209)->save(public_path() . '/files/images/400_' . $filename)
-            ->resize(282, 167)->save(public_path() . '/files/images/300_' . $filename)
-            ->resize(235, 156)->save(public_path() . '/files/images/200_' . $filename)
-            ->resize(115, 80)->save(public_path() . '/files/images/100_' . $filename);*/
         if ($old) {
-            @unlink(public_path() . '/files/images/100_' . $old);
-            @unlink(public_path() . '/files/images/200_' . $old);
-            @unlink(public_path() . '/files/images/300_' . $old);
-            @unlink(public_path() . '/files/images/400_' . $old);
-            @unlink(public_path() . '/files/images/500_' . $old);
-            @unlink(public_path() . '/files/images/600_' . $old);
+            @unlink(public_path() . '/files/images/' . $old);
         }
         return $filename;
     }
 
-    /**
-     * @return array
-     */
-    protected function getCategoriesList()
-    {
-        $categories = Category::all()
-            ->filter(function ($item) {
-                return $item->subCategories()->count() == 0;
-            })
-            ->lists('name', 'id');
-        return $categories;
-    }
 }

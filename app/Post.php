@@ -4,8 +4,7 @@ use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
-use Webpatser\Uuid\Uuid;
+
 
 class Post extends Model implements SluggableInterface {
 
@@ -18,45 +17,20 @@ class Post extends Model implements SluggableInterface {
 
 
     protected $fillable = [
+        'type',
         'title',
+        'slug',
         'desc',
         'content',
         'image',
-        'category_id',
-        'status',
+        'homepage_slide',
+        'homepage_intro',
+        'homepage_discovery',
         'hot',
-        'right',
+        'reason',
         'views',
-        'likes',
-        'slug',
-        'right_block'
+        'status'
     ];
-
-    /**
-     * When title change then slug will change.
-     * @param $title
-     * @internal param $name
-     * @internal param $title
-     */
-   /* public function setTitleAttribute($title)
-    {
-        $this->attributes['title'] = $title;
-        $slug = Str::limit( Str::slug($title), 200, '');
-        //check if slug exit.
-        if ($this->where('slug', $slug)->first()) {
-            $slug = Str::limit( Str::slug($title. ' ' . Uuid::generate()), 200, '');
-        }
-        $this->attributes['slug'] = $slug;
-    }*/
-
-    /**
-     * post belong to one category.
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function category()
-    {
-       return $this->belongsTo('App\Category');
-    }
 
     /**
      * like tags.
@@ -69,18 +43,6 @@ class Post extends Model implements SluggableInterface {
         if (strlen($tag) > 2) {
             $query->where('title', 'LIKE', '%'.$tag.'%');
         }
-    }
-
-    /**
-     * like tags.
-     * @param $query
-     * @param bool $case
-     * @return mixed
-     * @internal param $tag
-     */
-    public function scopeHot($query, $case = false)
-    {
-       return ($case) ? $query->where('hot', true) : $query->where('right', true);
     }
 
     /**

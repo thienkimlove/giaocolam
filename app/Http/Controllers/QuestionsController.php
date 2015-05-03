@@ -41,8 +41,8 @@ class QuestionsController extends Controller {
      */
 	public function store(QuestionRequest $request)
 	{
-		Question::create($this->questionRepository($request));
-        flash('Create question success!', 'success');
+		Question::create($request->all());
+        flash('Them moi hoi dap thanh cong!', 'success');
         return redirect('admin/questions');
 	}
 
@@ -79,8 +79,8 @@ class QuestionsController extends Controller {
 	public function update($id, QuestionRequest $request)
 	{
         $question =  Question::findOrFail($id);
-        $question->update($this->questionRepository($request, $question->image));
-        flash('Create question success!', 'success');
+        $question->update($request->all());
+        flash('Sua hoi đáp thành công!', 'success');
         return redirect('admin/questions');
 	}
 
@@ -94,41 +94,7 @@ class QuestionsController extends Controller {
 	{
         $question = Question::findOrFail($id);
         $question->delete();
-        flash('Success deleted question!');
+        flash('Xoa hoi dap thanh cong!');
         return redirect('admin/questions');
 	}
-
-    /**
-     * save image and create resize thumb.
-     * @param $request
-     * @param null $old_image
-     * @return string
-     * @internal param null $old
-     */
-    protected function questionRepository($request, $old_image = null)
-    {
-        $update = $request->all();
-        if ($request->file('image') && $request->file('image')->isValid()) {
-            $filename = md5(time()) . '.' . $request->file('image')->getClientOriginalExtension();
-            $manager = new ImageManager(array('driver' => 'imagick'));
-            $img = $manager->make($request->file('image')->getRealPath());
-            // resize the image to a width of 300 and constrain aspect ratio (auto height)
-            $img->resize(500, 330)->save(public_path() . '/files/images/600_' . $filename);
-            $img->resize(414, 275)->save(public_path() . '/files/images/500_' . $filename);
-            $img->resize(314, 209)->save(public_path() . '/files/images/400_' . $filename);
-            $img->resize(282, 167)->save(public_path() . '/files/images/300_' . $filename);
-            $img->resize(235, 156)->save(public_path() . '/files/images/200_' . $filename);
-            $img->resize(115, 80)->save(public_path() . '/files/images/100_' . $filename);
-            if ($old_image) {
-                @unlink(public_path() . '/files/images/100_' . $old_image);
-                @unlink(public_path() . '/files/images/200_' . $old_image);
-                @unlink(public_path() . '/files/images/300_' . $old_image);
-                @unlink(public_path() . '/files/images/400_' . $old_image);
-                @unlink(public_path() . '/files/images/500_' . $old_image);
-                @unlink(public_path() . '/files/images/600_' . $old_image);
-            }
-            $update['image'] = $filename;
-        }
-       return $update;
-    }
 }

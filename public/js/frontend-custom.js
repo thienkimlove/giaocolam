@@ -3,8 +3,8 @@ var app = angular.module('Application', [], function ($interpolateProvider) {
     $interpolateProvider.endSymbol('%>');
 });
 
-app.controller('MainController', function($scope, $http){
-}).controller('HeaderController', function($scope, $window){
+app.controller('MainController', function($scope){
+
     $scope.keyword = '';
     $scope.search = function(){
         if ($scope.keyword.length > 2) {
@@ -15,7 +15,7 @@ app.controller('MainController', function($scope, $http){
             $window.location.href = Config.url + '/search/tag-' + slug ;
         }
     }
-}).controller('FaqController', function($scope){
+
     $scope.contact = {};
     $scope.formReset = function(event){
         event.preventDefault();
@@ -25,4 +25,6 @@ app.controller('MainController', function($scope, $http){
         event.preventDefault();
         $('form[name=contactForm]').submit();
     }
+
+
 });

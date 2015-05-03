@@ -44,12 +44,10 @@ elixir(function(mix) {
             'js/bower_components/angularjs/angular.min.js',
             'frontend/js/jquery-1.10.2.min.js',
             'frontend/js/owl.carousel.min.js',
-            'frontend/js/floating-navigation.js',
             'frontend/js/common.js'
         ], 'public/js/frontend.js', 'resources')
         .styles([
             'style.css'
-        ], 'public/css/frontend.css', 'resources/frontend/css')
-        .copy('resources/frontend/fonts/', 'public/fonts');
+        ], 'public/css/frontend.css', 'resources/frontend/css');
 
 });

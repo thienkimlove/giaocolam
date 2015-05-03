@@ -4,9 +4,9 @@
     @include('admin.question.heading')
     <div class="row">
         <div class="col-lg-6">
-            <h2>Add New Question</h2>
-            {!! Form::model($question = new App\Question, ['route' => ['admin.questions.store'], 'files' => true]) !!}
-            @include('admin.question.form', ['submitText' => 'Add Question'])
+            <h2>Thêm Hỏi Đáp</h2>
+            {!! Form::model($question = new App\Question, ['route' => ['admin.questions.store']]) !!}
+            @include('admin.question.form', ['submitText' => 'Thêm hỏi đáp'])
             {!! Form::close() !!}
             @include('errors.list')
 

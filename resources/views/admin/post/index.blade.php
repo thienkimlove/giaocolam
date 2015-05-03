@@ -21,14 +21,17 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Title</th>
-                                <th>Desc</th>
-                                <th>Image</th>
-                                <th>Category</th>
+                                <th>Tiêu </th>
+                                <th>Mô tả</th>
+                                <th>Ảnh đại diện</th>
+                                <th>Loại</th>
+                                <th>Trang chủ - Slide</th>
+                                <th>Trang chủ - Intro</th>
+                                <th>Trang chủ - Discovery</th>
                                 <th>Nổi bật</th>
-                                <th>Cột phải</th>
-                                <th>Published?</th>
-                                <th>Action</th>
+                                <th>Lý do</th>
+                                <th>Xuất bản</th>
+                                <th>Hành động</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -37,14 +40,20 @@
                                     <td>{{$post->id}}</td>
                                     <td>{{$post->title}}</td>
                                     <td>{{$post->desc}}</td>
-                                    <td><img src="{{url('/files/images/100_' . $post->image)}}" /></td>
-                                    <td>{{$post->category->name}}</td>
+                                    <td><img src="{{url('render/?p=' . $post->image . '&w=100&h=100')}}" /></td>
+                                    <td>{{$post->type}}</td>
+                                    <td>{{($post->homepage_slide) ? 'Yes' : 'No'}}</td>
+                                    <td>{{($post->homepage_intro) ? 'Yes' : 'No'}}</td>
+                                    <td>{{($post->homepage_discovery) ? 'Yes' : 'No'}}</td>
                                     <td>{{($post->hot) ? 'Yes' : 'No'}}</td>
-                                    <td>{{($post->right) ? 'Yes' : 'No'}}</td>
+                                    <td>{{($post->reason) ? 'Yes' : 'No'}}</td>
                                     <td>{{($post->status) ? 'Yes' : 'No'}}</td>
                                     <td>
-                                        <button class="btn btn-primary btn-sm" data-ng-click="goUrl('/posts/{{$post->id}}/edit')" type="button">Edit</button>&nbsp;
-                                        <button class="btn btn-primary btn-sm" type="button">Delete</button>
+                                        <button class="btn btn-primary btn-sm" data-ng-click="goUrl('/posts/{{$post->id}}/edit')" type="button">Sua</button>&nbsp;
+                                        <br>
+                                        {!! Form::open(['method' => 'DELETE', 'route' => ['admin.posts.destroy', $post->id]]) !!}
+                                        <button type="submit" class="btn btn-danger btn-mini">Xóa</button>
+                                        {!! Form::close() !!}
                                     </td>
                                 </tr>
                             @endforeach
@@ -57,7 +66,8 @@
                         <div class="col-sm-6">{!!$posts->render()!!}</div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6"><button class="btn btn-primary" type="button" data-ng-click="goUrl('/posts/create')">Add</button></div>
+                        <div class="col-sm-6">
+                            <button class="btn btn-primary" type="button" data-ng-click="goUrl('/posts/create')">Thêm </button></div>
                     </div>
 
 

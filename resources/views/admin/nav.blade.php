@@ -34,74 +34,55 @@
                     <a href="{{url('admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
 
+
+
                 <li>
-                    <a><i class="fa fa-files-o fa-fw"></i>Categories<span class="fa arrow"></span></a>
+                    <a><i class="fa fa-files-o fa-fw"></i>Bài viết<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
+
                         <li>
-                            <a href="{{url('admin/categories')}}">List Category</a>
+                            <a href="{{url('admin/posts')}}">Danh sách</a>
                         </li>
                         <li>
-                            <a href="{{url('admin/categories/create')}}">Add Category</a>
+                            <a href="{{url('admin/posts/create')}}">Thêm bài</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a><i class="fa fa-files-o fa-fw"></i>Hỏi Đáp<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{url('admin/questions')}}">Danh sách</a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/questions/create')}}">Thêm hỏi đáp</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a><i class="fa fa-files-o fa-fw"></i>Liên hệ<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{url('admin/contacts')}}">Danh sách</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a><i class="fa fa-files-o fa-fw"></i>Tùy chọn<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{url('admin/settings')}}">Danh sách</a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/settings/create')}}">Thêm</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
 
-                <li>
-                    <a><i class="fa fa-files-o fa-fw"></i>Posts<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-
-                        <li>
-                            <a href="{{url('admin/posts')}}">List Posts</a>
-                        </li>
-                        <li>
-                            <a href="{{url('admin/posts/create')}}">Add Post</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
-                <li>
-                    <a><i class="fa fa-files-o fa-fw"></i>Questions<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="{{url('admin/questions')}}">List Questions</a>
-                        </li>
-                        <li>
-                            <a href="{{url('admin/questions/create')}}">Add Questions</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
-                <li>
-                    <a><i class="fa fa-files-o fa-fw"></i>Contacts<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="{{url('admin/contacts')}}">List Contacts</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
-                <li>
-                    <a><i class="fa fa-files-o fa-fw"></i>Videos<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="{{url('admin/videos')}}">List Videos</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
-                <li>
-                    <a><i class="fa fa-files-o fa-fw"></i>Banners<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="{{url('admin/banners')}}">List Banners</a>
-                        </li>
-                        <li>
-                            <a href="{{url('admin/banners/create')}}">Add Banner</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->

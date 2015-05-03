@@ -5,7 +5,7 @@
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Display questions list.
+                   Danh sách hỏi đáp
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -14,24 +14,26 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Question</th>
-                                <th>Answer</th>
-                                <th>Image</th>
-                                <th>Action</th>
+                                <th>Nguoi hoi</th>
+                                <th>Câu hỏi</th>
+                                <th>Nguoi tra loi</th>
+                                <th>Câu trả lời</th>
+                                <th>Hành động</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($questions as $question)
                                 <tr>
                                     <td>{{$question->id}}</td>
+                                    <td>{{$question->ask_person}}</td>
                                     <td>{{str_limit($question->question, 40)}}</td>
+                                    <td>{{$question->answer_person}}</td>
                                     <td>{{ str_limit($question->answer, 40) }}</td>
-                                    <td><img src="{{url('/files/images/100_' . $question->image)}}" /></td>
                                     <td>
-                                        <button class="btn btn-primary btn-sm" data-ng-click="goUrl('/questions/{{$question->id}}/edit')" type="button">Edit</button>
+                                        <button class="btn btn-primary btn-sm" data-ng-click="goUrl('/questions/{{$question->id}}/edit')" type="button">Sửa</button>
                                         <br>
                                         {!! Form::open(['method' => 'DELETE', 'route' => ['admin.questions.destroy', $question->id]]) !!}
-                                        <button type="submit" class="btn btn-danger btn-mini">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-mini"> Xoa </button>
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>
@@ -44,7 +46,7 @@
                         <div class="col-sm-6">{!! $questions->render() !!}</div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6"><button class="btn btn-primary" type="button" data-ng-click="goUrl('/questions/create')">Add</button></div>
+                        <div class="col-sm-6"><button class="btn btn-primary" type="button" data-ng-click="goUrl('/questions/create')"> Thêm </button></div>
                     </div>
                 </div>
                 <!-- /.panel-body -->

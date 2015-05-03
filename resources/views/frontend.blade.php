@@ -1,31 +1,25 @@
 <!DOCTYPE html>
-<html lang="vi" data-ng-app="Application">
+<html data-ng-app="Application">
 <head>
-    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'/>
-    <link type="image/x-icon" href="favicon.ico" rel="shortcut icon"/>
-    <link href="https://plus.google.com/107515763736347546999" rel="publisher"/>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:700italic,800italic,700,800&amp;subset=latin,vietnamese" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="description" content="{{!empty($meta_desc)? $meta_desc : 'LycoEye'}}" />
+    <meta name="keyword" content="{{!empty($meta_keywords)? $meta_keywords : 'LycoEye, bài viết, hướng dẫn'}}" />
+    <title>{{!empty($meta_title)? $meta_title : 'Lycoeye.vn'}}</title>
     <link rel="stylesheet" href="{{url('css/frontend.css')}}" type="text/css"/>
-    <meta content='CSVN' name='generator'/>
-    <title>{{!empty($meta_title)? $meta_title : 'Viemgan.com.vn'}}</title>
     <!--[if lte IE 8]>
     <script src="{{url('js/html5.js')}}" type="text/javascript"></script>
     <![endif]-->
-    <!--[if lte IE 7]>
-    <link rel="stylesheet" href="{{url('css/ie.css')}}" type="text/css"/>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-    <meta name="description" content="{{!empty($meta_desc)? $meta_desc : 'Website về sản phẩm và bài viết liên quan tới bệnh gan'}}" />
-    <meta name="keyword" content="{{!empty($meta_keywords)? $meta_keywords : 'viêm gan, virus, bài viết, hướng dẫn'}}" />
 </head>
-<body class="home" data-ng-controller="MainController">
+<body data-ng-controler="MainController">
 <div id="fb-root"></div>
 <script>
     window.fbAsyncInit = function() {
         FB.init({
-            appId      : '869970546392508',
+            appId      : '731488213627616',
             xfbml      : true,
             version    : 'v2.3'
         });
@@ -35,29 +29,31 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=697301236951060&version=v2.3";
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=731488213627616&version=v2.3";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-<div class="wrapper" id="wrapper">
+<div class="wrapper">
+
     @include('frontend.header')
+
     @include('frontend.nav')
-    <section class="section fix">
+
+    <section class="section fixW">
        @yield('content')
-    </section><!--//section-->
+    </section>
+    <!-- Footer -->
     @include('frontend.footer')
-    <div class="overlay" id="overlay"></div>
-    @include('frontend.left_menu')
+
+    <script>
+        var Config = {};
+        Config.url = '{{ url('/') }}';
+
+    </script>
+    <script type="text/javascript" src="{{url('/js/frontend.js')}}"></script>
+    <script type="text/javascript" src="{{url('/js/frontend-custom.js')}}"></script>
+    <script type='text/javascript'>window._sbzq||function(e){e._sbzq=[];var t=e._sbzq;t.push(["_setAccount",13099]);var n=e.location.protocol=="https:"?"https:":"http:";var r=document.createElement("script");r.type="text/javascript";r.async=true;r.src=n+"//static.subiz.com/public/js/loader.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)}(window);</script>
+    @yield('footer')
 </div>
-
-<script>
-    var Config = {};
-    Config.url = '{{ url('/') }}';
-
-</script>
-<script type="text/javascript" src="{{url('/js/frontend.js')}}"></script>
-<script type="text/javascript" src="{{url('/js/frontend-custom.js')}}"></script>
-<script type='text/javascript'>window._sbzq||function(e){e._sbzq=[];var t=e._sbzq;t.push(["_setAccount",13099]);var n=e.location.protocol=="https:"?"https:":"http:";var r=document.createElement("script");r.type="text/javascript";r.async=true;r.src=n+"//static.subiz.com/public/js/loader.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)}(window);</script>
-@yield('footer')
 </body>
 </html>

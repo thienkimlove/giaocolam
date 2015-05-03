@@ -1,34 +1,55 @@
 <div class="col-right">
-    @if (!empty($category) && $category->template == 1)
-        @include('frontend.most_read_special')
-    @else
-        @include('frontend.most_read_normal')
-    @endif
-    @if (empty($page) || $page != 'index')
-        @include('frontend.most_rates')
-    @endif
+    <div class="news">
+        <h3 class="title">
+            <span class="i-news"></span>
+            Tin nổi bật
+        </h3>
+        @foreach ($hotPosts as $post)
+            <article class="item">
+                <a href="{{url($post->slug. '.html')}}" class="thumb">
+                    <img src="{{url('render/?p=' . $post->image . '&w=120&h=120')}}" />
+                </a>
+                <h3>{{str_limit($post->title, 40)}}</h3>
+                <footer>
+                    <span class="date fl">{{$post->updated_at}}</span>
+                    <a href="{{url($post->slug. '.html')}}" class="fr">Chi tiết</a>
+                </footer>
+            </article>
 
-    @include('frontend.banner', ['bannerPosition' => 3])
+        @endforeach
 
-    @if ($video)
-        <div class="right-in">
-            <h3 class="title">
-              <span class="gray">
-                Video
-              </span>
-            </h3>
-
-            <div class="box-video">
-                <div class="videoBoxIn">
-                    <div class="videoBoxInObject">
-                        {!! $video->code !!}
-                    </div>
+    </div>
+    <div class="news">
+        <h3 class="title">
+            <span class="i-eye"></span>
+            6 Lý do chọn Lycoeye
+        </h3>
+        @foreach ($reasonPosts as $post)
+            <article class="item">
+                <a href="{{url($post->slug. '.html')}}" class="thumb">
+                    <img src="{{url('render/?p=' . $post->image . '&w=120&h=120')}}" />
+                </a>
+                <h3>{{str_limit($post->title, 40)}}</h3>
+                <footer>
+                    <span class="date fl">{{$post->updated_at}}</span>
+                    <a href="{{url($post->slug. '.html')}}" class="fr">Chi tiết</a>
+                </footer>
+            </article>
+        @endforeach
+    </div>
+    @if (!empty($settings['video']))
+    <div class="news">
+        <h3 class="title">
+            <span class="i-video"></span>
+            Video
+        </h3>
+        <div class="box-video">
+            <div class="videoBoxIn">
+                <div class="videoBoxInObject">
+                   {!! $settings['video'] !!}
                 </div>
             </div>
         </div>
+    </div>
     @endif
-    @if (!empty($page) && $page == 'index')
-        @include('frontend.most_question')
-    @endif
-
-</div><!--//col-right-->
+</div>

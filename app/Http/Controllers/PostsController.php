@@ -1,13 +1,12 @@
 <?php namespace App\Http\Controllers;
 
-use App\Category;
+
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+
 
 use App\Http\Requests\PostRequest;
 use App\Post;
 use App\Repositories\PostRepository;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller {
@@ -38,9 +37,9 @@ class PostsController extends Controller {
 
     public function store(PostRequest $request)
     {
-        $post = $this->postRepository->store($request);
+        $this->postRepository->store($request);
         flash('Create post success!', 'success');
-        return redirect('admin/categories/' . $post->category_id);
+        return redirect('admin/posts');
     }
 
     /**
@@ -56,9 +55,22 @@ class PostsController extends Controller {
 
     public function update($id, PostRequest $request)
     {
-       $post = $this->postRepository->update($request, $id);
+        $this->postRepository->update($request, $id);
         flash('Update post success!', 'success');
-        return redirect('admin/categories/' . $post->category_id);
+        return redirect('admin/posts');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        $this->postRepository->delete($id);
+        flash('Success deleted post!');
+        return redirect('admin/posts');
     }
 
 
