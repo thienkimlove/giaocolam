@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Model::unguard();
-		$this->call('PostTableSeeder');
-		//$this->call('ClearSeeder');
+		//$this->call('PostTableSeeder');
+		$this->call('ClearSeeder');
 	}
 
 }
@@ -28,12 +28,53 @@ class DatabaseSeeder extends Seeder {
 class ClearSeeder extends Seeder {
     public function run()
     {
+        $lipsum = new LoremIpsumGenerator;
+
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('post_tag')->truncate();
         DB::table('posts')->truncate();
         DB::table('tags')->truncate();
         DB::table('questions')->truncate();
+        DB::table('settings')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+        Setting::create([
+            'name' => 'meta_title',
+            'value' => 'LycoEye - Sang mat sang tuong lai',
+        ]);
+
+        Setting::create([
+            'name' => 'meta_desc',
+            'value' => 'LycoEye - Sang mat sang tuong lai',
+        ]);
+
+        Setting::create([
+            'name' => 'meta_keywords',
+            'value' => 'LycoEye, Sang mat, sang tuong lai',
+        ]);
+
+        Setting::create([
+            'name' => 'lyco_page_tab1',
+            'value' => '<img src="http://www.lycoeye.vn/images/lycoeye.jpg" alt="Lycoeye">',
+        ]);
+
+        Setting::create([
+            'name' => 'lyco_page_tab2',
+            'value' => $lipsum->getContent(500),
+        ]);
+
+        Setting::create([
+            'name' => 'lyco_page_tab3',
+            'value' => $lipsum->getContent(500),
+        ]);
+
+
+        Setting::create([
+            'name' => 'video',
+            'value' => '<iframe width="350" height="315" src="https://www.youtube.com/embed/gvCaHL0V-6A" frameborder="0" allowfullscreen></iframe>'
+        ]);
+
+
     }
 }
 

@@ -25,15 +25,11 @@
                 <div id="tab2">
                     @if(!empty($settings['lyco_page_tab2']))
                         {!! $settings['lyco_page_tab2'] !!}
-                    @else
-                        <img src="{{url('images/lycoeye.jpg')}}" alt="Lycoeye">
                     @endif
                 </div>
                 <div id="tab3">
                     @if(!empty($settings['lyco_page_tab3']))
                         {!! $settings['lyco_page_tab3'] !!}
-                    @else
-                        <img src="{{url('images/lycoeye.jpg')}}" alt="Lycoeye">
                     @endif
                 </div>
             </div>

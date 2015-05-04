@@ -5,13 +5,26 @@
 <!-- Banner -->
 <div class="box-slider">
     <div class="owl-carousel" id="slide-homepage">
-        @foreach ($slidePosts as $post)
         <div class="item">
-            <a class="thumb" href="{{url($post->slug . '.html')}}" title="{{$post->title}}">
-                <img src="{{url('render/?p=' . $post->image . '&w=&h=')}}" />
+            <a class="thumb" href="{{url('lycoeye')}}" title="LycoEye">
+                <img src="{{url('images/eyes1.jpg')}}"/>
             </a>
         </div>
-        @endforeach
+        <div class="item">
+            <a class="thumb" href="{{url('lycoeye')}}" title="LycoEye">
+                <img src="{{url('images/eyes2.jpg')}}"/>
+            </a>
+        </div>
+        <div class="item">
+            <a class="thumb" href="{{url('lycoeye')}}" title="LycoEye">
+                <img src="{{url('images/eyes1.jpg')}}"/>
+            </a>
+        </div>
+        <div class="item">
+            <a class="thumb" href="{{url('lycoeye')}}" title="LycoEye">
+                <img src="{{url('images/eyes2.jpg')}}"/>
+            </a>
+        </div>
     </div>
 </div>
 <!-- EndBanner -->

@@ -24,7 +24,7 @@
                                 <tr>
                                     <td>{{$setting->id}}</td>
                                     <td>{{$setting->name}}</td>
-                                    <td>{{$setting->value}}</td>
+                                    <td>{!! $setting->value !!}</td>
                                     <td>
                                         <button class="btn btn-primary btn-sm" data-ng-click="goUrl('/settings/{{$setting->id}}/edit')" type="button">Sửa</button>
                                         <br>

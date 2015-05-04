@@ -70,7 +70,6 @@ Route::get('/', function () {
     $page = 'index';
     $settings = Setting::lists('value', 'name');
 
-    $slidePosts = Post::where('status', true)->where('homepage_slide', true)->latest()->limit(4)->get();
     $introPosts = Post::where('status', true)->where('homepage_intro', true)->latest()->limit(4)->get();
     $discoveryPosts = Post::where('status', true)->where('homepage_discovery', true)->latest()->limit(4)->get();
 
@@ -83,7 +82,6 @@ Route::get('/', function () {
 
     return view('frontend.index', compact(
         'page',
-        'slidePosts',
         'introPosts',
         'discoveryPosts',
         'latestEvents',

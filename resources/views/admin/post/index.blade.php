@@ -25,7 +25,6 @@
                                 <th>Mô tả</th>
                                 <th>Ảnh đại diện</th>
                                 <th>Loại</th>
-                                <th>Trang chủ - Slide</th>
                                 <th>Trang chủ - Intro</th>
                                 <th>Trang chủ - Discovery</th>
                                 <th>Nổi bật</th>
@@ -42,7 +41,6 @@
                                     <td>{{$post->desc}}</td>
                                     <td><img src="{{url('render/?p=' . $post->image . '&w=100&h=100')}}" /></td>
                                     <td>{{$post->type}}</td>
-                                    <td>{{($post->homepage_slide) ? 'Yes' : 'No'}}</td>
                                     <td>{{($post->homepage_intro) ? 'Yes' : 'No'}}</td>
                                     <td>{{($post->homepage_discovery) ? 'Yes' : 'No'}}</td>
                                     <td>{{($post->hot) ? 'Yes' : 'No'}}</td>

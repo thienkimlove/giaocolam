@@ -20,12 +20,6 @@
 
 
 
-
-<div class="form-group">
-    {!! Form::label('homepage_slide', 'Cho bài viết hiển thị ở trang chủ muc "Slide"') !!}
-    {!! Form::checkbox('homepage_slide', null, null) !!}
-</div>
-
 <div class="form-group">
     {!! Form::label('homepage_intro', 'Cho bài viết hiển thị ở trang chủ muc "Intro"') !!}
     {!! Form::checkbox('homepage_intro', null, null) !!}
