@@ -12,8 +12,7 @@
                 @foreach ($posts->slice(0, 3) as $post)
                 <article class="item">
                     <a href="{{url($post->slug. '.html')}}" class="thumb">
-                        <img src="{{url('render/?p=' . $post->image . '&w=509&h=338')}}" />
-
+                        <img src="{{url('image-cached/509x338/' . $post->image)}}" />
                     </a>
                     <h3>{{str_limit($post->title, 40)}}</h3>
                     <p>{{str_limit($post->desc, 70)}}</p>
@@ -25,8 +24,7 @@
                 @foreach ($posts->slice(3, 3) as $post)
                     <article class="item">
                         <a href="{{url($post->slug. '.html')}}" class="thumb">
-                            <img src="{{url('render/?p=' . $post->image . '&w=509&h=338')}}" />
-
+                            <img src="{{url('image-cached/509x338/' . $post->image)}}" />
                         </a>
                         <h3>{{str_limit($post->title, 40)}}</h3>
                         <p>{{str_limit($post->desc, 70)}}</p>
@@ -46,8 +44,7 @@
             @foreach ($related as $post)
                 <article class="item">
                     <a href="{{url($post->slug. '.html')}}" class="thumb">
-                        <img src="{{url('render/?p=' . $post->image . '&w=509&h=338')}}" />
-
+                        <img src="{{url('image-cached/509x338/' . $post->image)}}" />
                     </a>
                     <h3>{{str_limit($post->title, 40)}}</h3>
                     <p>{{str_limit($post->desc, 70)}}</p>

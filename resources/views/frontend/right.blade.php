@@ -7,7 +7,7 @@
         @foreach ($hotPosts as $post)
             <article class="item">
                 <a href="{{url($post->slug. '.html')}}" class="thumb">
-                    <img src="{{url('render/?p=' . $post->image . '&w=120&h=120')}}" />
+                    <img src="{{url('image-cached/120x120/' . $post->image)}}" />
                 </a>
                 <h3>{{str_limit($post->title, 40)}}</h3>
                 <footer>
@@ -27,7 +27,7 @@
         @foreach ($reasonPosts as $post)
             <article class="item">
                 <a href="{{url($post->slug. '.html')}}" class="thumb">
-                    <img src="{{url('render/?p=' . $post->image . '&w=120&h=120')}}" />
+                    <img src="{{url('image-cached/120x120/' . $post->image)}}" />
                 </a>
                 <h3>{{str_limit($post->title, 40)}}</h3>
                 <footer>

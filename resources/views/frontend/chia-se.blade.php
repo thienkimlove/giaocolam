@@ -8,7 +8,7 @@
                 <article class="item {{($i ==  4) ? 'last' : ''}}">
                     <h3 class="title">{{$post->title}}</h3>
                     <a href="{{url($post->slug. '.html')}}" class="thumb">
-                        <img src="{{url('render/?p=' . $post->image . '&w=200&h=150')}}" />
+                        <img src="{{url('image-cached/200x150/' . $post->image)}}" />
                     </a>
                     <p>{{str_limit($post->desc, 100)}}</p>
                     <a href="{{url($post->slug. '.html')}}">Chi tiết</a>

@@ -14,7 +14,6 @@
 use App\Post;
 use App\Question;
 use App\Setting;
-use Intervention\Image\Facades\Image;
 
 
 Route::get('admin', 'AdminController@index');
@@ -38,18 +37,6 @@ Route::get('search/{tag}', function ($tag) {
             'meta_keywords' => $keyword,
         ]);
     }
-});
-//display images.
-
-Route::get('render', function () {
-
-    $image = Image::make(public_path() . '/files/images/' . Request::input('p'));
-
-    if (Request::input('w') && Request::input('h')) {
-        $image->fit(Request::input('w'), Request::input('h'));
-    }
-
-    return $image->response();
 });
 
 Route::get('chi-tiet/{slug}', 'MainController@question');

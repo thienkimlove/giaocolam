@@ -29,8 +29,7 @@
             <div class="item item-3">
                 <div class="head">LIÊN HỆ</div>
                 <ul class="nav-footer">
-                    <li>Địa chỉ: Số aa</li>
-                    <li> Điện thoại: </li>
+                    <li> Điện thoại: 0912571190</li>
                     <li>
                         Email: <a href="mailto:info@gmail.com" title="info@gmail.com">info@gmail.com</a>
                     </li>

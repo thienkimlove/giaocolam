@@ -6,7 +6,7 @@
         @foreach ($events as $post)
             <article class="item">
                 <a href="{{url($post->slug. '.html')}}" title="{{$post->title}}">
-                    <img src="{{url('render/?p=' . $post->image . '&w=400&h=245')}}" />
+                    <img src="{{url('image-cached/400x245/' . $post->image)}}" />
                 </a>
                 <h3>{{str_limit($post->title, 40)}}</h3>
                 <p>{{str_limit($post->desc, 70)}}</p>

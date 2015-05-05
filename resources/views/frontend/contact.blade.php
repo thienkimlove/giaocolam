@@ -22,7 +22,7 @@
             <a href="#">Kết nối</a>
         </h3>
         <div class="area-fb">
-            <img src="{{url('images/tempfb.jpg')}}" alt="temp">
+            <div class="fb-page" data-href="https://www.facebook.com/lycoeye" data-width="450" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/lycoeye"><a href="https://www.facebook.com/lycoeye">Lycoeye - Sáng mắt, sáng tương lai</a></blockquote></div></div>
         </div>
     </div>
 </div>

@@ -32,7 +32,7 @@
                         <span>{{str_limit($question->ask_person, 40)}}</span>
                     </h3>
                     <p>{{str_limit($question->answer, 200)}}</p>
-                    <a href="{{url('chi-tiet/', $question->slug)}}">Xem trả lời</a>
+                    <a href="{{url('chi-tiet', $question->slug)}}">Xem trả lời</a>
                 </div>
                 @endforeach
 

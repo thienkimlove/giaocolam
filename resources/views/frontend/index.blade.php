@@ -7,22 +7,17 @@
     <div class="owl-carousel" id="slide-homepage">
         <div class="item">
             <a class="thumb" href="{{url('lycoeye')}}" title="LycoEye">
-                <img src="{{url('images/eyes1.jpg')}}"/>
+                <img src="{{url('images/eyes1.png')}}"/>
             </a>
         </div>
         <div class="item">
             <a class="thumb" href="{{url('lycoeye')}}" title="LycoEye">
-                <img src="{{url('images/eyes2.jpg')}}"/>
+                <img src="{{url('images/eyes2.png')}}"/>
             </a>
         </div>
         <div class="item">
             <a class="thumb" href="{{url('lycoeye')}}" title="LycoEye">
-                <img src="{{url('images/eyes1.jpg')}}"/>
-            </a>
-        </div>
-        <div class="item">
-            <a class="thumb" href="{{url('lycoeye')}}" title="LycoEye">
-                <img src="{{url('images/eyes2.jpg')}}"/>
+                <img src="{{url('images/eyes3.png')}}"/>
             </a>
         </div>
     </div>
@@ -35,7 +30,7 @@
         <div class="item clearFix">
             <div class="thumb">
                 <a href="{{url($post->slug . '.html')}}" title="{{$post->title}}">
-                    <img src="{{url('render/?p=' . $post->image . '&w=208&h=177')}}" alt="{{$post->title}}" />
+                    <img src="{{url('image-cached/208x177/'.$post->image)}}" alt="{{$post->title}}" />
                 </a>
             </div>
             <h3>
@@ -58,7 +53,7 @@
         @foreach ($discoveryPosts as $post)
         <article class="item">
             <a href="{{url($post->slug. '.html')}}" >
-                <img src="{{url('render/?p=' . $post->image . '&w=350&h=289')}}" />
+                <img src="{{url('image-cached/350x289/'. $post->image)}}" />
             </a>
             <h3><a href="{{url($post->slug. '.html')}}">{{str_limit($post->title, 40)}}</a></h3>
         </article>  
@@ -80,17 +75,17 @@
     <div class="data">
         <div class="owl-carousel" id="slide-office">
             @foreach ($questions as $question)
-            <div class="item clearFix">
+            <a href="{{url('chi-tiet/' .$question->slug)}}"><div class="item clearFix">
                 <h3>
                     <span>{{$question->ask_person}}</span>
                 </h3>
                 <p>{{str_limit($question->question, 100)}}</p>
-            </div>
+            </div></a>
            @endforeach
         </div>
         <div class="btn-ask">
             <h3>
-                <a href="#" title="Question">Đặt câu hỏi</a>
+                <a href="{{url('hoi-dap-chuyen-gia')}}" title="Question">Đặt câu hỏi</a>
             </h3>
         </div>
     </div>
@@ -116,7 +111,7 @@
         @foreach ($latestEvents as $post)
         <article class="item">
             <a href="{{url($post->slug. '.html')}}" title="{{$post->title}}">
-                <img src="{{url('render/?p=' . $post->image . '&w=400&h=245')}}" />
+                <img src="{{url('image-cached/400x245/' . $post->image)}}" />
             </a>
             <h3>{{str_limit($post->title, 40)}}</h3>
             <p>{{str_limit($post->desc, 70)}}</p>
@@ -129,7 +124,7 @@
         @foreach ($mostViews as $post)
             <article class="item">
                 <a href="{{url($post->slug. '.html')}}" title="{{$post->title}}">
-                    <img src="{{url('render/?p=' . $post->image . '&w=400&h=245')}}" />
+                    <img src="{{url('image-cached/400x245/' . $post->image)}}" />
                 </a>
                 <h3>{{str_limit($post->title, 40)}}</h3>
                 <p>{{str_limit($post->desc, 70)}}</p>

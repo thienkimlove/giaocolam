@@ -22,7 +22,7 @@
         </div>
         <div class="btn-ask">
             <h3>
-                <a href="#" title="Question">Đặt câu hỏi</a>
+                <a href="{{url('hoi-dap-chuyen-gia')}}" title="Question">Đặt câu hỏi</a>
             </h3>
         </div>
     </div>
