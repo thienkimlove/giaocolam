@@ -13,6 +13,6 @@ class Question extends Model implements SluggableInterface {
         'save_to'    => 'slug',
     );
 
-	protected $fillable = ['question', 'answer', 'slug', 'answer_person', 'ask_person'];
+	protected $fillable = ['question', 'answer', 'slug', 'answer_person', 'ask_person', 'ask_phone', 'ask_email', 'ask_address'];
 
 }

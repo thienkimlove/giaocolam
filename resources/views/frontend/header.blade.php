@@ -8,7 +8,7 @@
             <h3>
                 Sáng mắt Sáng tương lai
             </h3>
-            <p>Bảo vệ tương lại của trẻ ngay từ hôm nay</p>
+            <p style="color: red">Bảo vệ tương lai của trẻ ngay từ hôm nay</p>
         </div>
         <div class="box-search" id="box-search">
            @include('frontend.search_form')

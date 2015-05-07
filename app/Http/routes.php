@@ -47,6 +47,7 @@ Route::resource('admin/questions', 'QuestionsController');
 Route::resource('admin/settings', 'SettingsController');
 Route::resource('admin/contacts', 'ContactsController');
 Route::post('saveContact', ['as' => 'saveContact', 'uses' => 'MainController@saveContact']);
+Route::post('createQuestion', ['as' => 'createQuestion', 'uses' => 'MainController@createQuestion']);
 
 Route::controllers([
     'auth' => 'Auth\AuthController',

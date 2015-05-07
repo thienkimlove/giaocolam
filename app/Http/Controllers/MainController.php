@@ -4,6 +4,7 @@
 use App\Contact;
 use App\Http\Requests;
 use App\Http\Requests\ContactRequest;
+use App\Http\Requests\QuestionRequest;
 use App\Post;
 use App\Question;
 use App\Setting;
@@ -66,6 +67,18 @@ class MainController extends Controller
         Contact::create($request->all());
         return redirect('/');
     }
+
+    /**
+     * save question form.
+     * @param ContactRequest|QuestionRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function createQuestion(QuestionRequest $request)
+    {
+        Question::create($request->all());
+        return redirect('/');
+    }
+
 
     /**
      * ajax increase likes.

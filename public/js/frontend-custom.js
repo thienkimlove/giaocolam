@@ -26,5 +26,15 @@ app.controller('MainController', function($scope){
         $('form[name=contactForm]').submit();
     }
 
+    $scope.question = {};
+    $scope.questionReset = function(event){
+        event.preventDefault();
+        $scope.question = {};
+    }
+    $scope.questionSubmit = function(event){
+        event.preventDefault();
+        $('form[name=questionForm]').submit();
+    }
+
 
 });

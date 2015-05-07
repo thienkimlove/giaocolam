@@ -23,7 +23,6 @@ class QuestionRequest extends Request {
 	{
 		return [
 			'question' => 'required|min:10',
-			'answer' => 'required|min:10',
 		];
 	}
 

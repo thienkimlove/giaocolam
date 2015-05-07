@@ -4,15 +4,15 @@
     </h3>
     <div class="area-contact">
         <div class="col-left">
-            <form action="" method="post">
-                <input type="text" name="name" class="txt txt-name" placeholder="Họ và tên"/>
-                <input type="email" name="email" class="txt txt-email" placeholder="Email"/>
-                <input type="number" name="phone" class="txt txt-phone" placeholder="Số điện thoại"/>
-                <input type="email" name="email" class="txt txt-add" placeholder="Địa chỉ"/>
-                <textarea name="content" class="txt txt-content" placeholder="Nội dung"></textarea>
-                <input type="submit" value="Gửi" class="btn btn-submit"/>
-                <input type="reset" value="Làm lại" class="btn btn-reset"/>
-            </form>
+            {!! Form::open(['method' => 'POST', 'route' => ['createQuestion'], 'name' => 'questionForm']) !!}
+                <input type="text" name="ask_person" data-ng-model="question.ask_person" class="txt txt-name" placeholder="Họ và tên"/>
+                <input type="email" name="ask_email" data-ng-model="question.ask_email" class="txt txt-email" placeholder="Email"/>
+                <input type="text" name="ask_phone" data-ng-model="question.ask_phone" class="txt txt-phone" placeholder="Số điện thoại"/>
+                <input type="text" name="ask_address" data-ng-model="question.ask_address" class="txt txt-add" placeholder="Địa chỉ"/>
+                <textarea name="question" data-ng-model="question.question" class="txt txt-content" placeholder="Nội dung"></textarea>
+            <input type="submit" value="gửi đi" data-ng-click="questionSubmit($event)" class="btn btn-submit">
+            <input type="reset" value="xóa hết" data-ng-click="questionReset($event)" class="btn btn-reset">
+            {!!Form::close()!!}
         </div>
     </div>
 </div>
