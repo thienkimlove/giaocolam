@@ -7,17 +7,17 @@
     <div class="owl-carousel" id="slide-homepage">
         <div class="item">
             <a class="thumb" href="{{url('lycoeye')}}" title="LycoEye">
-                <img src="{{url('images/eyes1.png')}}"/>
+                <img src="{{url('images/eyes1.jpg')}}"/>
             </a>
         </div>
         <div class="item">
             <a class="thumb" href="{{url('lycoeye')}}" title="LycoEye">
-                <img src="{{url('images/eyes2.png')}}"/>
+                <img src="{{url('images/eyes2.jpg')}}"/>
             </a>
         </div>
         <div class="item">
             <a class="thumb" href="{{url('lycoeye')}}" title="LycoEye">
-                <img src="{{url('images/eyes3.png')}}"/>
+                <img src="{{url('images/eyes3.jpg')}}"/>
             </a>
         </div>
     </div>

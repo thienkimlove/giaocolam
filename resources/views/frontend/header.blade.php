@@ -5,7 +5,10 @@
             <a href="{{url('/')}}" title="Lycoeye" class="logo"><img src="{{url('images/Logo-01.png')}}" alt="Lycoeye"></a>
         </h1>
         <div class="slogan">
-            <img src="{{url('images/Slogan-01.png')}}" />
+            <h3>
+                Sáng mắt Sáng tương lai
+            </h3>
+            <p>Bảo vệ tương lại của trẻ ngay từ hôm nay</p>
         </div>
         <div class="box-search" id="box-search">
            @include('frontend.search_form')
