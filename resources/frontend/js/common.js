@@ -65,6 +65,8 @@
             loop:true,
             margin:0,
             responsiveClass:true,
+            autoPlay : 5000,
+            stopOnHover : false,
             responsive:{
                 0:{
                     items:1,
