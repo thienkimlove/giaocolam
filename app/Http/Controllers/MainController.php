@@ -11,6 +11,7 @@ use App\Question;
 use App\Setting;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MainController extends Controller
 {
