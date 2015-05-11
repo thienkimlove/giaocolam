@@ -30,17 +30,14 @@
                 <div class="head">LIÊN HỆ</div>
                 <ul class="nav-footer">
                     <li> Điện thoại: 0912571190</li>
-                    <li>
-                        Email: <a href="mailto:info@gmail.com" title="info@gmail.com">info@gmail.com</a>
-                    </li>
                 </ul>
             </div>
             <div class="item item-4">
                 <div class="head">Đăng ký nhận tin</div>
-                <form action="" method="post">
-                    <input type="email" name="email" class="txt txt-email" placeholder="Email">
-                    <input type="submit" value="Gửi" class="btn btn-submit">
-                </form>
+                {!! Form::open(['method' => 'POST', 'route' => ['registerEmail'], 'name' => 'registerEmail']) !!}
+                    <input type="email" name="email" data-ng-model="email" class="txt txt-email" placeholder="Email">
+                    <input type="submit" value="Gửi" data-ng-click="registerEmailSubmit($event)" class="btn btn-submit">
+                {!! Form::close()  !!}
             </div>
             <div class="clear"></div>
         </div>

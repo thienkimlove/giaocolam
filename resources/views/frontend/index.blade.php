@@ -26,6 +26,12 @@
 <!-- BoxSlide -->
 <div class="box-intro">
     <div class="owl-carousel" id="slide-intro">
+
+        <div class="item clearFix">
+                <a href="{{url('lycoeye')}}" title="Sáng mắt Sáng tương lai">
+                    <img src="{{url('images/fixcung.png')}}" alt="Sáng mắt Sáng tương lai" />
+                </a>
+        </div>
         @foreach ($introPosts as $post)
         <div class="item clearFix">
             <div class="thumb">

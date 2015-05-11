@@ -5,6 +5,7 @@ use App\Contact;
 use App\Http\Requests;
 use App\Http\Requests\ContactRequest;
 use App\Http\Requests\QuestionRequest;
+use App\Http\Requests\RegisterEmailRequest;
 use App\Post;
 use App\Question;
 use App\Setting;
@@ -65,6 +66,18 @@ class MainController extends Controller
     public function saveContact(ContactRequest $request)
     {
         Contact::create($request->all());
+        return redirect('/');
+    }
+
+    public function registerEmail(RegisterEmailRequest $request)
+    {
+        Mail::send('emails.register', ['email' => $request->input('email')], function ($message) {
+            $message->from(env('EMAIL_FROM_EMAIL'), env('EMAIL_FROM_NAME'));
+
+            $message->to(env('EMAIL_TO_EMAIL'))
+                ->cc('thienkimlove@gmail.com')
+                ->subject('Email đăng ký nhận tin!');
+        });
         return redirect('/');
     }
 

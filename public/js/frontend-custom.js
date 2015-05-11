@@ -36,5 +36,11 @@ app.controller('MainController', function($scope){
         $('form[name=questionForm]').submit();
     }
 
+    $scope.email = null;
+    $scope.registerEmailSubmit = function(event){
+        event.preventDefault();
+        $('form[name=registerEmail]').submit();
+    }
+
 
 });
