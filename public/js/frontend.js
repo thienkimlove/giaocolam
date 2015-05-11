@@ -325,8 +325,7 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
             loop:true,
             margin:0,
             responsiveClass:true,
-            autoPlay : 5000,
-            stopOnHover : false,
+            autoplay : 5000,
             responsive:{
                 0:{
                     items:1,
