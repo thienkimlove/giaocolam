@@ -11,6 +11,8 @@ class Question extends Model implements SluggableInterface {
     protected $sluggable = array(
         'build_from' => 'question',
         'save_to'    => 'slug',
+        'unique'          => true,
+        'on_update'       => true,
     );
 
 	protected $fillable = ['question', 'answer', 'slug', 'answer_person', 'ask_person', 'ask_phone', 'ask_email', 'ask_address'];
