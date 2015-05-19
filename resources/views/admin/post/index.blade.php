@@ -39,7 +39,7 @@
                                     <td>{{$post->id}}</td>
                                     <td>{{$post->title}}</td>
                                     <td>{{$post->desc}}</td>
-                                    <td><img src="{{url('image-cached/100x100/' . $post->image)}}" /></td>
+                                    <td><img src="{{url('image-cached/120x120/' . $post->image)}}" /></td>
                                     <td>{{$post->type}}</td>
                                     <td>{{($post->homepage_intro) ? 'Yes' : 'No'}}</td>
                                     <td>{{($post->homepage_discovery) ? 'Yes' : 'No'}}</td>
