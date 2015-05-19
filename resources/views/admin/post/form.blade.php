@@ -11,7 +11,7 @@
 <div class="form-group">
     {!! Form::label('image', 'Ảnh đại diện cho bài viết') !!}
     @if ($post->image)
-        <img src="{{url('render/?p=' . $post->image . '&w=100&h=100')}}" />
+        <img src="{{url('image-cached/100x100/' . $post->image)}}" />
 
         <hr>
     @endif
