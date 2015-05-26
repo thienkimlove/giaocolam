@@ -22,7 +22,7 @@
     <div class="news">
         <h3 class="title">
             <span class="i-eye"></span>
-            6 Lý do chọn Lycoeye
+            Tin liên quan
         </h3>
         @foreach ($reasonPosts as $post)
             <article class="item">

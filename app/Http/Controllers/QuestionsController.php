@@ -19,7 +19,7 @@ class QuestionsController extends Controller {
 	 */
 	public function index()
 	{
-		$questions = Question::latest()->paginate(10);
+		$questions = Question::latest('updated_at')->paginate(10);
         return view('admin.question.index', compact('questions'));
 	}
 

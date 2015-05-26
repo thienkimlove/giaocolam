@@ -22,9 +22,9 @@ class PostsController extends Controller {
     {
         if ($request->input('q')) {
             $searchPost = urldecode($request->input('q'));
-            $posts = Post::where('title', 'LIKE', '%'.$searchPost.'%')->latest()->paginate(10);
+            $posts = Post::where('title', 'LIKE', '%'.$searchPost.'%')->latest('updated_at')->paginate(10);
         } else {
-            $posts = Post::latest()->paginate(10);
+            $posts = Post::latest('updated_at')->paginate(10);
             $searchPost = '';
         }
         return view('admin.post.index', compact('posts', 'searchPost'));

@@ -23,7 +23,7 @@ class MainController extends Controller
         $settings = Setting::lists('value', 'name');
 
         $question = Question::where('slug', $slug)->first();
-        $related = Question::where('id', '<>', $question->id)->latest()->limit(6)->get();
+        $related = Question::where('id', '<>', $question->id)->latest('updated_at')->limit(6)->get();
 
 
         return view('frontend.question_details', compact(

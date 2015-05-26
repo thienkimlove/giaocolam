@@ -53,7 +53,7 @@
 <div class="box-discovery">
     <h3 class="title">
         Sáng mắt Sáng tương lai
-        <span>Khám phá những các chăm sóc một đôi mắt thật sự khoẻ mạnh cho mọi lứa tuổi ngay bây giờ...</span>
+        <span>Khám phá những cách chăm sóc cho đôi mắt thật sự khỏe mạnh, ngay bây giờ...</span>
     </h3>
     <div class="block-list">
         @foreach ($discoveryPosts as $post)
@@ -148,9 +148,9 @@
     </h3>
     <div class="area-future">
         <div class="col-left">
-            <h3>VỚI CON THẾ GIỚI THẬT MUÔN MẦU <br> VỚI MẸ CON LÀ CẢ THẾ GIỚI</h3>
+            <h3>VỚI CON, THẾ GIỚI THẬT MUÔN MẦU <br> VỚI MẸ, CON LÀ CẢ THẾ GIỚI</h3>
             <p>
-                Chăm sóc và nâng niu đôi mắt ngay hôm nay <br> để con có một tương lai tương sáng
+                Chăm sóc và nâng niu đôi mắt ngay hôm nay <br> Để cho con tương lai tươi sáng ngày mai
             </p>
             <div class="btn-view">
                 <h3>

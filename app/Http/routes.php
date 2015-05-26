@@ -27,9 +27,9 @@ Route::get('search/{tag}', function ($tag) {
         $keyword = $matches[1];
         $keyword = str_replace('-', ' ', $keyword);
         if (strlen($keyword) > 2) {
-            $posts = Post::where('status', true)->tagged($keyword)->latest()->paginate(20);
+            $posts = Post::where('status', true)->tagged($keyword)->latest('updated_at')->paginate(20);
         } else {
-            $posts = Post::where('status', true)->latest()->paginate(20);
+            $posts = Post::where('status', true)->latest('updated_at')->paginate(20);
         }
         return view('frontend.search', compact('posts', 'keyword'))->with([
             'meta_title' => ' Kết quả tìm kiếm từ khóa ' . $keyword . ' tại Lycoeye.vn',
@@ -59,14 +59,14 @@ Route::get('/', function () {
     $page = 'index';
     $settings = Setting::lists('value', 'name');
 
-    $introPosts = Post::where('status', true)->where('homepage_intro', true)->latest()->limit(4)->get();
-    $discoveryPosts = Post::where('status', true)->where('homepage_discovery', true)->latest()->limit(4)->get();
+    $introPosts = Post::where('status', true)->where('homepage_intro', true)->latest('updated_at')->limit(4)->get();
+    $discoveryPosts = Post::where('status', true)->where('homepage_discovery', true)->latest('updated_at')->limit(4)->get();
 
-    $latestEvents = Post::where('status', true)->where('type', 'su-kien-nhan-hang')->latest()->limit(3)->get();
+    $latestEvents = Post::where('status', true)->where('type', 'su-kien-nhan-hang')->latest('updated_at')->limit(3)->get();
     $mostViews = Post::where('status', true)->where('type', 'su-kien-nhan-hang')->orderBy('views', 'desc')->limit(3)->get();
 
 
-    $questions = Question::latest()->limit(4)->get();
+    $questions = Question::latest('updated_at')->limit(4)->get();
 
 
     return view('frontend.index', compact(
@@ -106,8 +106,8 @@ Route::get('/{value}', function ($value) {
         $settings = Setting::lists('value', 'name');
         if ($page == 'sang-mat-sang-tuong-lai') {
 
-            $posts = Post::where('status', true)->where('type', $page)->latest()->limit(6)->get();
-            $related = Post::where('status', true)->where('type', $page)->latest()->skip(6)->take(3)->get();
+            $posts = Post::where('status', true)->where('type', $page)->latest('updated_at')->limit(6)->get();
+            $related = Post::where('status', true)->where('type', $page)->latest('updated_at')->skip(6)->take(3)->get();
 
             return view('frontend.'.$page, compact(
                 'page',
@@ -132,7 +132,7 @@ Route::get('/{value}', function ($value) {
             ]);
         } else if ($page == 'hoi-dap-chuyen-gia') {
 
-            $questions = Question::latest()->paginate(6);
+            $questions = Question::latest('updated_at')->paginate(6);
 
             return view('frontend.'.$page, compact(
                 'page',
@@ -144,7 +144,7 @@ Route::get('/{value}', function ($value) {
             ]);
         } else if ($page == 'su-kien-nhan-hang') {
 
-            $posts = Post::where('status', true)->where('type', $page)->latest()->paginate(10);
+            $posts = Post::where('status', true)->where('type', $page)->latest('updated_at')->paginate(10);
 
             return view('frontend.'.$page, compact(
                 'page',
@@ -156,7 +156,7 @@ Route::get('/{value}', function ($value) {
             ]);
         } else if ($page == 'chia-se') {
 
-            $posts = Post::where('status', true)->where('type', $page)->latest()->paginate(5);
+            $posts = Post::where('status', true)->where('type', $page)->latest('updated_at')->paginate(5);
 
             return view('frontend.'.$page, compact(
                 'page',
