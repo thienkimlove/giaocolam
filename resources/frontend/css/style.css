@@ -333,7 +333,7 @@ img {
   text-indent: -9900px;
   position: absolute;
   top: 50%;
-  top: 60px;
+  top: 35px;
   left: -52px;
   width: 32px;
   height: 28px;
@@ -985,8 +985,9 @@ img {
 .box-office .question {
   background: #0160ad;
   position: absolute;
-  right: 130px;
+  right: 210px;
   top: 10px;
+  width: 300px;
 }
 .box-office .question h3 {
   margin: 10px 0 0 10px;
@@ -1206,6 +1207,40 @@ img {
   padding-top: 5px;
 }
 
+.block-list {
+  margin-bottom: 20px;
+}
+.block-list .owl-dots {
+  position: absolute;
+  bottom: -5px;
+  width: 100%;
+  text-align: center;
+}
+.block-list .owl-dots .owl-dot {
+  display: inline-block;
+  float: none;
+  width: auto;
+  margin-left: 0;
+}
+.block-list .owl-dots .owl-dot span {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background: url(../images/sprites.png) no-repeat -144px -1px;
+  text-indent: -9999px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin: 0 7px;
+}
+.block-list .owl-dots .owl-dot span:hover {
+  background-position: -160px -1px;
+}
+.block-list .owl-dots .owl-dot.active span {
+  background-position: -160px -1px;
+}
 .block-list .item {
   float: left;
   width: 32.72727%;
@@ -1949,6 +1984,65 @@ img {
   .main .col-right {
     float: left;
     width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .box-slider .item {
+    height: auto;
+  }
+
+  .box-discovery .block-list .item {
+    width: 96%;
+    padding: 2%;
+  }
+
+  .box-event .news-list .item {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  .box-event .news-list .item h3 {
+    font-size: 18px;
+    min-height: 30px;
+  }
+  .box-event .news-list .item a img {
+    height: 245px;
+    text-align: center;
+  }
+
+  .box-future .area-future {
+    padding: 10px;
+  }
+
+  .block-list .item {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+  .block-list .item .thumb {
+    width: 96%;
+    padding: 0 2%;
+    text-align: center;
+  }
+
+  .box-office .data.half {
+    width: 50%;
+  }
+
+  #tabs li {
+    width: 100%;
+    display: block;
+    margin: 15px 0;
+  }
+
+  .main .col-left .news .item .thumb {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .footer {
+    display: none;
   }
 }
 @media only screen and (max-width: 320px) {

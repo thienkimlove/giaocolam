@@ -28,7 +28,7 @@ class ViewComposerProvider extends ServiceProvider {
 
 
         view()->composer('frontend.box_office', function ($view) {
-            $view->with('questions', Question::latest('updated_at')->limit(10)->get());
+            $view->with('questions', Question::latest('updated_at')->get());
 
         });
 

@@ -347,6 +347,74 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
         });
     };
 
+    var slideEvents = function(){
+        $('#slide-events').owlCarousel({
+            loop:true,
+            margin:30,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:false
+                },
+                640:{
+                    items:2,
+                    nav:false
+                },
+                1000:{
+                    items:1,
+                    nav:false,
+                    loop:true
+                }
+            }
+        });
+    };
+    var slideProject = function(){
+        $('#slide-project').owlCarousel({
+            loop:true,
+            margin:30,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:false
+                },
+                640:{
+                    items:2,
+                    nav:false
+                },
+                1000:{
+                    items:1,
+                    nav:false,
+                    loop:true
+                }
+            }
+        });
+    };
+
+    var slideNewQuestion = function(){
+        $('#slide-new-question').owlCarousel({
+            loop:true,
+            margin:30,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:false
+                },
+                640:{
+                    items:2,
+                    nav:false
+                },
+                1000:{
+                    items:1,
+                    nav:false,
+                    loop:true
+                }
+            }
+        });
+    };
+
     var slideIntro = function(){
         $('#slide-intro').owlCarousel({
             loop:true,
@@ -493,6 +561,9 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
         slideIntro();
         slideOffice();
         slideOffice01();
+        slideEvents();
+        slideProject();
+        slideNewQuestion();
         slideQuestion();
         setMenuMobile();
         resetMenuMobile();

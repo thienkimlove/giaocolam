@@ -106,8 +106,8 @@ Route::get('/{value}', function ($value) {
         $settings = Setting::lists('value', 'name');
         if ($page == 'sang-mat-sang-tuong-lai') {
 
-            $posts = Post::where('status', true)->where('type', $page)->latest('updated_at')->limit(6)->get();
-            $related = Post::where('status', true)->where('type', $page)->latest('updated_at')->skip(6)->take(3)->get();
+            $posts = Post::where('status', true)->where('type', $page)->latest('updated_at')->get();
+            $related = Post::where('status', true)->where('type', $page)->latest('updated_at')->skip(3)->take(3)->get();
 
             return view('frontend.'.$page, compact(
                 'page',

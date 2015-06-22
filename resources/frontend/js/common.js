@@ -87,6 +87,59 @@
         });
     };
 
+    var slideEvents = function(){
+        $('#slide-events').owlCarousel({
+            loop:true,
+            margin:30,
+            responsiveClass:true
+        });
+    };
+    var slideProject = function(){
+        $('#slide-project').owlCarousel({
+            loop:true,
+            margin:30,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:false
+                },
+                640:{
+                    items:2,
+                    nav:false
+                },
+                1000:{
+                    items:1,
+                    nav:false,
+                    loop:true
+                }
+            }
+        });
+    };
+
+    var slideNewQuestion = function(){
+        $('#slide-new-question').owlCarousel({
+            loop:true,
+            margin:30,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:false
+                },
+                640:{
+                    items:2,
+                    nav:false
+                },
+                1000:{
+                    items:1,
+                    nav:false,
+                    loop:true
+                }
+            }
+        });
+    };
+
     var slideIntro = function(){
         $('#slide-intro').owlCarousel({
             loop:true,
@@ -233,6 +286,9 @@
         slideIntro();
         slideOffice();
         slideOffice01();
+        slideEvents();
+        slideProject();
+        slideNewQuestion();
         slideQuestion();
         setMenuMobile();
         resetMenuMobile();

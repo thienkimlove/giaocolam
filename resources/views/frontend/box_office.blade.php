@@ -28,11 +28,20 @@
     </div>
     <div class="question">
         <h3>Những câu hỏi mới nhất</h3>
-        <ul class="list-question">
-            @foreach ($questions->slice(5, 5) as $question)
-                <li>{{str_limit($question->question, 60)}}</li>
-            @endforeach
-        </ul>
+        <div class="block-list">
+        <div class="owl-carousel" id="slide-new-question">
+        @foreach ($questions->chunk(5) as $groupQuestion)
+        <div class="row">
+            <ul class="list-question">
+                @foreach ($groupQuestion as $question)
+                    <li>{{str_limit($question->question, 60)}}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endforeach
+        </div>
+        </div>
+
     </div>
     <div class="avatar">
         <img src="{{url('images/avatar.png')}}" alt="iconBaby">
