@@ -10,7 +10,7 @@
 
         <div class="block-list">
             <div class="owl-carousel" id="slide-project">
-                @foreach ($posts->chunk(3) as $groupPost)
+                @foreach ($posts->chunk(6) as $groupPost)
                     <div class="row">
                        @foreach ($groupPost as $post)
                             <article class="item">
