@@ -107,7 +107,7 @@ Route::get('/{value}', function ($value) {
         if ($page == 'sang-mat-sang-tuong-lai') {
 
             $posts = Post::where('status', true)->where('type', $page)->latest('updated_at')->get();
-            $related = Post::where('status', true)->where('type', $page)->latest('updated_at')->skip(3)->take(3)->get();
+            $related = Post::where('status', true)->where('type', $page)->latest('updated_at')->skip(3)->take(6)->get();
 
             return view('frontend.'.$page, compact(
                 'page',
