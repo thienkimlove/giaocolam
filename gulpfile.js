@@ -12,11 +12,7 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less', 'resources/css')
-       .styles([
-         'app.css'
-       ])
-       .scripts([
+    mix.scripts([
         'angularjs/angular.min.js',
         'ng-ckeditor/ng-ckeditor.min.js',
         'jquery/dist/jquery.min.js',
@@ -38,7 +34,7 @@ elixir(function(mix) {
             'morrisjs/morris.min.js',
             'startbootstrap-sb-admin-2/dist/js/sb-admin-2.js'
         ], 'public/js/admin.js', 'resources/js/bower_components')
-        .copy('resources/js/bower_components/font-awesome/fonts/', 'public/fonts')
+        .copy('resources/js/bower_components/font-awesome/fonts', 'public/fonts')
         //frontend
         .scripts([
             'js/bower_components/angularjs/angular.min.js',
