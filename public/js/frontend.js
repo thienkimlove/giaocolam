@@ -351,22 +351,7 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
         $('#slide-events').owlCarousel({
             loop:true,
             margin:30,
-            responsiveClass:true,
-            responsive:{
-                0:{
-                    items:1,
-                    nav:false
-                },
-                640:{
-                    items:2,
-                    nav:false
-                },
-                1000:{
-                    items:1,
-                    nav:false,
-                    loop:true
-                }
-            }
+            responsiveClass:true
         });
     };
     var slideProject = function(){

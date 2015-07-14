@@ -8,10 +8,10 @@
         <span class="i-eye"></span><a href="{{url('sang-mat-sang-tuong-lai')}}">LYCO EYE SÁNG MẮT SÁNG TƯƠNG LAI</a>
     </h3>
 
-    <div class="block-list">
+    <div class="list-eyes">
         <div class="owl-carousel" id="slide-project">
-            @foreach ($posts->chunk(3) as $groupPost)
-                <div class="row">
+            @foreach ($posts->chunk(6) as $groupPost)
+                <div class="block-eyes">
                     @foreach ($groupPost as $post)
                         <article class="item">
                             <a href="{{url($post->slug. '.html')}}" class="thumb">
