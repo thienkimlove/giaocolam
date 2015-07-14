@@ -14,14 +14,16 @@
                 <div class="block-eyes">
                     @foreach ($groupPost as $post)
                         <article class="item">
-                            <a href="{{url($post->slug. '.html')}}" class="thumb">
-                                <img src="{{url('image-cached/509x338/' . $post->image)}}"/>
-                            </a>
+                            <div class="box">
+                                <a href="{{url($post->slug. '.html')}}" class="thumb">
+                                    <img src="{{url('image-cached/509x338/' . $post->image)}}"/>
+                                </a>
 
-                            <h3>{{str_limit($post->title, 40)}}</h3>
-
-                            <p>{{str_limit($post->desc, 70)}}</p>
-                            <a href="{{url($post->slug. '.html')}}">Chi tiết</a>
+                                <h3>{{str_limit($post->title, 40)}}</h3>
+    
+                                <p>{{str_limit($post->desc, 70)}}</p>
+                                <a href="{{url($post->slug. '.html')}}">Chi tiết</a>
+                            </div>
                         </article>
                     @endforeach
                 </div>
