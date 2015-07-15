@@ -20,7 +20,7 @@
                                 </a>
 
                                 <h3>{{str_limit($post->title, 40)}}</h3>
-    
+
                                 <p>{{str_limit($post->desc, 70)}}</p>
                                 <a href="{{url($post->slug. '.html')}}">Chi tiết</a>
                             </div>
