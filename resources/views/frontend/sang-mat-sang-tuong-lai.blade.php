@@ -12,8 +12,24 @@
         <div class="owl-carousel" id="slide-project">
             @foreach ($posts->chunk(6) as $groupPost)
                 <div class="block-eyes">
-                    @foreach ($groupPost as $post)
-                        <article class="item">
+                    <article class="item">
+                        @foreach ($groupPost->slice(0,3) as $post)
+                                <div class="box">
+                                    <a href="{{url($post->slug. '.html')}}" class="thumb">
+                                        <img src="{{url('image-cached/509x338/' . $post->image)}}"/>
+                                    </a>
+
+                                    <h3>{{str_limit($post->title, 40)}}</h3>
+
+                                    <p>{{str_limit($post->desc, 70)}}</p>
+                                    <a href="{{url($post->slug. '.html')}}">Chi tiết</a>
+                                </div>
+                        @endforeach
+                    </article>
+                </div>
+                <div class="block-eyes">
+                    <article class="item">
+                        @foreach ($groupPost->slice(3,3) as $post)
                             <div class="box">
                                 <a href="{{url($post->slug. '.html')}}" class="thumb">
                                     <img src="{{url('image-cached/509x338/' . $post->image)}}"/>
@@ -24,8 +40,8 @@
                                 <p>{{str_limit($post->desc, 70)}}</p>
                                 <a href="{{url($post->slug. '.html')}}">Chi tiết</a>
                             </div>
-                        </article>
-                    @endforeach
+                        @endforeach
+                    </article>
                 </div>
             @endforeach
         </div>
