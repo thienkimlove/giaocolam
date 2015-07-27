@@ -32,7 +32,7 @@ Route::get('search/{tag}', function ($tag) {
             $posts = Post::where('status', true)->latest('updated_at')->paginate(20);
         }
         return view('frontend.search', compact('posts', 'keyword'))->with([
-            'meta_title' => ' Kết quả tìm kiếm từ khóa ' . $keyword . ' tại Lycoeye.vn',
+            'meta_title' => ' Kết quả tìm kiếm từ khóa ' . $keyword . ' tại Giảo Cổ Lam',
             'meta_desc' => '',
             'meta_keywords' => $keyword,
         ]);
@@ -77,9 +77,9 @@ Route::get('/', function () {
         'mostViews',
         'questions'
     ))->with([
-        'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'LycoEye.vn',
-        'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'LycoEye.vn',
-        'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'LycoEye.vn',
+        'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
+        'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
+        'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
     ]);
 
 });
@@ -99,7 +99,7 @@ Route::get('/{value}', function ($value) {
         ))->with([
             'meta_title' => $post->title,
             'meta_desc' =>  $post->desc,
-            'meta_keywords' =>  ($post->tagList)? implode(',', $post->tagList) : 'lycos, huongdan, bai viet'
+            'meta_keywords' =>  ($post->tagList)? implode(',', $post->tagList) : 'Giảo Cổ Lam, huongdan, bai viet'
         ]);
     } else {
         $page = $value;
@@ -114,9 +114,9 @@ Route::get('/{value}', function ($value) {
                 'posts',
                 'related'
             ))->with([
-                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'LycoEye.vn',
-                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'LycoEye.vn',
-                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'LycoEye.vn',
+                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
+                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
+                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
             ]);
         } else if ($page == 'lycoeye') {
 
@@ -126,9 +126,9 @@ Route::get('/{value}', function ($value) {
                 'related',
                 'settings'
             ))->with([
-                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'LycoEye.vn',
-                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'LycoEye.vn',
-                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'LycoEye.vn',
+                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
+                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
+                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
             ]);
         } else if ($page == 'hoi-dap-chuyen-gia') {
 
@@ -138,9 +138,9 @@ Route::get('/{value}', function ($value) {
                 'page',
                 'questions'
             ))->with([
-                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'LycoEye.vn',
-                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'LycoEye.vn',
-                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'LycoEye.vn',
+                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
+                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
+                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
             ]);
         } else if ($page == 'su-kien-nhan-hang') {
 
@@ -150,9 +150,9 @@ Route::get('/{value}', function ($value) {
                 'page',
                 'posts'
             ))->with([
-                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'LycoEye.vn',
-                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'LycoEye.vn',
-                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'LycoEye.vn',
+                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
+                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
+                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
             ]);
         } else if ($page == 'chia-se') {
 
@@ -162,17 +162,17 @@ Route::get('/{value}', function ($value) {
                 'page',
                 'posts'
             ))->with([
-                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'LycoEye.vn',
-                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'LycoEye.vn',
-                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'LycoEye.vn',
+                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
+                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
+                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
             ]);
         } else if ($page == 'lien-he') {
             return view('frontend.'.$page, compact(
                 'page'
             ))->with([
-                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'LycoEye.vn',
-                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'LycoEye.vn',
-                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'LycoEye.vn',
+                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
+                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
+                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
             ]);
         }
     }
