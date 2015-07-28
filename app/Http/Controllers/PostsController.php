@@ -95,7 +95,7 @@ class PostsController extends BaseController {
 
     public function store(PostRequest $request)
     {
-        dd($request->all());
+       // dd($request->all());
         $insert = [
             'title' => $request->input('title'),
             'category_id' => $request->input('category_id'),
