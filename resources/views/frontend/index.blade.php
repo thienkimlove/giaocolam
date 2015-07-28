@@ -58,7 +58,7 @@
                             <p>{{str_limit($post->desc, 70)}}</p>
                             <div class="related-post">
                                 <ul>
-                                    @foreach ($post->related as $relate)
+                                    @foreach ($post->related->slice(0,2) as $relate)
                                     <li><a href="{{url($relate->slug.'.html')}}">{{str_limit($relate->title, 40)}}</a></li>
                                    @endforeach
 
@@ -81,7 +81,7 @@
                             <p>{{str_limit($post->desc, 70)}}</p>
                             <div class="related-post">
                                 <ul>
-                                    @foreach ($post->related as $relate)
+                                    @foreach ($post->related->slice(0,2) as $relate)
                                         <li><a href="{{url($relate->slug.'.html')}}">{{str_limit($relate->title, 40)}}</a></li>
                                     @endforeach
 
@@ -120,7 +120,7 @@
                             <p>{{str_limit($post->desc, 70)}}</p>
                             <div class="related-post">
                                 <ul>
-                                    @foreach ($post->related as $relate)
+                                    @foreach ($post->related->slice(0, 2) as $relate)
                                         <li><a href="{{url($relate->slug.'.html')}}">{{str_limit($relate->title, 40)}}</a></li>
                                     @endforeach
 
@@ -144,7 +144,7 @@
                             <p>{{str_limit($post->desc, 70)}}</p>
                             <div class="related-post">
                                 <ul>
-                                    @foreach ($post->related as $relate)
+                                    @foreach ($post->related->slice(0, 2) as $relate)
                                         <li><a href="{{url($relate->slug.'.html')}}">{{str_limit($relate->title, 40)}}</a></li>
                                     @endforeach
 
