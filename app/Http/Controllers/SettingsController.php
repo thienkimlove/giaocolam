@@ -30,7 +30,7 @@ class SettingsController extends Controller {
 	 */
 	public function create()
 	{
-		return view('admin.setting.create');
+		return view('admin.setting.form');
 	}
 
     /**
@@ -66,7 +66,7 @@ class SettingsController extends Controller {
 	public function edit($id)
 	{
 		$setting = Setting::findOrFail($id);
-        return view('admin.setting.edit', compact('setting'));
+        return view('admin.setting.form', compact('setting'));
 	}
 
     /**

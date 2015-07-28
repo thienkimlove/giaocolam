@@ -1,43 +1,118 @@
 <?php namespace App\Http\Controllers;
 
 
+use App\Category;
 use App\Http\Requests;
 
 
 use App\Http\Requests\PostRequest;
+use App\Module;
 use App\Post;
-use App\Repositories\PostRepository;
+use App\Tag;
+use DB;
 use Illuminate\Http\Request;
 
-class PostsController extends Controller {
+class PostsController extends BaseController {
 
-    public $postRepository;
-    public function __construct(PostRepository $post)
+    public $modules, $tags, $categories;
+
+    public function __construct()
     {
-        $this->postRepository = $post;
         $this->middleware('admin');
+        $this->modules = [
+            'tin-tuc-noi-bat' => 'Hien thi tin tuc noi bat cot phai'
+        ];
+        $this->categories = array('' => 'Choose category') + Category::whereNotNull('parent_id')
+                ->lists('name', 'id');
+        $this->tags = Tag::lists('name', 'name');
+    }
+
+    protected function syncModules($request, $post)
+    {
+        if (!empty($request->input('modules'))) {
+            foreach ($request->input('modules') as $key => $values) {
+                if (isset($values['display'])) {
+                    $order = (int) $values['order'];
+                    $module = Module::where('post_id', $post->id)
+                        ->where('slug', $key)
+                        ->first();
+                    if ($module) {
+                        $module->order = $order;
+                        $module->save();
+                    } else {
+                        Module::create([
+                            'post_id' => $post->id,
+                            'slug' => $key,
+                            'order' => $order,
+                        ]);
+                    }
+                } else {
+                    Module::where('slug', $key)
+                        ->where('post_id', $post->id)
+                        ->delete();
+                }
+            }
+        }
+    }
+
+    protected function syncTags($request, Post $post)
+    {
+        $tagIds = [];
+        foreach ($request->input('tag_list') as $tag) {
+            $tagIds[] = Tag::firstOrCreate(['name' => $tag])->id;
+        }
+        $post->tags()->sync($tagIds);
     }
 
     public function index(Request $request)
     {
+
+        $searchPost = '';
+        $categoryId = '';
+        $posts = Post::latest('updated_at');
         if ($request->input('q')) {
             $searchPost = urldecode($request->input('q'));
-            $posts = Post::where('title', 'LIKE', '%'.$searchPost.'%')->latest('updated_at')->paginate(10);
-        } else {
-            $posts = Post::latest('updated_at')->paginate(10);
-            $searchPost = '';
+            $posts = $posts->where('title', 'LIKE', '%'. $searchPost. '%');
         }
-        return view('admin.post.index', compact('posts', 'searchPost'));
+
+        if ($request->input('cat')) {
+            $categoryId = $request->input('cat');
+            $category = Category::find($request->input('cat'));
+            if (!$category->parent_id) {
+                $posts = $posts->whereIn('category_id', $category->subCategories->lists('id'));
+            } else {
+                $posts = $posts->where('category_id', '=', $request->input('cat'));
+            }
+        }
+
+        $posts = $posts->paginate(10);
+
+        return view('admin.post.index', compact('posts', 'searchPost', 'categoryId'));
     }
 
     public function create()
     {
-        return view('admin.post.create', $this->postRepository->create());
+        $tags = $this->tags;
+        $categories = $this->categories;
+        $modules = $this->modules;
+        return view('admin.post.form', compact('tags', 'categories', 'modules'));
     }
 
     public function store(PostRequest $request)
     {
-        $this->postRepository->store($request);
+        $insert = [
+            'title' => $request->input('title'),
+            'category_id' => $request->input('category_id'),
+            'desc' => $request->input('desc'),
+            'content' => $request->input('content'),
+            'image' => ($request->file('image') && $request->file('image')->isValid()) ? $this->saveImage($request->file('image')) : '',
+            'status' => ($request->input('status') == 'on') ? true : false,
+        ];
+
+        $post = Post::create($insert);
+        $this->syncTags($request, $post);
+        $this->syncModules($request, $post);
+
         flash('Create post success!', 'success');
         return redirect('admin/posts');
     }
@@ -49,13 +124,32 @@ class PostsController extends Controller {
      */
     public function edit($id)
     {
-        return view('admin.post.edit', $this->postRepository->edit($id));
+        $post = Post::find($id);
+        $tags = $this->tags;
+        $categories = $this->categories;
+        $modules = $this->modules;
+        return view('admin.post.form', compact('tags', 'categories', 'modules', 'post'));
     }
 
 
     public function update($id, PostRequest $request)
     {
-        $this->postRepository->update($request, $id);
+        $post = Post::find($id);
+        $update = [
+            'title' => $request->input('title'),
+            'category_id' => $request->input('category_id'),
+            'desc' => $request->input('desc'),
+            'content' => $request->input('content'),
+            'status' => ($request->input('status') == 'on') ? true : false,
+        ];
+        if ($request->file('image') && $request->file('image')->isValid()) {
+            $update['image'] = $this->saveImage($request->file('image'), $post->image);
+        }
+
+
+        $post->update($update);
+        $this->syncTags($request, $post);
+        $this->syncModules($request, $post);
         flash('Update post success!', 'success');
         return redirect('admin/posts');
     }
@@ -68,7 +162,11 @@ class PostsController extends Controller {
      */
     public function destroy($id)
     {
-        $this->postRepository->delete($id);
+        $post = Post::find($id);
+        if (file_exists(public_path('files/images/' . $post->image))) {
+            @unlink(public_path('files/images/' . $post->image));
+        }
+        $post->delete();
         flash('Success deleted post!');
         return redirect('admin/posts');
     }

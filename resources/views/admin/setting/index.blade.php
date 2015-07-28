@@ -1,7 +1,12 @@
 @extends('admin')
 @section('content')
-    @include('admin.setting.heading')
-    <div class="row" data-ng-controller="SettingIndex">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Tùy chọn</h1>
+        </div>
+
+    </div>
+    <div class="row">
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -26,7 +31,7 @@
                                     <td>{{$setting->name}}</td>
                                     <td>{!! $setting->value !!}</td>
                                     <td>
-                                        <button class="btn btn-primary btn-sm" data-ng-click="goUrl('/settings/{{$setting->id}}/edit')" type="button">Sửa</button>
+                                        <button class="btn btn-primary btn-sm edit-setting" id-attr="{{$setting->id}}"  type="button">Sửa</button>
                                         <br>
                                         {!! Form::open(['method' => 'DELETE', 'route' => ['admin.settings.destroy', $setting->id]]) !!}
                                         <button type="submit" class="btn btn-danger btn-mini">Xóa</button>
@@ -42,7 +47,7 @@
                         <div class="col-sm-6">{!! $settings->render() !!}</div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6"><button class="btn btn-primary" type="button" data-ng-click="goUrl('/settings/create')">Thêm</button></div>
+                        <div class="col-sm-6"><button class="btn btn-primary add-setting" type="button" >Thêm</button></div>
                     </div>
                 </div>
                 <!-- /.panel-body -->
@@ -51,4 +56,17 @@
         </div>
 
     </div>
+@endsection
+
+@section('footer')
+    <script>
+        $(function(){
+            $('.add-setting').click(function(){
+                window.location.href = window.baseUrl + '/admin/settings/create';
+            });
+            $('.edit-setting').click(function(){
+                window.location.href = window.baseUrl + '/admin/settings/' + $(this).attr('id-attr') + '/edit';
+            });
+        });
+    </script>
 @endsection

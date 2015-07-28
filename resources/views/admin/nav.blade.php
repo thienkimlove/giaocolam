@@ -49,6 +49,20 @@
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+
+                <li>
+                    <a><i class="fa fa-files-o fa-fw"></i>Category<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+
+                        <li>
+                            <a href="{{url('admin/categories')}}">Danh sách</a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/categories/create')}}">Thêm bài</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
                 <li>
                     <a><i class="fa fa-files-o fa-fw"></i>Hỏi Đáp<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">

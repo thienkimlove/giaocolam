@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="Admin">
+<html lang="en">
 
 <head>
 
@@ -33,8 +33,7 @@
 </div>
 <script>
     var Config = {};
-    Config.baseUrl = '{{url('/')}}';
-    Config.searchPost = '{{ !empty($searchPost) ? $searchPost : '' }}';
+    window.baseUrl = '{{url('/')}}';
 </script>
 
 <script src="{{url('/js/admin.js')}}"></script>

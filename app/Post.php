@@ -19,20 +19,23 @@ class Post extends Model implements SluggableInterface {
 
 
     protected $fillable = [
-        'type',
         'title',
+        'category_id',
         'slug',
         'desc',
         'content',
         'image',
-        'homepage_slide',
-        'homepage_intro',
-        'homepage_discovery',
-        'hot',
-        'reason',
-        'views',
         'status'
     ];
+
+    /**
+     * post belong to one category.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
 
     /**
      * like tags.
@@ -72,6 +75,11 @@ class Post extends Model implements SluggableInterface {
      */
     public function getUpdatedAtAttribute($date){
         return Carbon::parse($date)->format('d-m-Y');
+    }
+
+    public function modules()
+    {
+        return $this->hasMany('App\Module');
     }
 
 }

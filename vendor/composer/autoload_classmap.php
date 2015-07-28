@@ -8,8 +8,11 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddFieldToQuestions' => $baseDir . '/database/migrations/2015_05_07_051625_add_field_to_questions.php',
     'AddFieldsToTableQuestions' => $baseDir . '/database/migrations/2015_05_03_143818_add_fields_to_table_questions.php',
+    'AddPostsToCategory' => $baseDir . '/database/migrations/2015_07_28_112615_add_posts_to_category.php',
     'ClearSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'CreateCategoriesTable' => $baseDir . '/database/migrations/2015_07_28_112337_create_categories_table.php',
     'CreateContactsTable' => $baseDir . '/database/migrations/2015_03_31_093809_create_contacts_table.php',
+    'CreateModulesTable' => $baseDir . '/database/migrations/2015_07_28_114715_create_modules_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePostsTable' => $baseDir . '/database/migrations/2015_03_17_021331_create_posts_table.php',
     'CreateQuestionsTable' => $baseDir . '/database/migrations/2015_03_31_082046_create_questions_table.php',

@@ -3,9 +3,8 @@
 use App\Http\Requests;
 use App\Http\Requests\QuestionRequest;
 use App\Question;
-use Intervention\Image\ImageManager;
 
-class QuestionsController extends Controller {
+class QuestionsController extends BaseController {
 
     public function __construct()
     {
