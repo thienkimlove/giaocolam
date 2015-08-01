@@ -29,7 +29,7 @@ class QuestionsController extends BaseController {
 	 */
 	public function create()
 	{
-		return view('admin.question.create');
+		return view('admin.question.form');
 	}
 
     /**
@@ -40,7 +40,9 @@ class QuestionsController extends BaseController {
      */
 	public function store(QuestionRequest $request)
 	{
-		Question::create($request->all());
+		$data = $request->all();
+		$data['image'] = ($request->file('image') && $request->file('image')->isValid()) ? $this->saveImage($request->file('image')) : '';
+		Question::create($data);
         flash('Them moi hoi dap thanh cong!', 'success');
         return redirect('admin/questions');
 	}
@@ -65,7 +67,7 @@ class QuestionsController extends BaseController {
 	public function edit($id)
 	{
 		$question = Question::findOrFail($id);
-        return view('admin.question.edit', compact('question'));
+        return view('admin.question.form', compact('question'));
 	}
 
     /**
@@ -78,7 +80,11 @@ class QuestionsController extends BaseController {
 	public function update($id, QuestionRequest $request)
 	{
         $question =  Question::findOrFail($id);
-        $question->update($request->all());
+		$data = $request->all();
+		if ($request->file('image') && $request->file('image')->isValid()) {
+			$data['image'] = $this->saveImage($request->file('image'), $question->image);
+		}
+        $question->update($data);
         flash('Sua hoi đáp thành công!', 'success');
         return redirect('admin/questions');
 	}
@@ -92,7 +98,11 @@ class QuestionsController extends BaseController {
 	public function destroy($id)
 	{
         $question = Question::findOrFail($id);
+		if (file_exists(public_path('files/images/' . $question->image))) {
+			@unlink(public_path('files/images/' . $question->image));
+		}
         $question->delete();
+
         flash('Xoa hoi dap thanh cong!');
         return redirect('admin/questions');
 	}

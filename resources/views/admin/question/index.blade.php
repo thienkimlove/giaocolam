@@ -1,7 +1,12 @@
 @extends('admin')
 @section('content')
-    @include('admin.question.heading')
-    <div class="row" data-ng-controller="QuestionIndex">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Hỏi Đáp</h1>
+        </div>
+
+    </div>
+    <div class="row">
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -30,7 +35,7 @@
                                     <td>{{$question->answer_person}}</td>
                                     <td>{{ str_limit($question->answer, 40) }}</td>
                                     <td>
-                                        <button class="btn btn-primary btn-sm" data-ng-click="goUrl('/questions/{{$question->id}}/edit')" type="button">Sửa</button>
+                                        <button id-attr="{{$question->id}}" class="btn btn-primary btn-sm edit-question"  type="button">Sửa</button>
                                         <br>
                                         {!! Form::open(['method' => 'DELETE', 'route' => ['admin.questions.destroy', $question->id]]) !!}
                                         <button type="submit" class="btn btn-danger btn-mini"> Xoa </button>
@@ -46,7 +51,7 @@
                         <div class="col-sm-6">{!! $questions->render() !!}</div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6"><button class="btn btn-primary" type="button" data-ng-click="goUrl('/questions/create')"> Thêm </button></div>
+                        <div class="col-sm-6"><button class="btn btn-primary add-question" type="button"> Thêm </button></div>
                     </div>
                 </div>
                 <!-- /.panel-body -->
@@ -55,4 +60,16 @@
         </div>
 
     </div>
+@endsection
+@section('footer')
+    <script>
+        $(function(){
+            $('.add-question').click(function(){
+                window.location.href = window.baseUrl + '/admin/questions/create';
+            });
+            $('.edit-question').click(function(){
+                window.location.href = window.baseUrl + '/admin/questions/' + $(this).attr('id-attr') + '/edit';
+            });
+        });
+    </script>
 @endsection

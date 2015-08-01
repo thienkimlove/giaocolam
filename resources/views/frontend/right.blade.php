@@ -59,14 +59,14 @@
             <span>Đặt câu hỏi với chuyên gia</span>
         </div>
         <div class="col-right">
-            <form action="" method="post">
-                <input type="text" name="name" class="txt txt-name" placeholder="Họ và tên"/>
-                <input type="email" name="email" class="txt txt-email" placeholder="Email"/>
-                <input type="number" name="phone" class="txt txt-phone" placeholder="Số điện thoại"/>
-                <textarea name="content" class="txt txt-content" placeholder="Nội dung"></textarea>
+            {!! Form::open(['method' => 'POST', 'route' => ['createQuestion'], 'name' => 'questionForm']) !!}
+                <input type="text" name="ask_person" class="txt txt-name" placeholder="Họ và tên"/>
+                <input type="email" name="ask_email" class="txt txt-email" placeholder="Email"/>
+                <input type="number" name="ask_phone" class="txt txt-phone" placeholder="Số điện thoại"/>
+                <textarea name="question" class="txt txt-content" placeholder="Nội dung"></textarea>
                 <input type="submit" value="gửi đi" class="btn btn-submit"/>
                 <span class="mail-name">Chamsockhachhang@gmail.com</span>
-            </form>
+            {!!Form::close()!!}
         </div>
     </div>
     <div class="box-social-fb">

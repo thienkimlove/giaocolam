@@ -80,6 +80,10 @@ return array(
             return $image->fit(218, 128);
         },
 
+        '220x130' => function($image) {
+            return $image->fit(220, 130);
+        },
+
     ),
 
     /*

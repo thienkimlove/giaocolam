@@ -15,6 +15,6 @@ class Question extends Model implements SluggableInterface {
         'on_update'       => true,
     );
 
-	protected $fillable = ['question', 'answer', 'slug', 'answer_person', 'ask_person', 'ask_phone', 'ask_email', 'ask_address'];
+	protected $fillable = ['question', 'answer', 'slug', 'answer_person', 'ask_person', 'ask_phone', 'ask_email', 'ask_address', 'image'];
 
 }

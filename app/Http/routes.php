@@ -48,7 +48,19 @@ Route::get('{value}', function ($value) {
         ]);
     } else {
         $page = $value;
-        if (in_array($value, ['san-pham', 'phan-phoi', 'lien-he', 'video', 'hoi-dap-chuyen-gia'])) {
+
+        if ($value == 'hoi-dap-chuyen-gia') {
+            $questions = \App\Question::paginate(10);
+            return view('frontend.'.$value, compact('page', 'questions'))->with([
+                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
+                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
+                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
+            ]);
+        }
+
+        if (in_array($value, ['san-pham', 'phan-phoi', 'lien-he', 'video'])) {
+
+
             return view('frontend.'.$value, compact('page'))->with([
                 'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
                 'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
