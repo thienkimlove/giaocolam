@@ -6,6 +6,7 @@ use App\Post;
 use App\Question;
 use App\Setting;
 use App\Video;
+use DB;
 use Illuminate\Support\ServiceProvider;
 
 class ViewComposerProvider extends ServiceProvider {
@@ -17,18 +18,23 @@ class ViewComposerProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
+		DB::listen(function($sql, $bindings) {
+
+			for($j=0; $j<sizeof($bindings); $j++) {
+				$sql = implode($bindings[$j], explode('?', $sql, 2));
+			}
+			$logFile = fopen(storage_path('logs/query.log'), 'a+');
+			//write log to file
+			fwrite($logFile, $sql . "\n");
+			fclose($logFile);
+		});
+
 
         view()->composer('frontend.right', function ($view) {
-            $view->with([
-                'hotPosts'=> Post::where('status', true)->where('hot', true)->latest('updated_at')->limit(5)->get(),
-                'reasonPosts'=> Post::where('status', true)->where('reason', true)->latest('updated_at')->limit(6)->get(),
-                'settings' => Setting::lists('value', 'name')
-            ]);
-        });
-
-
-        view()->composer('frontend.box_office', function ($view) {
-            $view->with('questions', Question::latest('updated_at')->get());
+			$slidePosts = Post::whereHas('modules', function($q){
+				$q->where('slug', 'tin-tuc-noi-bat')->orderBy('order');
+			})->limit(6)->get();
+            $view->with('noibat', $slidePosts);
 
         });
 

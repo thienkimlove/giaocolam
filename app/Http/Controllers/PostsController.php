@@ -20,10 +20,10 @@ class PostsController extends BaseController {
     {
         $this->middleware('admin');
         $this->modules = [
-            'tin-tuc-noi-bat' => 'Hien thi tin tuc noi bat cot phai'
+            'tin-tuc-noi-bat' => 'Hien thi tin tuc noi bat cot phai',
+            'chuyen-muc-trang-chu' => 'Hien thi o trong list tin chuyen muc trang chu'
         ];
-        $this->categories = array('' => 'Choose category') + Category::whereNotNull('parent_id')
-                ->lists('name', 'id');
+        $this->categories = array('' => 'Choose category') + Category::lists('name', 'id');
         $this->tags = Tag::lists('name', 'name');
     }
 
@@ -77,12 +77,7 @@ class PostsController extends BaseController {
 
         if ($request->input('cat')) {
             $categoryId = $request->input('cat');
-            $category = Category::find($request->input('cat'));
-            if (!$category->parent_id) {
-                $posts = $posts->whereIn('category_id', $category->subCategories->lists('id'));
-            } else {
-                $posts = $posts->where('category_id', '=', $request->input('cat'));
-            }
+            $posts = $posts->where('category_id', '=', $categoryId);
         }
 
         $posts = $posts->paginate(10);
@@ -100,6 +95,7 @@ class PostsController extends BaseController {
 
     public function store(PostRequest $request)
     {
+        dd($request->all());
         $insert = [
             'title' => $request->input('title'),
             'category_id' => $request->input('category_id'),

@@ -82,4 +82,12 @@ class Post extends Model implements SluggableInterface {
         return $this->hasMany('App\Module');
     }
 
+    public function getRelatedAttribute()
+    {
+        return Post::where('category_id', $this->category_id)
+             ->where('id', '!=', $this->id)
+             ->where('status', true)
+             ->get();
+    }
+
 }

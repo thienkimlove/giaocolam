@@ -62,9 +62,13 @@ class CategoriesController extends BaseController
     {
          $category = Category::find($id);
 
-        if ($category->parent_id && $request->input('parent_id') == 0) {
+        //category nao display bai cua category do.
+
+        //moi lien he cha con chi dung khi hien thi.
+
+        /*if ($category->parent_id && $request->input('parent_id') == 0) {
             Post::where('category_id', $category->id)->update(['category_id' => $category->parent_id]);
-        }
+        }*/
 
          $category->update([
              'name' => $request->input('name'),
@@ -85,9 +89,7 @@ class CategoriesController extends BaseController
     {
         $category = Category::find($id);
 
-        if ($category->parent_id) {
-            Post::where('category_id', $category->id)->delete();
-        }
+        Post::where('category_id', $category->id)->delete();
 
         $category->delete();
 

@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 
+use App\Category;
 use App\Contact;
 use App\Http\Requests;
 use App\Http\Requests\ContactRequest;
@@ -15,6 +16,28 @@ use Illuminate\Support\Facades\Mail;
 
 class MainController extends Controller
 {
+
+    private function _prepareCategory($slug)
+    {
+        return  Category::where('slug', $slug)->first();
+    }
+
+    public function index()
+    {
+        $page = 'index';
+        $congdung = $this->_prepareCategory('cong-dung');
+        $thongtinkhoahoc = $this->_prepareCategory('thong-tin-khoa-hoc');
+        $tintuc = $this->_prepareCategory('tin-tuc');
+
+        return view('frontend.index', compact(
+            'congdung', 'thongtinkhoahoc', 'tintuc', 'page'
+        ))->with([
+            'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
+            'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
+            'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
+        ]);
+
+    }
 
 
     public function question($slug) {
@@ -54,6 +77,19 @@ class MainController extends Controller
         $posts = $tag->posts();
         return view('frontend.search', compact('posts', 'keyword'))->with([
             'meta_title' => ' Các bài viết với nhãn '.$keyword.' tại Viemgan.com.vn ',
+            'meta_desc' => '',
+            'meta_keywords' => $keyword,
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('q');
+        $posts = Post::where('title', 'LIKE', '%'.$keyword.'%')
+            ->where('status', true)
+            ->paginate(10);
+        return view('frontend.search', compact('posts', 'keyword'))->with([
+            'meta_title' => ' Các bài viết với nhãn '.$keyword.' tại Giảo Cổ Lam',
             'meta_desc' => '',
             'meta_keywords' => $keyword,
         ]);

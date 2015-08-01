@@ -40,6 +40,13 @@ class Category extends Model implements SluggableInterface {
         return $this->hasMany('App\Category', 'parent_id', 'id');
 
     }
+
+    public function homepagePosts()
+    {
+        return $this->hasMany('App\Post')->where('status', true)->whereHas('modules', function ($query) {
+            $query->where('modules.slug', '=', 'chuyen-muc-trang-chu');
+        })->limit(3);
+    }
     /**
      * category have many posts.
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -47,6 +54,11 @@ class Category extends Model implements SluggableInterface {
     public function posts()
     {
        return $this->hasMany('App\Post')->where('status', true);
+    }
+
+    public function getPaginateAttribute()
+    {
+        return $this->posts()->paginate(6);
     }
 
 

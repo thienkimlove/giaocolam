@@ -67,6 +67,18 @@ return array(
         '509x338' => function($image) {
             return $image->fit(509, 338);
         },
+        '310x230' => function($image) {
+            return $image->fit(310, 230);
+        },
+        '300x177' => function($image) {
+            return $image->fit(300, 177);
+        },
+        '110x70' => function($image) {
+            return $image->fit(110, 70);
+        },
+        '218x128' => function($image) {
+            return $image->fit(218, 128);
+        },
 
     ),
 

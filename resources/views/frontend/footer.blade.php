@@ -5,28 +5,28 @@
                 <div class="head">Giới thiệu</div>
                 <ul class="nav-footer">
                     <li>
-                        <a href="" title="">CÔNG DỤNG</a>
+                        <a href="{{url('cong-dung')}}" title="">Công dụng</a>
                     </li>
                     <li>
-                        <a href="" title="">THÔNG TIN KHOA HỌC</a>
+                        <a  href="{{url('thong-tin-khoa-hoc')}}" title="">Thông tin khoa học</a>
                     </li>
                     <li>
-                        <a href="" title="">SẢN PHẨM</a>
+                        <a href="{{url('san-pham')}}" title="">Sản phẩm</a>
                     </li>
                     <li>
-                        <a href="" title="">CHIA SẺ</a>
+                        <a  href="{{url('chia-se')}}" title="">Chia sẻ</a>
                     </li>
                     <li>
-                        <a href="" title="">HỎI ĐÁP CHUYÊN GIA</a>
+                        <a  href="{{url('hoi-dap-chuyen-gia')}}" title="">Hỏi đáp chuyên gia</a>
                     </li>
                     <li>
-                        <a href="" title="">TIN TỨC</a>
+                        <a  href="{{url('tin-tuc')}}" title="">Tin tức</a>
                     </li>
                     <li>
-                        <a href="">Video</a>
+                        <a  href="{{url('video')}}" title="">Video</a>
                     </li>
                     <li>
-                        <a href="">Liên hệ</a>
+                        <a  href="{{url('lien-he')}}" title="">Liên hệ</a>
                     </li>
                 </ul>
             </div>
@@ -48,10 +48,10 @@
             </div>
             <div class="item item-4">
                 <a href="">
-                    <img src="images/logo_footer.png" alt="Footer">
+                    <img src="{{url('images/logo_footer.png')}}" alt="Footer">
                 </a>
                 <p>
-                    Copyright © 2014 - Bản quyền thuộc tuelinh
+                    Copyright © 2014 - Bản quyền thuộc TueLinh
                 </p>
             </div>
             <div class="clear"></div>
