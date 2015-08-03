@@ -47,7 +47,7 @@
                     @endforeach
                 </ul><!--//news-type-->
                 <div class="news-home" id="tab-index" style="display:block;">
-                    @foreach ($congdung->homepagePosts as $post)
+                    @foreach ($congdung->homepage as $post)
                         <article class="item">
                             <a href="{{url($post->slug.'.html')}}" title="" class="thumbs">
                                 <img src="{{url('image-cached/310x230', $post->image)}}" width="310" height="230" alt=""/>
@@ -69,7 +69,7 @@
                 </div><!--//news-list-->
                 @foreach ($congdung->subCategories as $k => $cate)
                 <div class="news-home" id="tab-{{$cate->slug}}">
-                    @foreach ($cate->homepagePosts as $post)
+                    @foreach ($cate->homepage as $post)
                         <article class="item">
                             <a href="{{url($post->slug.'.html')}}" title="" class="thumbs">
                                 <img src="{{url('image-cached/310x230', $post->image)}}" width="310" height="230" alt=""/>
@@ -99,7 +99,7 @@
                 <ul class="news-type">
                     @foreach ($thongtinkhoahoc->subCategories as $k => $cate)
                         <li>
-                            <a href="javascript:void(0)" rel="nofollow" data-type="tab" data-content="tab-{{$cate->slug}}" data-parent="news-type" data-reset="news-home" title="{{$cate->name}}">
+                            <a href="javascript:void(0)" rel="nofollow" data-type="tab" data-content="tab-{{$cate->slug}}" data-parent="news-type" data-reset="news-list" title="{{$cate->name}}">
                                 {{$cate->name}}
                             </a>
                         </li>
@@ -109,7 +109,7 @@
                     @endforeach
                 </ul><!--//news-type-->
                 <div class="news-list cf" id="tab-demo" style="display: block">
-                    @foreach ($thongtinkhoahoc->homepagePosts->slice(0,2) as $post)
+                    @foreach ($thongtinkhoahoc->homepage->slice(0,2) as $post)
                         <article class="item">
                             <a href="{{url($post->slug.'.html')}}" title="" class="thumbs">
                                 <img src="{{url('image-cached/310x230', $post->image)}}" width="310" height="230" alt=""/>
@@ -132,7 +132,7 @@
                 </div><!--//news-list-->
                 @foreach ($thongtinkhoahoc->subCategories as $k => $cate)
                 <div class="news-list cf" id="tab-{{$cate->slug}}">
-                    @foreach ($cate->homepagePosts->slice(0,1) as $post)
+                    @foreach ($cate->homepage->slice(0,1) as $post)
                         <article class="item">
                             <a href="{{url($post->slug.'.html')}}" title="" class="thumbs">
                                 <img src="{{url('image-cached/310x230', $post->image)}}" width="310" height="230" alt=""/>
@@ -154,20 +154,12 @@
                     @endforeach
                 </div><!--//news-list-->
                 @endforeach
-                <div class="box-adv-center">
-                    <div class="head"><span>Quảng cáo</span></div>
-                    <div class="data">
-                        <div class="item full">
-                            <a href="#"><img src="{{url('images/banner_adv_left_content.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div><!--//box-adv-center-->
+                @include('frontend.box_adv_center')
                 <div class="box-news cf">
                     <h3 class="bg-title02">
                         <span>Tin tức giảo cổ lam</span>
                     </h3>
-                    @foreach ($tintuc->homepagePosts as $k => $post)
+                    @foreach ($tintuc->homepage as $k => $post)
                         @if($k == 0)
                         <div class="item01">
                             <a href="{{url($post->slug.'.html')}}" class="thumbs">

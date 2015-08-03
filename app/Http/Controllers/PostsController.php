@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Requests\PostRequest;
 use App\Module;
 use App\Post;
+use App\Product;
 use App\Tag;
 use DB;
 use Illuminate\Http\Request;
@@ -19,11 +20,24 @@ class PostsController extends BaseController {
     public function __construct()
     {
         $this->middleware('admin');
+
         $this->modules = [
             'tin-tuc-noi-bat' => 'Hien thi tin tuc noi bat cot phai',
             'chuyen-muc-trang-chu' => 'Hien thi o trong list tin chuyen muc trang chu'
         ];
-        $this->categories = array('' => 'Choose category') + Category::lists('name', 'id');
+
+        $products = Product::all();
+
+        foreach ($products as $product) {
+            $this->modules['thong-tin-san-pham-'. $product->id] = 'Hien thi o tin lien quan cua thong tin san pham '.$product->title;
+            $this->modules['nghien-cuu-san-pham-'. $product->id] = 'Hien thi o tin lien quan cua nghien cuu san pham '.$product->title;
+        }
+
+        $categories = Category::all()->filter(function($item){
+            return $item->subCategories->count() == 0;
+        })->lists('name', 'id');
+
+        $this->categories = array('' => 'Choose category') + $categories;
         $this->tags = Tag::lists('name', 'name');
     }
 

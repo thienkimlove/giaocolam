@@ -8,6 +8,7 @@ use App\Http\Requests\ContactRequest;
 use App\Http\Requests\QuestionRequest;
 use App\Http\Requests\RegisterEmailRequest;
 use App\Post;
+use App\Product;
 use App\Question;
 use App\Setting;
 use App\Tag;
@@ -79,6 +80,33 @@ class MainController extends Controller
             'meta_title' => ' Các bài viết với nhãn '.$keyword.' tại Viemgan.com.vn ',
             'meta_desc' => '',
             'meta_keywords' => $keyword,
+        ]);
+    }
+    public function video($value = null)
+    {
+        $page = 'video';
+
+        return view('frontend.video', compact('page'))->with([
+            'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Sản phẩm Giảo Cổ Lam',
+            'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Sản phẩm Giảo Cổ Lam',
+            'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Sản phẩm, Giảo Cổ Lam',
+        ]);
+    }
+
+    public function product($value = null)
+    {
+        $page = 'san-pham';
+        if (!$value) {
+            $product = Product::first();
+
+        } else {
+            $product = Product::where('slug', $value)->first();
+        }
+        $products = Product::all();
+        return view('frontend.san-pham', compact('page', 'products', 'product'))->with([
+            'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Sản phẩm Giảo Cổ Lam',
+            'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Sản phẩm Giảo Cổ Lam',
+            'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Sản phẩm, Giảo Cổ Lam',
         ]);
     }
 

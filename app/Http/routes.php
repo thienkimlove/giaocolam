@@ -11,12 +11,15 @@
 */
 use App\Category;
 use App\Post;
+use App\Product;
 
 Route::resource('admin/posts', 'PostsController');
 Route::resource('admin/categories', 'CategoriesController');
 Route::resource('admin/questions', 'QuestionsController');
+Route::resource('admin/products', 'ProductsController');
 Route::resource('admin/settings', 'SettingsController');
 Route::resource('admin/contacts', 'ContactsController');
+Route::resource('admin/videos', 'VideosController');
 
 
 Route::controllers([
@@ -32,7 +35,10 @@ Route::post('registerEmail', ['as' => 'registerEmail', 'uses' => 'MainController
 Route::get('admin', 'AdminController@index');
 Route::get('tim-kiem', 'MainController@search');
 
-Route::get('chi-tiet/{slug}', 'MainController@question');
+Route::get('san-pham/{value?}', 'MainController@product');
+Route::get('video/{value?}', 'MainController@video');
+
+
 
 Route::get('/', 'MainController@index');
 
@@ -58,7 +64,7 @@ Route::get('{value}', function ($value) {
             ]);
         }
 
-        if (in_array($value, ['san-pham', 'phan-phoi', 'lien-he', 'video'])) {
+        if (in_array($value, ['phan-phoi', 'lien-he'])) {
 
 
             return view('frontend.'.$value, compact('page'))->with([

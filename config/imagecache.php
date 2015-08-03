@@ -83,6 +83,15 @@ return array(
         '220x130' => function($image) {
             return $image->fit(220, 130);
         },
+        '290x150' => function($image) {
+            return $image->fit(290, 150);
+        },
+        '303x130' => function($image) {
+            return $image->fit(303, 130);
+        },
+        '105x69' => function($image) {
+            return $image->fit(105, 69);
+        },
 
     ),
 

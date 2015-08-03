@@ -51,6 +51,34 @@
                 </li>
 
                 <li>
+                    <a><i class="fa fa-files-o fa-fw"></i>Video<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+
+                        <li>
+                            <a href="{{url('admin/videos')}}">Danh sách</a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/videos/create')}}">Thêm video</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+                <li>
+                    <a><i class="fa fa-files-o fa-fw"></i>Sản phẩm <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+
+                        <li>
+                            <a href="{{url('admin/products')}}">Danh sách</a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/products/create')}}">Thêm Sản phẩm</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+                <li>
                     <a><i class="fa fa-files-o fa-fw"></i>Category<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
 

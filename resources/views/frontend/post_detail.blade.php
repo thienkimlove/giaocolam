@@ -33,15 +33,7 @@
                     <div class="comment-post">
                         <img src="{{url('images/social01.jpg')}}" alt="">
                     </div>
-                    <div class="box-adv-center">
-                        <div class="head"><span>Quảng cáo</span></div>
-                        <div class="data">
-                            <div class="item full">
-                                <a href="#"><img src="{{url('images/banner_adv_left_content.jpg')}}" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div><!--//box-adv-center-->
+                    @include('frontend.box_adv_center')
                 </div>
             </div><!--//col-left-->
             @include('frontend.right')

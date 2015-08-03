@@ -1,26 +1,6 @@
 <div class="col-right">
     @if (!empty($page) && $page != 'video')
-    <div class="box-video">
-        <div class="data">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/4QEmJ3sPHIg" frameborder="0" allowfullscreen></iframe>
-            <h3>
-                Andres Iniesta ● Maestro Skills 2015 ||HD||
-            </h3>
-            <span class="view">1234 lượt xem</span>
-        </div>
-        <div class="item">
-            <a href="#" class="thumbs">
-                <img src="{{url('images/thumbs.jpg')}}" alt="">
-            </a>
-            <h3>
-                Sở thích vừa học, vừa hát
-            </h3>
-            <p>
-                Quán quân Vietnam's Got Talent muốn đi học ngay trong ngày đầu trở về nhà. Cậu bé ham học giữ chức lớp trưởng, đồng thời là học sinh giỏi 3 năm liền.
-            </p>
-            <span class="view">1234 lượt xem</span>
-        </div>
-    </div>
+    @include('frontend.box_video')
     @endif
     <div class="box-news">
         <div class="bg-title03">
@@ -34,11 +14,7 @@
             @endforeach
         </ul>
     </div>
-    <div class="box-adv">
-        <a href="#">
-            <img src="{{url('images/adv_01.png')}}" alt="Tue linh">
-        </a>
-    </div>
+    @include('frontend.box_adv_normal')
     <div class="box-consult">
         <div class="bg-title03">
             <span>Tư vấn giảo cổ lam</span>

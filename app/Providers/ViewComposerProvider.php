@@ -43,6 +43,23 @@ class ViewComposerProvider extends ServiceProvider {
 
         });
 
+		view()->composer('frontend.box_video', function ($view) {
+			$view->with('videoLists', Video::latest('updated_at')->limit(6)->get());
+		});
+
+
+
+
+		view()->composer('frontend.box_adv_normal', function ($view) {
+			$settings = Setting::lists('value', 'name');
+			$view->with('html', $settings['adv_normal']);
+		});
+
+		view()->composer('frontend.box_adv_center', function ($view) {
+			$settings = Setting::lists('value', 'name');
+			$view->with('html', $settings['adv_center']);
+		});
+
 	}
 
 	/**

@@ -66,9 +66,9 @@ class CategoriesController extends BaseController
 
         //moi lien he cha con chi dung khi hien thi.
 
-        /*if ($category->parent_id && $request->input('parent_id') == 0) {
+        if ($category->parent_id && $request->input('parent_id') == 0) {
             Post::where('category_id', $category->id)->update(['category_id' => $category->parent_id]);
-        }*/
+        }
 
          $category->update([
              'name' => $request->input('name'),
@@ -93,9 +93,9 @@ class CategoriesController extends BaseController
 
         $category->delete();
 
-        flash('Success deleted post!');
+        flash('Success deleted category!');
 
-        return redirect('admin/posts');
+        return redirect('admin/categories');
     }
 
 
