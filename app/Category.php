@@ -56,6 +56,7 @@ class Category extends Model implements SluggableInterface {
         }
     }
 
+
     public function homepagePosts()
     {
         return $this->hasMany('App\Post')->where('status', true)->whereHas('modules', function ($query) {
@@ -73,7 +74,12 @@ class Category extends Model implements SluggableInterface {
 
     public function getPaginateAttribute()
     {
-        return $this->posts()->paginate(6);
+        if ($this->parent_id || $this->subCategories()->count() == 0) {
+            return $this->posts()->paginate(6);
+        } else {
+            return $this->subCategories()->first()->posts()->paginate(6);
+        }
+
     }
 
 
