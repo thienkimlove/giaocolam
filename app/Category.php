@@ -43,7 +43,7 @@ class Category extends Model implements SluggableInterface {
 
     public function getHomepageAttribute()
     {
-        if ($this->parent_id) {
+        if ($this->parent_id || $this->subCategories()->count() == 0) {
             return Post::where('status', true)->where('category_id', $this->id)->whereHas('modules', function ($query) {
                 $query->where('slug', 'chuyen-muc-trang-chu');
             })->limit(3)->get();
@@ -52,6 +52,7 @@ class Category extends Model implements SluggableInterface {
             return Post::where('status', true)->whereIn('category_id', $subCategories)->whereHas('modules', function ($query) {
                 $query->where('slug', 'chuyen-muc-trang-chu');
             })->limit(3)->get();
+
         }
     }
 

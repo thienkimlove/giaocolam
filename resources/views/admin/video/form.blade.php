@@ -47,7 +47,10 @@
                     {!! Form::select('product_id', $products, null, ['class' => 'form-control']) !!}
                 </div>
 
-
+                <div class="form-group">
+                    {!! Form::label('hot', 'Hot Video') !!}
+                    {!! Form::checkbox('hot', null, null) !!}
+                </div>
 
             <div class="form-group">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}

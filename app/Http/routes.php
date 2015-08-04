@@ -66,7 +66,6 @@ Route::get('{value}', function ($value) {
 
         if (in_array($value, ['phan-phoi', 'lien-he'])) {
 
-
             return view('frontend.'.$value, compact('page'))->with([
                 'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
                 'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',

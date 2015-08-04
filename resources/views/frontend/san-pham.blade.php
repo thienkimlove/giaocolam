@@ -74,9 +74,11 @@
                     <div class="news-home" id="tab-video">
                         <div class="box-media">
                             <div class="hot-video cf">
+                                @if ($first = $product->hotVideos->shift())
                                 <div class="col-left">
-                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/RpVqM2TGhiE" frameborder="0" allowfullscreen></iframe>
+                                    <iframe width="100%" height="315" src="{{$first->file_name}}" frameborder="0" allowfullscreen></iframe>
                                 </div>
+                                @endif
                                 <div class="col-right">
                                     <ul class="list-video">
                                         @foreach ($product->hotVideos as $video)

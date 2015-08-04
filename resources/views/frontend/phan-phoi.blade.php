@@ -182,21 +182,7 @@
                         </h3>
                     </article>
                 </div>
-                <div class="box-contact">
-                    <div class="bg-title03">
-                        <span>Đặt câu hỏi với chuyên gia</span>
-                    </div>
-                    <div class="col-right">
-                        <form action="" method="post">
-                            <input type="text" name="name" class="txt txt-name" placeholder="Họ và tên"/>
-                            <input type="email" name="email" class="txt txt-email" placeholder="Email"/>
-                            <input type="number" name="phone" class="txt txt-phone" placeholder="Số điện thoại"/>
-                            <textarea name="content" class="txt txt-content" placeholder="Nội dung"></textarea>
-                            <input type="submit" value="gửi đi" class="btn btn-submit"/>
-                            <span class="mail-name">Chamsockhachhang@gmail.com</span>
-                        </form>
-                    </div>
-                </div>
+                @include('frontend.box_contact')
                 <div class="box-social-fb">
                     <img src="images/social.jpg" alt="">
                 </div>

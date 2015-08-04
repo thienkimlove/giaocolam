@@ -12,6 +12,7 @@ use App\Product;
 use App\Question;
 use App\Setting;
 use App\Tag;
+use App\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -86,7 +87,20 @@ class MainController extends Controller
     {
         $page = 'video';
 
-        return view('frontend.video', compact('page'))->with([
+        if ($value) {
+            $videoMain = Video::where('slug', $value)->first();
+        } else {
+            $videoMain = null;
+        }
+
+        $hotVideos = Video::where('hot', true)
+            ->latest('updated_at')
+            ->limit(7)
+            ->get();
+
+        $videos = Video::latest('updated_at')->paginate(10);
+
+        return view('frontend.video', compact('page', 'hotVideos', 'videos', 'videoMain'))->with([
             'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Sản phẩm Giảo Cổ Lam',
             'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Sản phẩm Giảo Cổ Lam',
             'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Sản phẩm, Giảo Cổ Lam',

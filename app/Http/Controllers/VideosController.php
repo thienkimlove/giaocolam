@@ -45,6 +45,7 @@ class VideosController extends BaseController {
 	{
 		$data = $request->all();
 		$data['image'] = ($request->file('image') && $request->file('image')->isValid()) ? $this->saveImage($request->file('image')) : '';
+		$data['hot'] = ($request->input('hot') == 'on') ? true : false;
 		Video::create($data);
 		flash('Them moi video thanh cong!', 'success');
 		return redirect('admin/videos');
@@ -88,6 +89,7 @@ class VideosController extends BaseController {
 		if ($request->file('image') && $request->file('image')->isValid()) {
 			$data['image'] = $this->saveImage($request->file('image'), $video->image);
 		}
+		$data['hot'] = ($request->input('hot') == 'on') ? true : false;
 		$video->update($data);
 		flash('Sua video thành công!', 'success');
 		return redirect('admin/videos');

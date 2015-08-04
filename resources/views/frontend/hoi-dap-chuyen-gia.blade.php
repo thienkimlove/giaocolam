@@ -3,9 +3,7 @@
     <section class="section fix">
         <div class="layout-home">
             <div class="col-left">
-                <div class="box-banner">
-                    <img src="{{url('images/banner_adv_left_content.jpg')}}" alt="">
-                </div>
+                @include('frontend.box_adv_center')
                 <div class="box-faq">
                     @foreach ($questions as $question)
                     <article class="item">
@@ -38,21 +36,8 @@
                             <div class="clear"></div>
                     </div>
                 </div>
-                <div class="box-contact cf">
-                    <div class="col-left">
-                        {!! Form::open(['method' => 'POST', 'route' => ['createQuestion'], 'name' => 'questionForm']) !!}
-                        <input type="text" name="ask_person" class="txt txt-name" placeholder="Họ và tên"/>
-                        <input type="email" name="ask_email" class="txt txt-email" placeholder="Email"/>
-                        <input type="number" name="ask_phone" class="txt txt-phone" placeholder="Số điện thoại"/>
-                        <input type="text" name="ask_address" class="txt txt-add" placeholder="Địa chỉ"/>
-                        <textarea name="question" class="txt txt-content" placeholder="Nội dung"></textarea>
-                        <input type="submit" value="Gửi" class="btn btn-submit"/>
-                        {!!Form::close()!!}
-                    </div>
-                </div>
-                <div class="box-banner">
-                    <img src="{{url('images/banner_adv_left_content.jpg')}}" alt="">
-                </div>
+                @include('frontend.box_contact')
+                @include('frontend.box_adv_center')
             </div><!--//col-left-->
             @include('frontend.right')
             <div class="clear"></div>
