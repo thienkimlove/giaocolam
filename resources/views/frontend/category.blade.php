@@ -21,7 +21,7 @@
                         @endforeach
                     </ul><!--//news-type-->
                     <div class="news-home" id="tab-share" style="display: block">
-                        @foreach ($firstSub = $category->subCategories->first() as $post)
+                        @foreach ($firstSub = $category->subCategories->first()->paginate as $post)
                         <article class="item">
                             <a href="{{url($post->slug.'.html')}}" title="" class="thumbs">
                                 <img src="{{url('image-cached/310x230', $post->image)}}" width="310" height="230" alt=""/>
