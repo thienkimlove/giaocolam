@@ -31,7 +31,7 @@
     <section class="section fix">
         <div class="layout-home">
             <div class="box-uses">
-                <h3 class="bg-title01">
+                <h3 class="bg-title02">
                     <span>Công dụng</span>
                 </h3>
                 <ul class="news-type">
