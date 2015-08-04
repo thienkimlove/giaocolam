@@ -21,7 +21,7 @@
                         @endforeach
                     </ul><!--//news-type-->
                     <div class="news-home" id="tab-share" style="display: block">
-                        @foreach ($category->paginate as $post)
+                        @foreach ($firstSub = $category->subCategories->first() as $post)
                         <article class="item">
                             <a href="{{url($post->slug.'.html')}}" title="" class="thumbs">
                                 <img src="{{url('image-cached/310x230', $post->image)}}" width="310" height="230" alt=""/>
@@ -34,7 +34,7 @@
                         </article>
                         @endforeach
                         <div class="box-paging">
-                            {!! with(new \App\Pagination\AcmesPresenter($category->paginate))->render() !!}
+                            {!! with(new \App\Pagination\AcmesPresenter($firstSub))->render() !!}
                             <div class="clear"></div>
                         </div>
                     </div><!--//news-list-->

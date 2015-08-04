@@ -3,7 +3,6 @@
     <section class="section fix">
         <div class="layout-home">
             <div class="col-left">
-                @include('frontend.box_adv_center')
                 <div class="box-faq">
                     @foreach ($questions as $question)
                     <article class="item">
