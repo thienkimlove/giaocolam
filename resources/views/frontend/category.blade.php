@@ -28,7 +28,7 @@
 
                             </a>
                             <h3>
-                                <a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 40)}}</a>
+                                <a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 70)}}</a>
                             </h3>
                             <p>{{str_limit($post->desc, 70)}}</p>
                         </article>
@@ -47,7 +47,7 @@
 
                                 </a>
                                 <h3>
-                                    <a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 40)}}</a>
+                                    <a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 70)}}</a>
                                 </h3>
                                 <p>{{str_limit($post->desc, 70)}}</p>
                             </article>

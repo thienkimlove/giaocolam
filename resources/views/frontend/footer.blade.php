@@ -33,10 +33,10 @@
             <div class="item item-3">
                 <div class="head">LIÊN HỆ</div>
                 <ul class="nav-footer">
-                    <li>Địa chỉ: Số 4 Cầu giấy - Hà Nội</li>
-                    <li> Điện thoại: 04.123.321, Fax: 04.456.789</li>
+                    <li>Địa chỉ: Tầng 5, toàn nhà 29T1, Hoàng Đạo Thúy, Hà Nội</li>
+                    <li> Điện thoại: 04 6282 4344, Fax: 04 6282 4263</li>
                     <li>
-                        Email: <a href="mailto:info@gmail.com" title="info@gmail.com">info@gmail.com</a>
+                        Email: <a href="mailto:chiasehay@tuelinh.com" title="chiasehay@tuelinh.com">chiasehay@tuelinh.com</a>
                     </li>
                     <li>
                         Giấy phép xuất bản: Số 11224/GP-BTTTT cấp ngày 19-02-2009 của Bộ Y tế

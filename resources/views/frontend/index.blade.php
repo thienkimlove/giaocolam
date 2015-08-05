@@ -4,7 +4,7 @@
         <div class="owl-carousel" id="slide-homepage">
             <div class="item">
                 <a class="thumb" href="{{url('san-pham')}}" title="">
-                    <img src="{{url('images/slide_banner01.jpg')}}"/>
+                    <img src="{{url('images/bannerslide.png')}}"/>
                 </a>
                 <div class="description">
                     <div class="fix">
@@ -166,14 +166,14 @@
                                 <img src="{{url('image-cached/300x177', $post->image)}}" alt="">
                             </a>
                             <h3>
-                                <a href="{{url($post->slug.'.html')}}">{{str_limit($post->title, 40)}}</a>
+                                <a href="{{url($post->slug.'.html')}}">{{str_limit($post->title, 70)}}</a>
                             </h3>
                             <p>{{str_limit($post->desc, 70)}}</p>
                         </div>
                         @else
                         <div class="item02">
                             <h3>
-                                {{str_limit($post->title, 40)}}
+                                {{str_limit($post->title, 70)}}
                             </h3>
                             <a href="" class="thumbs">
                                 <img src="{{url('image-cached/110x70', $post->image)}}" alt="" width="110" height="70">

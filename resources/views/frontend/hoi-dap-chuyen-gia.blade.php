@@ -3,9 +3,7 @@
     <section class="section fix">
         <div class="layout-home">
             <div class="col-left">
-                <div class="box-banner">
-                    <img src="{{url('images/banner_adv_left_content.jpg')}}" alt="">
-                </div>
+                @include('frontend.box_adv_hoidap')
                 <div class="box-faq">
                     @foreach ($questions as $question)
                     <article class="item">

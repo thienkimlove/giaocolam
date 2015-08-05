@@ -59,6 +59,10 @@ class ViewComposerProvider extends ServiceProvider {
 			$settings = Setting::lists('value', 'name');
 			$view->with('html', $settings['adv_center']);
 		});
+		view()->composer('frontend.box_adv_hoidap', function ($view) {
+			$settings = Setting::lists('value', 'name');
+			$view->with('html', $settings['adv_hoidap']);
+		});
 
 	}
 

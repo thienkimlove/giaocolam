@@ -9,7 +9,7 @@
         <input type="number" name="ask_phone" class="txt txt-phone" placeholder="Số điện thoại"/>
         <textarea name="question" class="txt txt-content" placeholder="Nội dung"></textarea>
         <input type="submit" value="gửi đi" class="btn btn-submit"/>
-        <span class="mail-name">Chamsockhachhang@gmail.com</span>
+        <span class="mail-name">chiasehay@tuelinh.com</span>
         {!!Form::close()!!}
     </div>
 </div>
