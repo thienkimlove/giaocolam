@@ -1041,6 +1041,26 @@ img {
   display: block;
 }
 
+.layout-home {
+  /* Zebra striping */
+}
+.layout-home table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.layout-home tr:nth-of-type(odd) {
+  background: #eee;
+}
+.layout-home th {
+  background: #333;
+  color: white;
+  font-weight: bold;
+}
+.layout-home td, .layout-home th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
 .layout-home .box-uses {
   margin-bottom: 20px;
 }
@@ -1145,6 +1165,9 @@ img {
 }
 .layout-home .col-left .box-contact {
   margin-bottom: 10px;
+}
+.layout-home .col-left .box-contact .col-right {
+  float: left;
 }
 .layout-home .col-left .news-home .item {
   width: 48%;
