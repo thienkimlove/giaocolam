@@ -36,9 +36,7 @@
                     <div class="news-home" id="tab-infoproduct" style="display: block">
                         <article class="detail">
                             {!! $product->thongtin !!}
-                            <div class="social-follow">
-                                <img src="{{url('images/social01.jpg')}}" alt="">
-                            </div>
+                            @include('frontend.box_follow')
                             <div class="released-post">
                                 <h3>Tin liên quan</h3>
                                 <ul class="list-released">
@@ -47,17 +45,13 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <div class="comment-post">
-                                <img src="{{url('images/social01.jpg')}}" alt="">
-                            </div>
+                            @include('frontend.box_comment')
                         </article>
                     </div><!--//news-list-->
                     <div class="news-home" id="tab-research01">
                         <article class="detail">
                             {!! $product->nghiencuu !!}
-                            <div class="social-follow">
-                                <img src="{{url('images/social01.jpg')}}" alt="">
-                            </div>
+                            @include('frontend.box_follow')
                             <div class="released-post">
                                 <h3>Tin liên quan</h3>
                                 <ul class="list-released">
@@ -66,9 +60,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <div class="comment-post">
-                                <img src="{{url('images/social01.jpg')}}" alt="">
-                            </div>
+                            @include('frontend.box_comment')
                         </article>
                     </div><!--//news-list-->
                     <div class="news-home" id="tab-video">

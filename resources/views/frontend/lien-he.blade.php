@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="box-map">
-                    <img src="{{url('images/map.jpg')}}" width="1360" height="450" alt="">
+                    <iframe width="640" height="480" src="https://www.google.com/maps/d/embed?mid=z1FBqVhks5y8.koB5Ne4xwpZw"></iframe>
                 </div>
                 <!-- EndBoxContact -->
             </div><!--//col-left-->

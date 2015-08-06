@@ -12,9 +12,7 @@
                            {!! $post->content !!}
                         </div>
                     </article>
-                    <div class="social-follow">
-                        <img src="{{url('images/social01.jpg')}}" alt="">
-                    </div>
+                    @include('frontend.box_follow')
                     <div class="box-product">
                         <h3 class="title">Bài liên quan</h3>
                         <div class="owl-carousel" id="slide-product">
@@ -30,9 +28,7 @@
                             @endforeach
                         </div>
                     </div><!--//box-product-->
-                    <div class="comment-post">
-                        <img src="{{url('images/social01.jpg')}}" alt="">
-                    </div>
+                    @include('frontend.box_comment')
                     @include('frontend.box_adv_center')
                 </div>
             </div><!--//col-left-->
