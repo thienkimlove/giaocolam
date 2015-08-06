@@ -12,7 +12,7 @@
                            {!! $post->content !!}
                         </div>
                     </article>
-                    @include('frontend.box_follow')
+
                     <div class="box-product">
                         <h3 class="title">Bài liên quan</h3>
                         <div class="owl-carousel" id="slide-product">

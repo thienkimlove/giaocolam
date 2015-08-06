@@ -36,7 +36,7 @@
                     <div class="news-home" id="tab-infoproduct" style="display: block">
                         <article class="detail">
                             {!! $product->thongtin !!}
-                            @include('frontend.box_follow')
+
                             <div class="released-post">
                                 <h3>Tin liên quan</h3>
                                 <ul class="list-released">
@@ -51,7 +51,7 @@
                     <div class="news-home" id="tab-research01">
                         <article class="detail">
                             {!! $product->nghiencuu !!}
-                            @include('frontend.box_follow')
+
                             <div class="released-post">
                                 <h3>Tin liên quan</h3>
                                 <ul class="list-released">
