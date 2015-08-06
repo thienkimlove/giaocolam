@@ -81,6 +81,15 @@ class Category extends Model implements SluggableInterface {
         }
 
     }
+    public function getCitiesAttribute()
+    {
+        if ($this->parent_id) {
+            return $this->posts()->where('category_id', $this->id)->get();
+        } else {
+            return;
+        }
+
+    }
 
 
 }

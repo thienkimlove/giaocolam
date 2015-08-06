@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddDescToVideos' => $baseDir . '/database/migrations/2015_08_03_110137_add_desc_to_videos.php',
+    'AddFieldCityToPostsTable' => $baseDir . '/database/migrations/2015_08_06_050442_add_field_city_to_posts_table.php',
     'AddFieldToQuestions' => $baseDir . '/database/migrations/2015_05_07_051625_add_field_to_questions.php',
     'AddFieldsToTableQuestions' => $baseDir . '/database/migrations/2015_05_03_143818_add_fields_to_table_questions.php',
     'AddImageToQuestions' => $baseDir . '/database/migrations/2015_08_01_112859_add_image_to_questions.php',
@@ -20,7 +21,6 @@ return array(
     'CreateProductsTable' => $baseDir . '/database/migrations/2015_08_03_013648_create_products_table.php',
     'CreateQuestionsTable' => $baseDir . '/database/migrations/2015_03_31_082046_create_questions_table.php',
     'CreateSettingsTable' => $baseDir . '/database/migrations/2015_05_03_113908_create_settings_table.php',
-    'CreateTableContacts' => $baseDir . '/database/migrations/2015_08_04_025036_create_table_contacts.php',
     'CreateTagsTable' => $baseDir . '/database/migrations/2015_03_30_013913_create_tags_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'CreateVideos' => $baseDir . '/database/migrations/2015_08_03_103112_create_videos.php',

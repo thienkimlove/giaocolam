@@ -37,6 +37,8 @@ Route::get('tim-kiem', 'MainController@search');
 
 Route::get('san-pham/{value?}', 'MainController@product');
 Route::get('video/{value?}', 'MainController@video');
+Route::get('phan-phoi', 'MainController@phanphoi');
+Route::get('lien-he', 'MainController@lienhe');
 
 
 
@@ -58,15 +60,6 @@ Route::get('{value}', function ($value) {
         if ($value == 'hoi-dap-chuyen-gia') {
             $questions = \App\Question::paginate(10);
             return view('frontend.'.$value, compact('page', 'questions'))->with([
-                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
-                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
-                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
-            ]);
-        }
-
-        if (in_array($value, ['phan-phoi', 'lien-he'])) {
-
-            return view('frontend.'.$value, compact('page'))->with([
                 'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
                 'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
                 'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',

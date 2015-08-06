@@ -116,6 +116,7 @@ class PostsController extends BaseController {
             'desc' => $request->input('desc'),
             'content' => $request->input('content'),
             'image' => ($request->file('image') && $request->file('image')->isValid()) ? $this->saveImage($request->file('image')) : '',
+            'city' => $request->input('city'),
             'status' => ($request->input('status') == 'on') ? true : false,
         ];
 
@@ -150,6 +151,7 @@ class PostsController extends BaseController {
             'category_id' => $request->input('category_id'),
             'desc' => $request->input('desc'),
             'content' => $request->input('content'),
+            'city' => $request->input('city'),
             'status' => ($request->input('status') == 'on') ? true : false,
         ];
         if ($request->file('image') && $request->file('image')->isValid()) {

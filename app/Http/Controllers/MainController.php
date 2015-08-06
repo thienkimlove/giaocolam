@@ -101,9 +101,9 @@ class MainController extends Controller
         $videos = Video::latest('updated_at')->paginate(10);
 
         return view('frontend.video', compact('page', 'hotVideos', 'videos', 'videoMain'))->with([
-            'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Sản phẩm Giảo Cổ Lam',
-            'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Sản phẩm Giảo Cổ Lam',
-            'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Sản phẩm, Giảo Cổ Lam',
+            'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Video | Giảo Cổ Lam',
+            'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Video Giảo Cổ Lam',
+            'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Video, Giảo Cổ Lam',
         ]);
     }
 
@@ -118,9 +118,30 @@ class MainController extends Controller
         }
         $products = Product::all();
         return view('frontend.san-pham', compact('page', 'products', 'product'))->with([
-            'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Sản phẩm Giảo Cổ Lam',
+            'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Sản phẩm | Giảo Cổ Lam',
             'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Sản phẩm Giảo Cổ Lam',
             'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Sản phẩm, Giảo Cổ Lam',
+        ]);
+    }
+
+    public function phanphoi()
+    {
+        $page = 'phan-phoi';
+        $category = Category::where('slug', 'phan-phoi')->first();
+        return view('frontend.phan-phoi', compact('page', 'category'))->with([
+            'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Hệ thống phân phối | Giảo Cổ Lam',
+            'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Hệ thống phân phối Giảo Cổ Lam',
+            'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Hệ thống phân phối, Giảo Cổ Lam',
+        ]);
+    }
+
+    public function lienhe()
+    {
+        $page = 'lien-he';
+        return view('frontend.lien-he', compact('page'))->with([
+            'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Liên hệ | Giảo Cổ Lam',
+            'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Liên hệ Giảo Cổ Lam',
+            'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Liên hệ, Giảo Cổ Lam',
         ]);
     }
 
