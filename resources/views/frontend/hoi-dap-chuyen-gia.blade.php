@@ -12,13 +12,9 @@
                                 <img src="{{url('image-cached/220x130', $question->image)}}"  alt="">
                             </a>
                             <h3 class="title-faq">{{str_limit($question->question, 40)}}</h3>
-                <span class="human">Người gửi:
-                  <span>{{$question->ask_person}}</span>
-                </span>
-                            <time class="time" datetime="{{$question->updated_at}}">{{$question->updated_at}}</time>
+
                             <p>
-                                <span class="question">Câu hỏi:</span>
-                                <span>{{str_limit($question->question, 40)}}</span>
+                                <span>{{str_limit($question->question, 200)}}</span>
                             </p>
                         </div>
                         <div>
