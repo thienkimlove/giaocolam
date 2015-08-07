@@ -13,8 +13,9 @@
                 {!! Form::close() !!}
             </div>
             <ul class="nav-social">
-                <li><a href=""><img src="{{url('images/i_fb.png')}}" alt=""></a></li>
-                <li><a href=""><img src="{{url('images/i_ytube.png')}}" alt=""></a></li>
+                <li><a href="https://www.facebook.com/www.giaocolam.vn
+"><img src="{{url('images/i_fb.png')}}" alt=""></a></li>
+                <li><a href="https://www.youtube.com/channel/UCrFLHc7P7e1O1OA3lNIG7wA"><img src="{{url('images/i_ytube.png')}}" alt=""></a></li>
             </ul>
         </div>
     </div>
