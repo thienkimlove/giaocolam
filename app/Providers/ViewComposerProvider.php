@@ -44,7 +44,7 @@ class ViewComposerProvider extends ServiceProvider {
         });
 
 		view()->composer('frontend.box_video', function ($view) {
-			$view->with('videoLists', Video::latest('updated_at')->limit(6)->get());
+			$view->with('videoLists', Video::latest('updated_at')->limit(3)->get());
 		});
 
 
