@@ -14,7 +14,7 @@
                             <h3 class="title-faq">{{str_limit($question->question, 40)}}</h3>
 
                             <p>
-                                <span>{{str_limit($question->question, 200)}}</span>
+                                <span>{{str_limit($question->question, 240)}}</span>
                             </p>
                         </div>
                         <div>
