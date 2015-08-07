@@ -50,7 +50,7 @@
                     @foreach ($congdung->homepage as $post)
                         <article class="item">
                             <a href="{{url($post->slug.'.html')}}" title="" class="thumbs">
-                                <img src="{{url('image-cached/310x230', $post->image)}}" width="310" height="230" alt=""/>
+                                <img src="{{url('image-cached/310x230', $post->image)}}"  alt=""/>
                             </a>
                             <h3>
                                 <a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 40)}}</a>
@@ -72,7 +72,7 @@
                     @foreach ($cate->homepage as $post)
                         <article class="item">
                             <a href="{{url($post->slug.'.html')}}" title="" class="thumbs">
-                                <img src="{{url('image-cached/310x230', $post->image)}}" width="310" height="230" alt=""/>
+                                <img src="{{url('image-cached/310x230', $post->image)}}"  alt=""/>
                                 <span>{{$cate->name}}</span>
                             </a>
                             <h3>
@@ -112,7 +112,7 @@
                     @foreach ($thongtinkhoahoc->homepage->slice(0,2) as $post)
                         <article class="item">
                             <a href="{{url($post->slug.'.html')}}" title="" class="thumbs">
-                                <img src="{{url('image-cached/310x230', $post->image)}}" width="310" height="230" alt=""/>
+                                <img src="{{url('image-cached/310x230', $post->image)}}"  alt=""/>
                             </a>
                             <h3>
                                 <a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 40)}}</a>
@@ -135,7 +135,7 @@
                     @foreach ($cate->homepage->slice(0,1) as $post)
                         <article class="item">
                             <a href="{{url($post->slug.'.html')}}" title="" class="thumbs">
-                                <img src="{{url('image-cached/310x230', $post->image)}}" width="310" height="230" alt=""/>
+                                <img src="{{url('image-cached/310x230', $post->image)}}"  alt=""/>
                                 <span>{{$cate->name}}</span>
                             </a>
                             <h3>
@@ -176,7 +176,7 @@
                                 {{str_limit($post->title, 70)}}
                             </h3>
                             <a href="" class="thumbs">
-                                <img src="{{url('image-cached/110x70', $post->image)}}" alt="" width="110" height="70">
+                                <img src="{{url('image-cached/110x70', $post->image)}}" alt="" >
                             </a>
                             <p>{{str_limit($post->desc, 70)}}</p>
                         </div>

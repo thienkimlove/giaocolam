@@ -20,7 +20,7 @@
                     @foreach ($videos as $video)
                     <article class="item">
                         <a class="thumb" href="{{url('video', $video->slug)}}" title="{{$video->title}}">
-                            <img src="{{url('image-cached/303x130', $video->image)}}" width="303" height="130" alt=""/>
+                            <img src="{{url('image-cached/303x130', $video->image)}}"  alt=""/>
                         </a>
                         <h3>
                             <a href="{{url('video', $video->slug)}}" title="{{$video->title}}">{{str_limit($video->title, 40)}}</a>

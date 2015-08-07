@@ -19,7 +19,7 @@
                             @foreach ($post->related as $rPost)
                             <div class="item">
                                 <a href="{{url($rPost->slug.'.html')}}" title="{{$rPost->title}}">
-                                    <img src="{{url('image-cached/218x128', $rPost->image)}}" width="218" height="128" alt=""/>
+                                    <img src="{{url('image-cached/218x128', $rPost->image)}}"  alt=""/>
                                 </a>
                                 <h3>
                                     <a href="{{url($rPost->slug.'.html')}}" title="{{$rPost->title}}">{{str_limit($rPost->title, 40)}}</a>

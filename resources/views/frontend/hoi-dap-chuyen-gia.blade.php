@@ -9,7 +9,7 @@
                     <article class="item">
                         <div class="content">
                             <a href="" title="">
-                                <img src="{{url('image-cached/220x130', $question->image)}}" width="220" height="130" alt="">
+                                <img src="{{url('image-cached/220x130', $question->image)}}"  alt="">
                             </a>
                             <h3 class="title-faq">{{str_limit($question->question, 40)}}</h3>
                 <span class="human">Người gửi:
