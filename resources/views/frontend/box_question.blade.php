@@ -7,6 +7,7 @@
         <li>
             <a href="{{url('hoi-dap-chuyen-gia')}}" title="">{{str_limit($question->question, 40)}}</a>
         </li>
+        @endforeach
     </ul>
     <a href="{{url('hoi-dap-chuyen-gia')}}" class="ask">Đặt câu hỏi</a>
 </div>
