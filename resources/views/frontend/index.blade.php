@@ -4,7 +4,7 @@
         <div class="owl-carousel" id="slide-homepage">
             <div class="item">
                 <a class="thumb" href="{{url('san-pham')}}" title="">
-                    <img src="{{url('images/bannerslide.png')}}"/>
+                    <img src="{{url('images/gcl01.png')}}"/>
                 </a>
                 <div class="description">
                     <div class="fix">
@@ -16,7 +16,19 @@
             </div>
             <div class="item">
                 <a class="thumb" href="{{url('san-pham')}}" title="">
-                    <img src="{{url('images/slide_banner01.jpg')}}"/>
+                    <img src="{{url('images/gcl02.png')}}"/>
+                </a>
+                <div class="description">
+                    <div class="fix">
+                        <div class="caption">
+                            <a href="{{url('san-pham')}}">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="thumb" href="{{url('san-pham')}}" title="">
+                    <img src="{{url('images/gcl03.png')}}"/>
                 </a>
                 <div class="description">
                     <div class="fix">
