@@ -9,22 +9,22 @@
     <meta content='GCL' name='generator'/>
     <title>{{!empty($meta_title)? $meta_title : 'Giảo Cổ Lam'}}</title>
 
-    <meta property="og:title" content="Tiêu đề site hoặc tên bài viết">
+    <meta property="og:title" content="{{!empty($meta_title)? $meta_title : 'Giảo Cổ Lam'}}">
     <meta property="og:description" content="{{!empty($meta_desc)? $meta_desc : 'Giảo Cổ Lam'}}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="Đường dẫn hiện tại">
-    <meta property="og:image" content="Đường dẫn ảnh logo hoặc ảnh bài viết">
+    <meta property="og:url" content="{{Request::url()}}">
+    <meta property="og:image" content="{{!empty($meta_image)? $meta_image : url('favicon.ico')}}">
     <meta property="og:site_name" content="{{!empty($meta_title)? $meta_title : 'Giảo Cổ Lam'}}">
 
     <meta name="twitter:card" content="Card">
-    <meta name="twitter:url" content="Đường dẫn hiện tại">
+    <meta name="twitter:url" content="{{Request::url()}}">
     <meta name="twitter:title" content="{{!empty($meta_title)? $meta_title : 'Giảo Cổ Lam'}}">
     <meta name="twitter:description" content="{{!empty($meta_desc)? $meta_desc : 'Giảo Cổ Lam'}}">
-    <meta name="twitter:image" content="Đường dẫn ảnh logo hoặc ảnh bài viết">
+    <meta name="twitter:image" content="{{!empty($meta_image)? $meta_image : url('favicon.ico')}}">
 
-    <meta itemprop="name" content="Tiêu đề site hoặc tên bài viết">
+    <meta itemprop="name" content="{{!empty($meta_title)? $meta_title : 'Giảo Cổ Lam'}}t">
     <meta itemprop="description" content="{{!empty($meta_desc)? $meta_desc : 'Giảo Cổ Lam'}}">
-    <meta itemprop="image" content="Đường dẫn ảnh logo hoặc ảnh bài viết">
+    <meta itemprop="image" content="{{!empty($meta_image)? $meta_image : url('favicon.ico')}}">
 
     <meta name="ABSTRACT" content="{{!empty($meta_desc)? $meta_desc : 'Giảo Cổ Lam'}}"/>
     <meta http-equiv="REFRESH" content="1200"/>
