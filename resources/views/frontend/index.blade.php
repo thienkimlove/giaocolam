@@ -6,37 +6,16 @@
                 <a class="thumb" href="{{url('san-pham')}}" title="">
                     <img src="{{$settings['index_slide_banner1']}}" />
                 </a>
-                <div class="description">
-                    <div class="fix">
-                        <div class="caption">
-                            <a href="{{url('san-pham')}}">Tìm hiểu thêm</a>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="item">
                 <a class="thumb" href="{{url('san-pham')}}" title="">
                     <img src="{{$settings['index_slide_banner2']}}" />
                 </a>
-                <div class="description">
-                    <div class="fix">
-                        <div class="caption">
-                            <a href="{{url('san-pham')}}">Tìm hiểu thêm</a>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="item">
                 <a class="thumb" href="{{url('san-pham')}}" title="">
                    <img src="{{$settings['index_slide_banner3']}}" />
                 </a>
-                <div class="description">
-                    <div class="fix">
-                        <div class="caption">
-                            <a href="{{url('san-pham')}}">Tìm hiểu thêm</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div><!--//box-slider-->
@@ -178,16 +157,14 @@
                                 <img src="{{url('image-cached/300x177', $post->image)}}" alt="">
                             </a>
                             <h3>
-                                <a href="{{url($post->slug.'.html')}}">{{str_limit($post->title, 70)}}</a>
+                                <a href="{{url($post->slug.'.html')}}">{{str_limit($post->title, 40)}}</a>
                             </h3>
                             <p>{{str_limit($post->desc, 70)}}</p>
                         </div>
                         @else
                         <div class="item02">
-                            <h3>
-                                {{str_limit($post->title, 70)}}
-                            </h3>
-                            <a href="" class="thumbs">
+                            <h3><a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 40)}}</a></h3>
+                            <a href="{{url($post->slug.'.html')}}" class="thumbs">
                                 <img src="{{url('image-cached/110x70', $post->image)}}" alt="" >
                             </a>
                             <p>{{str_limit($post->desc, 70)}}</p>
