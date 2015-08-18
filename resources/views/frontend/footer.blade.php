@@ -33,14 +33,7 @@
             <div class="item item-3">
                 <div class="head">LIÊN HỆ</div>
                 <ul class="nav-footer">
-                    <li>Địa chỉ: Tầng 5, toàn nhà 29T1, Hoàng Đạo Thúy, Hà Nội</li>
-                    <li> Điện thoại: 04 6282 4344, Fax: 04 6282 4263</li>
-                    <li>
-                        Email: <a href="mailto:chiasehay@tuelinh.com" title="chiasehay@tuelinh.com">chiasehay@tuelinh.com</a>
-                    </li>
-                    <li>
-                        Giấy phép xuất bản: Số 11224/GP-BTTTT cấp ngày 19-02-2009 của Bộ Y tế
-                    </li>
+                    <li>Hotline: 0912571190 - 19006482</li>
                     <li>
                         Ghi rõ nguồn www.giaocolam.vn khi phát hành lại thông tin từ trang web này
                     </li>
@@ -50,9 +43,6 @@
                 <a href="">
                     <img src="{{url('images/logo_footer.png')}}" alt="Footer">
                 </a>
-                <p>
-                    Copyright © 2014 - Bản quyền thuộc TueLinh
-                </p>
             </div>
             <div class="clear"></div>
         </div>

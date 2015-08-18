@@ -4,7 +4,7 @@
         <div class="owl-carousel" id="slide-homepage">
             <div class="item">
                 <a class="thumb" href="{{url('san-pham')}}" title="">
-                    <img src="{{url('images/gcl01.png')}}"/>
+                    <img src="{{$settings['index_slide_banner1']}}" />
                 </a>
                 <div class="description">
                     <div class="fix">
@@ -16,7 +16,7 @@
             </div>
             <div class="item">
                 <a class="thumb" href="{{url('san-pham')}}" title="">
-                    <img src="{{url('images/gcl02.png')}}"/>
+                    <img src="{{$settings['index_slide_banner2']}}" />
                 </a>
                 <div class="description">
                     <div class="fix">
@@ -28,7 +28,7 @@
             </div>
             <div class="item">
                 <a class="thumb" href="{{url('san-pham')}}" title="">
-                    <img src="{{url('images/gcl03.png')}}"/>
+                   <img src="{{$settings['index_slide_banner3']}}" />
                 </a>
                 <div class="description">
                     <div class="fix">

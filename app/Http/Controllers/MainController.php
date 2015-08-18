@@ -30,13 +30,13 @@ class MainController extends Controller
         $congdung = $this->_prepareCategory('cong-dung');
         $thongtinkhoahoc = $this->_prepareCategory('thong-tin-khoa-hoc');
         $tintuc = $this->_prepareCategory('tin-tuc');
-
+        $settings = Setting::lists('value', 'name');
         return view('frontend.index', compact(
-            'congdung', 'thongtinkhoahoc', 'tintuc', 'page'
+            'congdung', 'thongtinkhoahoc', 'tintuc', 'page', 'settings'
         ))->with([
             'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
             'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
-            'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
+            'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam'
         ]);
 
     }

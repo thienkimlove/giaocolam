@@ -12,6 +12,7 @@
                            {!! $post->content !!}
                         </div>
                     </article>
+                    <div class="title">{{$post->title}}</div>
 
                     <div class="box-product">
                         <h3 class="title">Bài liên quan</h3>
