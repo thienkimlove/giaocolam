@@ -11,6 +11,7 @@ return array(
     'AddFieldToQuestions' => $baseDir . '/database/migrations/2015_05_07_051625_add_field_to_questions.php',
     'AddFieldsToTableQuestions' => $baseDir . '/database/migrations/2015_05_03_143818_add_fields_to_table_questions.php',
     'AddImageToQuestions' => $baseDir . '/database/migrations/2015_08_01_112859_add_image_to_questions.php',
+    'AddLengthSlugPost' => $baseDir . '/database/migrations/2015_08_18_045647_add_length_slug_post.php',
     'AddPostsToCategory' => $baseDir . '/database/migrations/2015_07_28_112615_add_posts_to_category.php',
     'ClearSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2015_07_28_112337_create_categories_table.php',
