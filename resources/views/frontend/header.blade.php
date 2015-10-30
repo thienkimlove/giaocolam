@@ -1,11 +1,11 @@
 <header class="header">
     <div class="header-mid">
         <div class="fix">
-            <h1>
+
                 <a href="" title="" class="banner">
                     <img src="{{url('images/banner.png')}}" alt="">
                 </a>
-            </h1>
+
             <div class="box-find" id="box-find">
                 {!! Form::open(['method' => 'GET', 'url' =>  url('tim-kiem') ]) !!}
                     <input type="text"  placeholder="Từ khóa tìm kiếm" name="q" class="txt"/>

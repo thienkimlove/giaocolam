@@ -22,9 +22,9 @@
     <section class="section fix">
         <div class="layout-home">
             <div class="box-uses">
-                <h3 class="bg-title02">
+                <h1 class="bg-title02">
                     <span><a href="{{url('cong-dung')}}">Công dụng</a></span>
-                </h3>
+                </h1>
                 <ul class="news-type">
                     @foreach ($congdung->subCategories as $k => $cate)
                         <li>

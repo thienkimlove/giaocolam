@@ -8,7 +8,9 @@
                         <span>{{$post->category->name}}</span>
                     </h3>
                     <article class="detail">
+					<h1>
                         <div class="title">{{$post->title}}</div>
+						</h1>
                         <div class="content">
                            {!! $post->content !!}
                         </div>
