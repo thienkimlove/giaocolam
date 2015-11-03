@@ -23,12 +23,12 @@
         <div class="layout-home">
             <div class="box-uses">
                 <h3 class="bg-title02">
-                    <span>Công dụng</span>
+                    <span><a href="{{url('cong-dung')}}">Công dụng</a></span>
                 </h3>
                 <ul class="news-type">
                     @foreach ($congdung->subCategories as $k => $cate)
                         <li>
-                            <a href="javascript:void(0)" rel="nofollow" data-type="tab" data-content="tab-{{$cate->slug}}" data-parent="news-type" data-reset="news-home" title="{{$cate->name}}">
+                            <a href="{{url($cate->slug)}}" rel="nofollow" data-type="tab" data-content="tab-{{$cate->slug}}" data-parent="news-type" data-reset="news-home" title="{{$cate->name}}">
                                 {{$cate->name}}
                             </a>
                         </li>
@@ -85,12 +85,12 @@
             </div>
             <div class="col-left">
                 <h3 class="bg-title02">
-                    <span>Thông tin khoa học</span>
+                    <span><a href="{{url('thong-tin-khoa-hoc')}}">Thông tin khoa học</a></span>
                 </h3>
                 <ul class="news-type">
                     @foreach ($thongtinkhoahoc->subCategories as $k => $cate)
                         <li>
-                            <a href="javascript:void(0)" rel="nofollow" data-type="tab" data-content="tab-{{$cate->slug}}" data-parent="news-type" data-reset="news-list" title="{{$cate->name}}">
+                            <a href="{{url($cate->slug)}}" rel="nofollow" data-type="tab" data-content="tab-{{$cate->slug}}" data-parent="news-type" data-reset="news-list" title="{{$cate->name}}">
                                 {{$cate->name}}
                             </a>
                         </li>
@@ -148,7 +148,7 @@
                 @include('frontend.box_adv_center')
                 <div class="box-news cf">
                     <h3 class="bg-title02">
-                        <span>Tin tức giảo cổ lam</span>
+                        <span><a href="{{url('tin-tuc')}}">Tin tức giảo cổ lam</a></span>
                     </h3>
                     @foreach ($tintuc->homepage as $k => $post)
                         @if($k == 0)
