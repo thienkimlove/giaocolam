@@ -59,7 +59,7 @@ Route::get('{value}', function ($value) {
         $page = $value;
 
         if ($value == 'hoi-dap-chuyen-gia') {
-            $questions = \App\Question::paginate(10);
+            $questions = \App\Question::all();
             return view('frontend.'.$value, compact('page', 'questions'))->with([
                 'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
                 'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
