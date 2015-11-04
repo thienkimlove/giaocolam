@@ -1008,7 +1008,7 @@ img {
 }
 
 .bg-title01, .bg-title02 {
-  float: left;
+  /* float: left; */
   margin-right: 10px;
   background: url(../images/bg_title01.jpg) no-repeat;
   padding: 4px;
@@ -1257,7 +1257,7 @@ img {
   width: 48%;
 }
 .layout-home .col-left .social-follow {
-  float: left;
+  /* float: left; */
   border: 1px solid #ccc;
   background: #f2f2f2;
   padding: 10px;
@@ -1289,7 +1289,7 @@ img {
   color: #087e04;
 }
 .layout-home .col-left .detail {
-  float: left;
+  /* float: left; */
   margin: 10px 0;
 }
 .layout-home .col-left .detail p {
