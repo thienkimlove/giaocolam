@@ -11,7 +11,7 @@
                             <a href="" title="">
                                 <img src="{{url('image-cached/220x130', $question->image)}}"  alt="">
                             </a>
-                            <h3 class="title-faq">{{str_limit($question->question, 40)}}</h3>
+                            <h3 class="title-faq">{{$question->question}}</h3>
 
                             <p>
                                 <span>{{str_limit($question->question, 240)}}</span>
