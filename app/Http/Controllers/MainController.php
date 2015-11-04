@@ -118,7 +118,7 @@ class MainController extends Controller
         }
         $products = Product::all();
         return view('frontend.san-pham', compact('page', 'products', 'product'))->with([
-            'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Sản phẩm | Giảo Cổ Lam',
+            'meta_title' => $product->title,
             'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Sản phẩm Giảo Cổ Lam',
             'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Sản phẩm, Giảo Cổ Lam',
         ]);
