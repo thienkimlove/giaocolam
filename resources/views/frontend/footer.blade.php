@@ -33,16 +33,19 @@
             <div class="item item-3">
                 <div class="head">LIÊN HỆ</div>
                 <ul class="nav-footer">
-                    <li>Hotline: 0912571190 - 19006482</li>
+                    <li><strong>Hotline: 0912571190 - 19006482</strong></li>
                     <li>
                         Ghi rõ nguồn www.giaocolam.vn khi phát hành lại thông tin từ trang web này
                     </li>
                 </ul>
             </div>
             <div class="item item-4">
-                <a href="">
+				<a href="">
                     <img src="{{url('images/logo_footer.png')}}" alt="Footer">
                 </a>
+				<div class="box-social-fb">
+        <div class="fb-page" data-href="https://www.facebook.com/www.giaocolam.vn" data-width="300" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/www.giaocolam.vn"><a href="https://www.facebook.com/www.giaocolam.vn">Giảo cổ lam Tuệ Linh</a></blockquote></div></div>
+    </div>
             </div>
             <div class="clear"></div>
         </div>

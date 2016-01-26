@@ -27,7 +27,5 @@
     @if (!empty($page) && $page != 'index')
         @include('frontend.box_contact')
     @endif
-    <div class="box-social-fb">
-        <div class="fb-page" data-href="https://www.facebook.com/www.giaocolam.vn" data-width="300" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/www.giaocolam.vn"><a href="https://www.facebook.com/www.giaocolam.vn">Giảo cổ lam Tuệ Linh</a></blockquote></div></div>
-    </div>
+
 </div><!--//col-right-->

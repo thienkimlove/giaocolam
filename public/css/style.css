@@ -1026,7 +1026,9 @@ img {
   background: url(../images/bg_title02.jpg) no-repeat;
   width: 190px;
 }
-
+.bg-title01 a, .bg-title02 a {
+  color: #fff;
+}
 .bg-title03 {
   background: url(../images/bg_title03.jpg) no-repeat;
   height: 38px;
@@ -2021,7 +2023,7 @@ img {
 }
 
 .box-adv-center {
-  float: left;
+  /* float: left; */
   margin-top: 30px;
   padding-bottom: 20px;
   border-top: 1px solid #ebebeb;
@@ -2366,7 +2368,7 @@ img {
 }
 .box-mix .item.item-4 {
   float: right;
-  width: 21.2766%;
+  /* width: 21.2766%; */
 }
 .box-mix .item .head {
   font: 800 14px "Open Sans";

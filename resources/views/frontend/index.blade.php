@@ -106,9 +106,9 @@
                                 <img src="{{url('image-cached/310x230', $post->image)}}"  alt=""/>
                             </a>
                             <h3>
-                                <a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 40)}}</a>
+                                <a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 55)}}</a>
                             </h3>
-                            <p>{{str_limit($post->desc, 70)}}</p>
+                            <p>{{str_limit($post->desc, 170)}}</p>
                             <div class="related-post">
                                 <ul>
                                     @foreach ($post->related->slice(0, 2) as $relate)
@@ -130,9 +130,9 @@
                                 <span>{{$cate->name}}</span>
                             </a>
                             <h3>
-                                <a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 40)}}</a>
+                                <a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 55)}}</a>
                             </h3>
-                            <p>{{str_limit($post->desc, 70)}}</p>
+                            <p>{{str_limit($post->desc, 170)}}</p>
                             <div class="related-post">
                                 <ul>
                                     @foreach ($post->related->slice(0, 2) as $relate)
@@ -163,7 +163,7 @@
                         </div>
                         @else
                         <div class="item02">
-                            <h3><a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 40)}}</a></h3>
+                            <h3><a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">{{str_limit($post->title, 50)}}</a></h3>
                             <a href="{{url($post->slug.'.html')}}" class="thumbs">
                                 <img src="{{url('image-cached/110x70', $post->image)}}" alt="" >
                             </a>
@@ -179,3 +179,20 @@
         <div class="clear"></div>
     </section><!--//section-->
 @endsection
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '813724318767864',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
