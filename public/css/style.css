@@ -432,23 +432,23 @@ img {
   position: absolute;
   left: 0;
   top: 100%;
-  background: #1a2a58;
+  background: #77a021;
   padding: 4px 22px 5px;
   min-width: 220px;
   z-index: 11;
 }
 .nav-main > li ul li {
-  border-bottom: 1px solid #213868;
+  border-bottom: 1px solid #116f32;
 }
 .nav-main > li ul li a {
   display: block;
   line-height: 35px;
   font-size: 13px;
-  color: #ffa300;
+  color: #fff;
   white-space: nowrap;
 }
 .nav-main > li ul li a:hover {
-  color: #fff;
+  color: #ffa300;
 }
 .nav-main > li ul li:last-child {
   border-bottom: none;

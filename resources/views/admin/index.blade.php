@@ -5,7 +5,7 @@
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-bar-chart-o fa-fw"></i> Welcome LycoEye Administrator.
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Welcome Giao Co Lam Administrator.
                 </div>
             </div>
 

@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand">Viemgan Admin v2.0</a>
+        <a class="navbar-brand">Giao Co Lam Admin v2.0</a>
     </div>
     <!-- /.navbar-header -->
 
