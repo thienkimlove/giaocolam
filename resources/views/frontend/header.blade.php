@@ -41,7 +41,11 @@
                     <a class="{{(!empty($page) && $page == 'hoi-dap-chuyen-gia') ? 'active' : ''}}" href="{{url('hoi-dap-chuyen-gia')}}" title="">Hỏi đáp chuyên gia</a>
                 </li>
                 <li>
+                <li>
                     <a class="{{(!empty($page) && $page == 'tin-tuc') ? 'active' : ''}}" href="{{url('tin-tuc')}}" title="">Tin tức</a>
+                    <ul>
+                        <li><a href="{{url('bach-nien-giai-lao')}}">Bách niên giai lão</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a class="{{(!empty($page) && $page == 'video') ? 'active' : ''}}" href="{{url('video')}}" title="">Video</a>
