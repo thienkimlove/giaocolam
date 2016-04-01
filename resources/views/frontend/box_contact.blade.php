@@ -1,7 +1,6 @@
 <div class="box-contact">
     <div class="bg-title03">
-        <span>Đặt câu hỏi với chuyên gia</span>
-    </div>
+        <span><a href="http://www.giaocolam.vn/hoi-dap-chuyen-gia" target="_blank" style="color:#FFFFFF">Đặt câu hỏi với chuyên gia</a></span>    </div>
     <div class="col-right">
         {!! Form::open(['method' => 'POST', 'route' => ['createQuestion'], 'name' => 'questionForm']) !!}
         <input type="text" name="ask_person" class="txt txt-name" placeholder="Họ và tên"/>

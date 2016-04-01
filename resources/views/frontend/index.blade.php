@@ -3,18 +3,18 @@
     <div class="box-slider">
         <div class="owl-carousel" id="slide-homepage">
             <div class="item">
-                <a class="thumb" href="{{url('san-pham')}}" title="">
-                    <img src="{{$settings['index_slide_banner1']}}" />
+                <a class="thumb" href="{{url('bach-nien-giai-lao')}}" title="">
+                    <img src="{{$settings['index_slide_banner1']}}" border="0" />                
+			  </a>            
+		  </div>
+            <div class="item">
+                <a class="thumb" href="{{url('bach-nien-giai-lao')}}" title="">
+                    <img src="{{$settings['index_slide_banner2']}}" border="0" />
                 </a>
             </div>
             <div class="item">
                 <a class="thumb" href="{{url('san-pham')}}" title="">
-                    <img src="{{$settings['index_slide_banner2']}}" />
-                </a>
-            </div>
-            <div class="item">
-                <a class="thumb" href="{{url('san-pham')}}" title="">
-                   <img src="{{$settings['index_slide_banner3']}}" />
+                   <img src="{{$settings['index_slide_banner3']}}" border="0" />
                 </a>
             </div>
         </div>
@@ -172,6 +172,24 @@
                         @endif
                     @endforeach
                 </div>
+				<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '813724318767864',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
             </div><!--//col-left-->
            @include('frontend.right')
             <div class="clear"></div>

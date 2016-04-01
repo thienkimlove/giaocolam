@@ -1,7 +1,6 @@
 <div class="question">
     <div class="bg-title03">
-        <span>Câu hỏi thường gặp</span>
-    </div>
+        <span><a href="http://www.giaocolam.vn/hoi-dap-chuyen-gia" style="color:#FFFFFF">Câu hỏi thường gặp</a></span>    </div>
     <ul class="nav-list">
         @foreach ($slideQuestions as $question)
         <li>
