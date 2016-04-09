@@ -45,6 +45,7 @@
                     <a class="{{(!empty($page) && $page == 'tin-tuc') ? 'active' : ''}}" href="{{url('tin-tuc')}}" title="">Tin tức</a>
                     <ul>
                         <li><a href="{{url('bach-nien-giai-lao')}}">Bách niên giai lão</a></li>
+                        <li><a href="{{url('tin-duoc-lieu')}}">Tin Dược Liệu</a></li>
                     </ul>
                 </li>
                 <li>

@@ -4,6 +4,11 @@
         <div class="layout-home">
             <div class="col-left">
 
+                <ul class="breadCrumb clearFix">
+                    <li><a href="{{url('/')}}">HOME</a></li>
+                    <li class="active">Tìm kiếm</li>
+                </ul>
+
                 <div class="box-uses">
                     <h3 class="bg-title01">
                         <span>Tìm kiếm theo từ khóa : {{$keyword}}</span>

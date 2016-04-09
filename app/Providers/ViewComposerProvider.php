@@ -18,22 +18,36 @@ class ViewComposerProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		DB::listen(function($sql, $bindings) {
+		if (env('ENABLE_DB_LOG') == 1) {
+			DB::listen(function($sql, $bindings) {
 
-			for($j=0; $j<sizeof($bindings); $j++) {
-				$sql = implode($bindings[$j], explode('?', $sql, 2));
-			}
-			$logFile = fopen(storage_path('logs/query.log'), 'a+');
-			//write log to file
-			fwrite($logFile, $sql . "\n");
-			fclose($logFile);
-		});
+				for($j=0; $j<sizeof($bindings); $j++) {
+					$sql = implode($bindings[$j], explode('?', $sql, 2));
+				}
+				$logFile = fopen(storage_path('logs/query.log'), 'a+');
+				//write log to file
+				fwrite($logFile, $sql . "\n");
+				fclose($logFile);
+			});
+		}	
 
 
         view()->composer('frontend.right', function ($view) {
-			$slidePosts = Post::whereHas('modules', function($q){
-				$q->where('slug', 'tin-tuc-noi-bat')->orderBy('order');
-			})->limit(6)->get();
+
+			$viewData = $view->getData();
+
+			if (isset($viewData['category'])) {
+				$slidePosts = Post::whereHas('modules', function($q){
+					$q->where('slug', 'tin-tuc-noi-bat')->orderBy('order');
+				})->where('category_id', $view->getData()['category']->id)
+					->limit(6)
+					->get();
+			} else {
+				$slidePosts = Post::whereHas('modules', function($q){
+					$q->where('slug', 'tin-tuc-noi-bat')->orderBy('order');
+				})->limit(6)
+					->get();
+			}
             $view->with('noibat', $slidePosts);
 
         });

@@ -3,6 +3,12 @@
     <section class="section fix">
         <div class="layout-home">
             <div class="col-left">
+
+                <ul class="breadCrumb clearFix">
+                    <li><a href="{{url('/')}}">HOME</a></li>
+                    <li class="active">Phân phối</li>
+                </ul>
+
                 <!-- BoxContact -->
                 <div class="box-member cf">
                     @foreach ($category->subCategories as $cate)

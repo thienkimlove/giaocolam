@@ -23,6 +23,11 @@
             </div>
 
             <div class="form-group">
+                {!! Form::label('tieude', 'Tiêu đề for SEO') !!}
+                {!! Form::text('tieude', null, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
                 {!! Form::label('category_id', 'Chọn thư mục cho bài') !!}
                 {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
             </div>

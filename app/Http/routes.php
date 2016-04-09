@@ -50,7 +50,7 @@ Route::get('{value}', function ($value) {
         $post = Post::where('slug', $matches[1])->first();
 
         return view('frontend.post_detail', compact('post', 'page'))->with([
-            'meta_title' => $post->title . ' | Giảo Cổ Lam',
+            'meta_title' => ($post->tieude) ? $post->tieude : $post->title . ' | Giảo Cổ Lam',
             'meta_desc' => $post->desc,
             'meta_keywords' => ($post->tagList) ? implode(',', $post->tagList) : 'Giảo Cổ Lam, huongdan, bai viet',
             'meta_image' => url('image-cached/120x120/' . $post->image)

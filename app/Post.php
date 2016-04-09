@@ -26,7 +26,8 @@ class Post extends Model implements SluggableInterface {
         'content',
         'image',
         'city',
-        'status'
+        'status',
+        'tieude'
     ];
 
     /**
