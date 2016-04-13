@@ -4,7 +4,7 @@
         <div class="layout-home">
             <div class="col-left">
 
-                <ul class="breadCrumb clearFix">
+                <ul class="breadCrumb cf">
                     <li><a href="{{url('/')}}">HOME</a></li>
                     <li><a href="{{url('chuyen-muc', $post->category->slug)}}"><span>{{$post->category->name}}</span></a></li>
                     <li class="active">{{$post->title}}</li>
