@@ -29,7 +29,8 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Tiêu </th>
+                                <th>Tiêu đề</th>
+                                <th>Tiêu đề SEO</th>
                                 <th>Mô tả</th>
                                 <th>Ảnh đại diện</th>
                                 <th>Chuyen muc</th>
@@ -42,6 +43,7 @@
                                 <tr>
                                     <td>{{$post->id}}</td>
                                     <td>{{$post->title}}</td>
+                                    <td>{{$post->tieude}}</td>
                                     <td>{{$post->desc}}</td>
                                     <td><img src="{{url('image-cached/120x120/' . $post->image)}}" /></td>
                                     <td>{{$post->category->name}}</td>

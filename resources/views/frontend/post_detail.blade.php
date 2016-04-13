@@ -3,6 +3,13 @@
     <section class="section fix">
         <div class="layout-home">
             <div class="col-left">
+
+                <ul class="breadCrumb clearFix">
+                    <li><a href="{{url('/')}}">HOME</a></li>
+                    <li><a href="{{url('chuyen-muc', $post->category->slug)}}"><span>{{$post->category->name}}</span></a></li>
+                    <li class="active">{{$post->title}}</li>
+                </ul>
+
                 <div class="box-uses">
                     <h3 class="bg-title01">
                         <span>{{$post->category->name}}</span>

@@ -3,6 +3,11 @@
     <section class="section fix">
         <div class="layout-home">
             <div class="col-left">
+                <ul class="breadCrumb clearFix">
+                    <li><a href="{{url('/')}}">HOME</a></li>
+                    <li class="active">Video</li>
+                </ul>
+
                 <div class="box-media">
                     <div class="hot-video cf">
                         <div id="play-video" class="col-left">

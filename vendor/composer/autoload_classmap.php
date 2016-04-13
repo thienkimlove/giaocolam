@@ -12,6 +12,7 @@ return array(
     'AddFieldsToTableQuestions' => $baseDir . '/database/migrations/2015_05_03_143818_add_fields_to_table_questions.php',
     'AddImageToQuestions' => $baseDir . '/database/migrations/2015_08_01_112859_add_image_to_questions.php',
     'AddLengthSlugPost' => $baseDir . '/database/migrations/2015_08_18_045647_add_length_slug_post.php',
+    'AddPostFeature' => $baseDir . '/database/migrations/2016_04_09_060002_add_post_feature.php',
     'AddPostsToCategory' => $baseDir . '/database/migrations/2015_07_28_112615_add_posts_to_category.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Commands\\Command' => $baseDir . '/app/Commands/Command.php',

@@ -3,6 +3,12 @@
     <section class="section fix">
         <div class="layout-home">
             <div class="col-left">
+                <ul class="breadCrumb clearFix">
+                    <li><a href="{{url('/')}}">HOME</a></li>
+                    <li class="active">Hỏi Đáp Chuyên Gia</li>
+                </ul>
+
+
                 @include('frontend.box_adv_hoidap')
                 <div class="box-faq">
                     @foreach ($questions as $question)
@@ -11,7 +17,7 @@
                             <a href="" title="">
                                 <img src="{{url('image-cached/220x130', $question->image)}}"  alt="">
                             </a>
-                            <h3 class="title-faq">{{str_limit($question->question, 40)}}</h3>
+                            <h3 class="title-faq">{{$question->question}}</h3>
 
                             <p>
                                 <span>{{$question->question}}</span>
