@@ -17,7 +17,6 @@
                             <a href="" title="">
                                 <img src="{{url('image-cached/220x130', $question->image)}}"  alt="">
                             </a>
-                            <h3 class="title-faq">{{$question->question}}</h3>
 
                             <p>
                                 <span>{{$question->question}}</span>
