@@ -7,6 +7,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:700italic,800italic,700,800&amp;subset=latin,vietnamese" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{url('css/style.css')}}" type="text/css"/>
     <meta content='GCL' name='generator'/>
+	<meta property="fb:app_id" content="813724318767864" />
     <title>{{!empty($meta_title)? $meta_title : 'Giảo Cổ Lam'}}</title>
 
     <meta property="og:title" content="{{!empty($meta_title)? $meta_title : 'Giảo Cổ Lam'}}">
@@ -49,14 +50,24 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
 </head>
 <body class="home">
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=1569708656596422";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '813724318767864',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+	
 <div class="wrapper" id="wrapper">
     @include('frontend.header')
     @yield('content')
