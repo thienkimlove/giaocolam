@@ -32,18 +32,17 @@ class IsAdmin {
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->guest()) {
+
+        $user = $request->user();
+        if (!$user || !$user->isAdmin()) {
+            //return new RedirectResponse(url('/'));
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('auth/login');
-            }
-        } else  {
-            $user = $request->user();
-            if (!$user || !$user->isAdmin()) {
-                return new RedirectResponse(url('/'));
+                return redirect()->guest('login');
             }
         }
+
         return $next($request);
     }
 

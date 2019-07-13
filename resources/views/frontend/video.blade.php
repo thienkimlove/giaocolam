@@ -34,7 +34,7 @@
                     </article>
                     @endforeach
                     <div class="box-paging">
-                        {!! with(new \App\Pagination\AcmesPresenter($videos))->render() !!}
+                        @include('frontend.pagination', ['paginate' => $videos])
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>

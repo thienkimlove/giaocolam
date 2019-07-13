@@ -11,10 +11,10 @@
         <div class="col-lg-6">
              @if(!empty($setting))
                 <h2>Sửa tùy chọn "{{ $setting->name }}"</h2>
-                {!! Form::model($setting, ['method' => 'PATCH', 'route' => ['admin.settings.update', $setting->id]]) !!}
+                {!! Form::model($setting, ['method' => 'PATCH', 'route' => ['settings.update', $setting->id]]) !!}
              @else
                 <h2>Thêm Tùy chọn</h2>
-                {!! Form::model($setting = new App\Setting, ['route' => ['admin.settings.store']]) !!}
+                {!! Form::model($setting = new App\Setting, ['route' => ['settings.store']]) !!}
              @endif
             <div class="form-group">
                 {!! Form::label('name', 'Tên') !!}

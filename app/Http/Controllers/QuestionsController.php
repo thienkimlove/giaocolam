@@ -42,6 +42,7 @@ class QuestionsController extends BaseController {
 	{
 		$data = $request->all();
 		$data['image'] = ($request->file('image') && $request->file('image')->isValid()) ? $this->saveImage($request->file('image')) : '';
+		$data['display'] = ($request->input('display') == 'on') ? true : false;
 		Question::create($data);
         flash('Them moi hoi dap thanh cong!', 'success');
         return redirect('admin/questions');
@@ -84,6 +85,7 @@ class QuestionsController extends BaseController {
 		if ($request->file('image') && $request->file('image')->isValid()) {
 			$data['image'] = $this->saveImage($request->file('image'), $question->image);
 		}
+        $data['display'] = ($request->input('display') == 'on') ? true : false;
         $question->update($data);
         flash('Sua hoi đáp thành công!', 'success');
         return redirect('admin/questions');

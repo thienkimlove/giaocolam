@@ -35,10 +35,10 @@ class PostsController extends BaseController {
 
         $categories = Category::all()->filter(function($item){
             return $item->subCategories->count() == 0;
-        })->lists('name', 'id');
+        })->pluck('name', 'id')->all();
 
         $this->categories = array('' => 'Choose category') + $categories;
-        $this->tags = Tag::lists('name', 'name');
+        $this->tags = Tag::pluck('name', 'name')->all();
     }
 
     protected function syncModules($request, $post)

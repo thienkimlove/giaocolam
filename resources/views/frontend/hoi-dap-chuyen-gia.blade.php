@@ -33,8 +33,8 @@
                     </article>
                     @endforeach
                     <div class="box-paging">
-                            {!! with(new \App\Pagination\AcmesPresenter($questions))->render() !!}
-                            <div class="clear"></div>
+                        @include('frontend.pagination', ['paginate' => $questions])
+                        <div class="clear"></div>
                     </div>
                 </div>
                 @include('frontend.box_contact')

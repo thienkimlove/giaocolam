@@ -11,10 +11,10 @@
         <div class="col-lg-6">
             @if (!empty($product))
                 <h2>Sửa Sản phẩm "{{ $product->title }}"</h2>
-                {!! Form::model($product, ['method' => 'PATCH', 'route' => ['admin.products.update', $product->id], 'files' => true]) !!}
+                {!! Form::model($product, ['method' => 'PATCH', 'route' => ['products.update', $product->id], 'files' => true]) !!}
             @else
                 <h2>Thêm Sản phẩm</h2>
-                {!! Form::model($product = new App\Product, ['route' => ['admin.products.store'], 'files' => true]) !!}
+                {!! Form::model($product = new App\Product, ['route' => ['products.store'], 'files' => true]) !!}
             @endif
 
             <div class="form-group">

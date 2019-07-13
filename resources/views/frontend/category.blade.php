@@ -38,10 +38,6 @@
                             <p>{{str_limit($post->desc, 70)}}</p>
                         </article>
                         @endforeach
-                        <div class="box-paging">
-                            {!! with(new \App\Pagination\AcmesPresenter($category->paginate))->render() !!}
-                            <div class="clear"></div>
-                        </div>
                     </div><!--//news-list-->
                     @foreach ($category->subCategories as $cate)
                     <div class="news-home" id="tab-{{$cate->slug}}">
@@ -57,10 +53,7 @@
                                 <p>{{str_limit($post->desc, 70)}}</p>
                             </article>
                         @endforeach
-                        <div class="box-paging">
-                            {!! with(new \App\Pagination\AcmesPresenter($cate->paginate))->render() !!}
-                            <div class="clear"></div>
-                        </div>
+                       
                     </div><!--//news-list-->
                     @endforeach
                     @include('frontend.box_adv_center')

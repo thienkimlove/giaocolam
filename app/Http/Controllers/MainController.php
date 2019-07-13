@@ -12,8 +12,11 @@ use App\Product;
 use App\Question;
 use App\Setting;
 use App\Tag;
+use App\User;
 use App\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class MainController extends Controller
@@ -24,13 +27,42 @@ class MainController extends Controller
         return  Category::where('slug', $slug)->first();
     }
 
+    public function login(Request $request)
+    {
+        return view('auth.login');
+    }
+
+    public function login_post(Request $request)
+    {
+        if ($request->input('email') && $request->input('password')) {
+
+            $user = User::where('email', $request->input('email'))->where('password', md5($request->input('password')))->get();
+
+            if ($user) {
+                Auth::login($user->first(), true);
+                return redirect('admin');
+            }
+
+        }
+        return redirect('/');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect('/');
+    }
+
+
+
     public function index()
     {
         $page = 'index';
         $congdung = $this->_prepareCategory('cong-dung');
         $thongtinkhoahoc = $this->_prepareCategory('thong-tin-khoa-hoc');
         $tintuc = $this->_prepareCategory('tin-tuc');
-        $settings = Setting::lists('value', 'name');
+        $settings = Setting::pluck('value', 'name')->all();
         return view('frontend.index', compact(
             'congdung', 'thongtinkhoahoc', 'tintuc', 'page', 'settings'
         ))->with([
@@ -45,10 +77,10 @@ class MainController extends Controller
     public function question($slug) {
 
         $page = 'hoi-dap-chuyen-gia';
-        $settings = Setting::lists('value', 'name');
+        $settings = Setting::pluck('value', 'name')->all();
 
         $question = Question::where('slug', $slug)->first();
-        $related = Question::where('id', '<>', $question->id)->latest('updated_at')->limit(6)->get();
+        $related = Question::where('id', '<>', $question->id)->where('display', true)->latest('updated_at')->limit(6)->get();
 
 
         return view('frontend.question_details', compact(
@@ -188,7 +220,9 @@ class MainController extends Controller
      */
     public function createQuestion(QuestionRequest $request)
     {
-        Question::create($request->all());
+        $data = $request->all();
+        $data['display'] = false;
+        Question::create($data);
         return redirect('/');
     }
 

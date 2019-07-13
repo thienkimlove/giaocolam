@@ -14,7 +14,7 @@ class CategoriesController extends BaseController
     public function __construct()
     {
         $this->middleware('admin');
-        $this->parents = array('' => 'Choose parent category') + Category::whereNull('parent_id')->lists('name', 'id');
+        $this->parents = array('' => 'Choose parent category') + Category::whereNull('parent_id')->pluck('name', 'id')->all();
     }
 
     public function index()

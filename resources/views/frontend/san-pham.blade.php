@@ -51,7 +51,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            @include('frontend.box_comment')
+                            @include('frontend.box_comment', ['post' => $product])
                         </article>
                     </div><!--//news-list-->
                     <div class="news-home" id="tab-research01">
@@ -66,7 +66,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            @include('frontend.box_comment')
+                            @include('frontend.box_comment', ['post' => $product])
                         </article>
                     </div><!--//news-list-->
                     <div class="news-home" id="tab-video">
@@ -98,7 +98,7 @@
                             </article>
                             @endforeach
                             <div class="box-paging">
-                                {!! with(new \App\Pagination\AcmesPresenter($product->vlist))->render() !!}
+                                @include('frontend.pagination', ['paginate' => $product->vlist])
                                 <div class="clear"></div>
                             </div>
                             <div class="clear"></div>

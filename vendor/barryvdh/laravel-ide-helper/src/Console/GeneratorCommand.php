@@ -17,7 +17,6 @@ use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-
 /**
  * A command to generate autocomplete information for your IDE
  *
@@ -60,7 +59,8 @@ class GeneratorCommand extends Command
      */
     public function __construct(
         /*ConfigRepository */ $config,
-        Filesystem $files, /* Illuminate\View\Factory */
+        Filesystem $files,
+        /* Illuminate\View\Factory */
         $view
     ) {
         $this->config = $config;
@@ -76,9 +76,11 @@ class GeneratorCommand extends Command
      */
     public function fire()
     {
-        if (file_exists($compiled = base_path() . '/bootstrap/compiled.php')) {
+        if (file_exists(base_path() . '/vendor/compiled.php') ||
+            file_exists(base_path() . '/bootstrap/cache/compiled.php') ||
+            file_exists(base_path() . '/storage/framework/compiled.php')) {
             $this->error(
-                'Error generating IDE Helper: first delete bootstrap/compiled.php (php artisan clear-compiled)'
+                'Error generating IDE Helper: first delete your compiled file (php artisan clear-compiled)'
             );
         } else {
             $filename = $this->argument('filename');
@@ -164,5 +166,4 @@ class GeneratorCommand extends Command
             array('sublime', "S", InputOption::VALUE_NONE, 'DEPRECATED: Use different style for SublimeText CodeIntel'),
         );
     }
-
 }

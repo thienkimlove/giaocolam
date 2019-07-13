@@ -11,7 +11,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="input-group custom-search-form">
-                        {!! Form::open(['method' => 'GET', 'route' =>  ['admin.posts.index'] ]) !!}
+                        {!! Form::open(['method' => 'GET', 'route' =>  ['posts.index'] ]) !!}
                         <input type="text" value="{{$searchPost}}" name="q" class="form-control" placeholder="Search post..">
                         <input type="hidden" name="cat" value="{{$categoryId}}" />
                                 <span class="input-group-btn">
@@ -49,9 +49,12 @@
                                     <td>{{$post->category->name}}</td>
                                     <td>{{($post->status) ? 'Yes' : 'No'}}</td>
                                     <td>
-                                        <button id-attr="{{$post->id}}" class="btn btn-primary btn-sm edit-post" type="button">Sua</button>&nbsp;
-                                        {!! Form::open(['method' => 'DELETE', 'route' => ['admin.posts.destroy', $post->id]]) !!}
+                                        <button id-attr="{{$post->id}}" class="btn btn-primary btn-sm edit-post" type="button">Sua</button>
+                                        {!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id]]) !!}
                                         <button type="submit" class="btn btn-danger btn-mini">Xoa</button>
+										<button class="btn btn-primary btn-sm" type="button">
+                                        <a target="_blank" href="{{url($post->slug.'.html')}}" style="color:#FFFFFF">View Post</a>
+                                        </button>
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>

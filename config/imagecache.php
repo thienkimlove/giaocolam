@@ -31,7 +31,7 @@ return array(
     */
     
     'paths' => array(
-        public_path('files/images')
+        public_path('files/images'),
     ),
 
     /*
@@ -39,60 +39,77 @@ return array(
     | Manipulation templates
     |--------------------------------------------------------------------------
     |
-    | Here you may specify your own manipulation callbacks.
+    | Here you may specify your own manipulation filter templates.
     | The keys of this array will define which templates 
     | are available in the URI:
     |
     | {route}/{template}/{filename}
     |
+    | The values of this array will define which filter class
+    | will be applied, by its fully qualified name.
+    |
     */
    
     'templates' => array(
+        'small' => 'Intervention\Image\Templates\Small',
+        'medium' => 'Intervention\Image\Templates\Medium',
+        'large' => 'Intervention\Image\Templates\Large',
+        '507x310' => function($image) {
+            return $image->fit(507, 310);
+        },
+        '226x148' => function($image) {
+            return $image->fit(226, 148);
+        },
+        '301x183' => function($image) {
+            return $image->fit(301, 183);
+        },
+        '126x90' => function($image) {
+            return $image->fit(126, 90);
+        },
 
-        '208x177' => function($image) {
-            return $image->fit(208, 177);
+        '326x203' => function($image) {
+            return $image->fit(326, 203);
         },
-        '350x289' => function($image) {
-            return $image->fit(350, 289);
+
+        '120x84' => function($image) {
+            return $image->fit(120, 84);
         },
-        '400x245' => function($image) {
-            return $image->fit(400, 245);
+
+        '114x114' => function($image) {
+            return $image->fit(114, 114);
         },
-        '200x150' => function($image) {
-            return $image->fit(200, 150);
+
+        '276x157' => function($image) {
+            return $image->fit(276, 157);
         },
+
+        '58x58' => function($image) {
+            return $image->fit(58, 58);
+        },
+
+        '190x129' => function($image) {
+            return $image->fit(190, 129);
+        },
+
         '120x120' => function($image) {
             return $image->fit(120, 120);
         },
-        '509x338' => function($image) {
-            return $image->fit(509, 338);
+
+        '110x70' => function($image) {
+            return $image->fit(120, 120);
         },
+
         '310x230' => function($image) {
             return $image->fit(310, 230);
         },
-        '300x177' => function($image) {
-            return $image->fit(300, 177);
-        },
-        '110x70' => function($image) {
-            return $image->fit(110, 70);
-        },
-        '218x128' => function($image) {
-            return $image->fit(218, 128);
-        },
 
-        '220x130' => function($image) {
-            return $image->fit(220, 130);
-        },
-        '290x150' => function($image) {
-            return $image->fit(290, 150);
-        },
         '303x130' => function($image) {
             return $image->fit(303, 130);
         },
+
         '105x69' => function($image) {
             return $image->fit(105, 69);
         },
-
     ),
 
     /*

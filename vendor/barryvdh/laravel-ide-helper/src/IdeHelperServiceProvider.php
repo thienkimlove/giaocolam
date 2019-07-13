@@ -11,8 +11,9 @@
 namespace Barryvdh\LaravelIdeHelper;
 
 use Illuminate\Support\ServiceProvider;
-use Barryvdh\LaravelIdeHelper\Console\GeneratorCommand;
+use Barryvdh\LaravelIdeHelper\Console\MetaCommand;
 use Barryvdh\LaravelIdeHelper\Console\ModelsCommand;
+use Barryvdh\LaravelIdeHelper\Console\GeneratorCommand;
 
 class IdeHelperServiceProvider extends ServiceProvider
 {
@@ -35,7 +36,12 @@ class IdeHelperServiceProvider extends ServiceProvider
         $this->loadViewsFrom($viewPath, 'ide-helper');
         
         $configPath = __DIR__ . '/../config/ide-helper.php';
-        $this->publishes([$configPath => config_path('ide-helper.php')], 'config');
+        if (function_exists('config_path')) {
+            $publishPath = config_path('ide-helper.php');
+        } else {
+            $publishPath = base_path('config/ide-helper.php');
+        }
+        $this->publishes([$configPath => $publishPath], 'config');
     }
 
     /**
@@ -48,19 +54,28 @@ class IdeHelperServiceProvider extends ServiceProvider
         $configPath = __DIR__ . '/../config/ide-helper.php';
         $this->mergeConfigFrom($configPath, 'ide-helper');
         
-        $this->app['command.ide-helper.generate'] = $this->app->share(
+        $this->app->singleton(
+            'command.ide-helper.generate',
             function ($app) {
                 return new GeneratorCommand($app['config'], $app['files'], $app['view']);
             }
         );
 
-        $this->app['command.ide-helper.models'] = $this->app->share(
-            function () {
-                return new ModelsCommand();
+        $this->app->singleton(
+            'command.ide-helper.models',
+            function ($app) {
+                return new ModelsCommand($app['files']);
+            }
+        );
+        
+        $this->app->singleton(
+            'command.ide-helper.meta',
+            function ($app) {
+                return new MetaCommand($app['files'], $app['view']);
             }
         );
 
-        $this->commands('command.ide-helper.generate', 'command.ide-helper.models');
+        $this->commands('command.ide-helper.generate', 'command.ide-helper.models', 'command.ide-helper.meta');
     }
 
     /**
@@ -72,5 +87,4 @@ class IdeHelperServiceProvider extends ServiceProvider
     {
         return array('command.ide-helper.generate', 'command.ide-helper.models');
     }
-
 }

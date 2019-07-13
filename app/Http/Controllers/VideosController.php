@@ -31,7 +31,7 @@ class VideosController extends BaseController {
 	 */
 	public function create()
 	{
-		$products = Product::lists('title', 'id');
+		$products = Product::pluck('title', 'id')->all();
 		return view('admin.video.form', compact('products'));
 	}
 
@@ -70,7 +70,7 @@ class VideosController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		$products = Product::lists('title', 'id');
+		$products = Product::pluck('title', 'id')->all();
 		$video = Video::findOrFail($id);
 		return view('admin.video.form', compact('video', 'products'));
 	}

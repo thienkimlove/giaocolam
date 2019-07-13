@@ -33,7 +33,7 @@
                                     <td>
                                         <button id-attr="{{$product->id}}" class="btn btn-primary btn-sm edit-product"  type="button">Sửa</button>
                                         <br>
-                                        {!! Form::open(['method' => 'DELETE', 'route' => ['admin.products.destroy', $product->id]]) !!}
+                                        {!! Form::open(['method' => 'DELETE', 'route' => ['products.destroy', $product->id]]) !!}
                                         <button type="submit" class="btn btn-danger btn-mini"> Xoa </button>
                                         {!! Form::close() !!}
                                     </td>

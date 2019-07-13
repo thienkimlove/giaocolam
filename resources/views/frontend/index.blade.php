@@ -17,6 +17,11 @@
                    <img src="{{$settings['index_slide_banner3']}}" border="0" />
                 </a>
             </div>
+            <div class="item">
+                <a class="thumb" href="{{url('san-pham')}}" title="">
+                   <img src="{{$settings['index_slide_banner4']}}" border="0" />
+                </a>
+            </div>
         </div>
     </div><!--//box-slider-->
     <section class="section fix">

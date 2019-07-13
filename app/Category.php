@@ -1,21 +1,27 @@
 <?php namespace App;
 
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 
-class Category extends Model implements SluggableInterface {
+class Category extends Model {
+    use Sluggable;
+    use SluggableScopeHelpers;
 
-    use SluggableTrait;
-
-    protected $sluggable = array(
-        'build_from' => 'name',
-        'save_to'    => 'slug',
-        'unique'          => true,
-        'on_update'       => true,
-    );
-
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 	protected $fillable = [
         'name',
         'parent_id',
@@ -48,7 +54,7 @@ class Category extends Model implements SluggableInterface {
                 $query->where('slug', 'chuyen-muc-trang-chu');
             })->limit(3)->get();
         } else {
-            $subCategories = $this->subCategories()->lists('id');
+            $subCategories = $this->subCategories()->pluck('id')->all();
             return Post::where('status', true)->whereIn('category_id', $subCategories)->whereHas('modules', function ($query) {
                 $query->where('slug', 'chuyen-muc-trang-chu');
             })->limit(3)->get();

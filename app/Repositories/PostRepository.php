@@ -24,7 +24,7 @@ class PostRepository extends BaseRepository
      */
     public function create()
     {
-        $tags = Tag::all()->lists('name', 'name');
+        $tags = Tag::all()->pluck('name', 'name')->all();
         $types = $this->typeSelection;
         return compact('tags', 'types');
     }
@@ -55,7 +55,7 @@ class PostRepository extends BaseRepository
      */
     public function edit($id)
     {
-        $tags = Tag::all()->lists('name', 'name');
+        $tags = Tag::all()->pluck('name', 'name')->all();
         $post = $this->getById($id);
         $types = $this->typeSelection;
         return compact('post', 'types', 'tags');

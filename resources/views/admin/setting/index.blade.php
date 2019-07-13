@@ -33,7 +33,7 @@
                                     <td>
                                         <button class="btn btn-primary btn-sm edit-setting" id-attr="{{$setting->id}}"  type="button">Sửa</button>
                                         <br>
-                                        {!! Form::open(['method' => 'DELETE', 'route' => ['admin.settings.destroy', $setting->id]]) !!}
+                                        {!! Form::open(['method' => 'DELETE', 'route' => ['settings.destroy', $setting->id]]) !!}
                                         <button type="submit" class="btn btn-danger btn-mini">Xóa</button>
                                         {!! Form::close() !!}
                                     </td>

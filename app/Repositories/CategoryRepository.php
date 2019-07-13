@@ -17,7 +17,7 @@ class CategoryRepository extends BaseRepository
      */
     public function create()
     {
-        $parents = $this->model->where('parent_id', null)->lists('name', 'id');
+        $parents = $this->model->where('parent_id', null)->pluck('name', 'id')->all();
         $parents[0] =  'Choose category';
         ksort($parents);
         $layout = [1 => 'Layout Viêm gan Virus', 2 => 'Layout Dược liệu && Chia sẻ', 3 => 'Layout  Sản phẩm tốt cho gan'];
@@ -50,7 +50,7 @@ class CategoryRepository extends BaseRepository
     public function edit($id)
     {
         $category = $this->getById($id);
-        $parents = $this->model->where('id', '<>', $id)->where('parent_id', null)->lists('name', 'id');
+        $parents = $this->model->where('id', '<>', $id)->where('parent_id', null)->pluck('name', 'id')->all();
         $parents[0] =  'Choose category';
         ksort($parents);
         $layout = [1 => 'Layout Viêm gan Virus', 2 => 'Layout Dược liệu && Chia sẻ', 3 => 'Layout Sản phẩm tốt cho gan'];

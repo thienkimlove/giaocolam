@@ -1,22 +1,29 @@
 <?php namespace App;
 
 use Carbon\Carbon;
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Post extends Model implements SluggableInterface {
+class Post extends Model {
 
-    use SluggableTrait;
+    use Sluggable;
+    use SluggableScopeHelpers;
 
-    protected $sluggable = array(
-        'build_from' => 'title',
-        'save_to'    => 'slug',
-        'unique'          => true,
-        'on_update'       => true,
-    );
-
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 
     protected $fillable = [
         'title',
@@ -67,7 +74,7 @@ class Post extends Model implements SluggableInterface {
      */
     public function getTagListAttribute()
     {
-        return $this->tags->lists('name');
+        return $this->tags->pluck('name')->all();
     }
 
     /**

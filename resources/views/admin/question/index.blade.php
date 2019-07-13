@@ -23,6 +23,7 @@
                                 <th>Câu hỏi</th>
                                 <th>Nguoi tra loi</th>
                                 <th>Câu trả lời</th>
+                                <th>Xuất bản</th>
                                 <th>Hành động</th>
                             </tr>
                             </thead>
@@ -34,10 +35,11 @@
                                     <td>{{str_limit($question->question, 40)}}</td>
                                     <td>{{$question->answer_person}}</td>
                                     <td>{{ str_limit($question->answer, 40) }}</td>
+                                    <td>{{ $question->display ? 'Yes' : 'No' }}</td>
                                     <td>
                                         <button id-attr="{{$question->id}}" class="btn btn-primary btn-sm edit-question"  type="button">Sửa</button>
                                         <br>
-                                        {!! Form::open(['method' => 'DELETE', 'route' => ['admin.questions.destroy', $question->id]]) !!}
+                                        {!! Form::open(['method' => 'DELETE', 'route' => ['questions.destroy', $question->id]]) !!}
                                         <button type="submit" class="btn btn-danger btn-mini"> Xoa </button>
                                         {!! Form::close() !!}
                                     </td>

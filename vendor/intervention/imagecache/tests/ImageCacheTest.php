@@ -2,7 +2,7 @@
 
 use Intervention\Image\ImageCache;
 
-class ImageCacheTest extends PHPUnit_Framework_Testcase
+class ImageCacheTest extends PHPUnit_Framework_TestCase
 {
     public function tearDown()
     {
@@ -227,7 +227,7 @@ class ImageCacheTest extends PHPUnit_Framework_Testcase
         $img->resize(100, 150);
         $result = $img->get($lifetime, true);
 
-        $this->assertEquals($imagedata, $result);
+        $this->assertEquals($image, $result);
     }
 
     public function testOriginalFileChanged()
